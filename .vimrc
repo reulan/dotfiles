@@ -1,6 +1,6 @@
 "Start Pathogen
-call pathogen#infect()
-filetype plugin indent on
+"call pathogen#infect()
+"filetype plugin indent on
 
 "Enable syntax highlighting
 syntax enable
