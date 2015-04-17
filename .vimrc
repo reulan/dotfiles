@@ -1,7 +1,3 @@
-"Start Pathogen
-"call pathogen#infect()
-"filetype plugin indent on
-
 "Enable syntax highlighting
 syntax enable
 
@@ -9,7 +5,7 @@ syntax enable
 set number
 
 "Show cursor indicator
-set cursorline
+"set cursorline
 
 "Color
 set t_Co=256
