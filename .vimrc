@@ -1,5 +1,6 @@
 "Enable syntax highlighting
 syntax enable
+colorscheme jellybeans
 
 "Show line numbers
 set number
