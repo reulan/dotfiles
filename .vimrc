@@ -10,11 +10,10 @@ set number
 "Show a horizontal line indicator under the cursor
 "set cursorline
 
-"Enable some sort of color
-set t_Co=256
-
 "Automatically indent
 "set autoindent
+"set smartindent
+"set wrap
 
 "Show the matching part of the pair for [] {} and ()
 set showmatch
@@ -38,3 +37,12 @@ ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
