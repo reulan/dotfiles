@@ -1,5 +1,7 @@
 "Enable syntax highlighting
 syntax enable
+
+"Loads colorscheme ~/.vim/colors/jellybeans.vim
 colorscheme jellybeans
 
 "Show line numbers
