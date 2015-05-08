@@ -15,5 +15,3 @@ fc-cache -vf ~/.fonts/
 # Install the fontconfig file
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 #~/.fonts.conf.d/
-
-

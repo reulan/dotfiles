@@ -8,4 +8,7 @@ cp .vimrc ~
 echo "Moving .vim to home directory"
 cp -r .vim ~
 
+echo "Moving .zshrc to home directory"
+cp .zshrc ~
+
 echo "Setup complete"

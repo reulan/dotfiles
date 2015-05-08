@@ -46,3 +46,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" Setup powerline within vim
+set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
