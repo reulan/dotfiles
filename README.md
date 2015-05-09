@@ -1,2 +1,3 @@
 # dotfiles
-Very very basic vim configuration.
+vim - jellybean colorschme
+
