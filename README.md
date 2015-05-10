@@ -1,3 +1,3 @@
 # dotfiles
-vim - jellybean colorscheme
-zsh - oh my zsh
+vim - jellybean colorscheme  
+zsh - oh my zsh 
