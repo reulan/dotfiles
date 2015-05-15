@@ -5,7 +5,12 @@ export ZSH=/home/msimo001c/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+#ZSH_THEME="random"
+#ZSH_THEME="steeef"
+#ZSH_THEME="sonicradish"
+#ZSH_THEME="dieter"
+#ZSH_THEME="jispwoso"
+ZSH_THEME="muse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
