@@ -45,7 +45,11 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-" No annoying sound on errors
+"Allow indenting code in visual mode
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+"No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=

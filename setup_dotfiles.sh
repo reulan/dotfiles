@@ -5,10 +5,13 @@ export EDITOR="$VISUAL"
 echo "Moving .vimrc to home directory"
 cp .vimrc ~
 
-echo "Moving .vim to home directory"
-cp -r .vim ~
-
 echo "Moving .zshrc to home directory"
 cp .zshrc ~
+
+echo "Moving .gitconfig to home directory"
+cp .gitconfig ~
+
+echo "Moving .vim to home directory"
+cp -r .vim ~
 
 echo "Setup complete"

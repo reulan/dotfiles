@@ -1,0 +1,21 @@
+[user]
+	name = Michael Simo
+	email = os@mpmsimo.com
+
+[core]
+    editor = vim
+
+[alias]
+    a = add --all
+    c = commit
+    ca = commit -a
+    cd = commit --amend
+    cad = commit -a --amend
+    o = checkout
+    ob = checkout -b 
+    p = push
+    pl = pull
+    st = status
+#################################
+    lc = log ORIG_HEAD.. --stat --no-merges
+    llog = log --date=local
