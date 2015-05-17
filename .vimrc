@@ -11,15 +11,15 @@ colorscheme jellybeans
 set number
 set numberwidth=3
 
-set listchars=tab:▸.,eol:¬ "  " Use the same symbols as TextMate for tabstops and EOLs
-
 "Show a horizontal line indicator under the cursor
 "set cursorline
+set ruler
 
 "Automatically indent
 "set autoindent
 "set smartindent
 "set wrap
+set nowrap
 
 "Show the matching part of the pair for [] {} and ()
 set showmatch
@@ -52,14 +52,9 @@ vmap <s-tab> <gv
 "No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
 set tm=500
 
 " Setup powerline within vim
 " set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
-"
-" Newest additions as of 5/15/15
-set ruler
 set showcmd
 set listchars=tab:▸.,eol:¬ "  " Use the same symbols as TextMate for tabstops and EOLs
-set nowrap
