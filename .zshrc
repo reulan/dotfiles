@@ -7,10 +7,10 @@ export ZSH=/home/msimo001c/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
 #ZSH_THEME="steeef"
-#ZSH_THEME="sonicradish"
+ZSH_THEME="sonicradish"
 #ZSH_THEME="dieter"
 #ZSH_THEME="jispwoso"
-ZSH_THEME="muse"
+#ZSH_THEME="muse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -83,6 +83,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias subl="/home/msimo001c/Downloads/sublime_text_3/sublime_text"
 
 # Powerline
 if [[ -r /usr/share/powerline/zsh/powerline.zsh ]]; then
