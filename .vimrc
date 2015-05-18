@@ -92,3 +92,11 @@ map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
 map <F9> :NERDTreeFind<CR>
 let NERDTreeDirArrows=0
+
+"Powerline settings
+" needs powerline installed, pip install powerline-status
+let g:Powerline_symbols = 'fancy'
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
