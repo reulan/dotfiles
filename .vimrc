@@ -52,7 +52,7 @@ let python_highlight_all = 1 "Enable Python syntax highlighting
 set history=500	        " remember more commands and search history
 set undolevels=500	        "You can make 500 mistakes.
 
-### Keybindings
+""" Keybindings
 " Leader Mappings
 "map <Space> <leader>
 
