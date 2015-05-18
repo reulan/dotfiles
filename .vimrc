@@ -18,7 +18,7 @@ set numberwidth=3
 "set cursorline
 set ruler
 " Highlight line number of where cursor currently is
-hi CursorLineNr guifg=#050505
+hi CursorLineNr guifg=#704E77
 
 "Ignore case if patter is all lowercase, otherwise its case sensitive
 set smartcase
