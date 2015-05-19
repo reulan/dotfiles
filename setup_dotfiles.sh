@@ -8,6 +8,9 @@ cp .vimrc ~
 echo "Moving .zshrc to home directory"
 cp .zshrc ~
 
+echo "Moving .tmux.conf to home directory"
+cp .tmux.conf ~
+
 echo "Moving .gitconfig to home directory"
 cp .gitconfig ~
 
