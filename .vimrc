@@ -5,7 +5,7 @@ set title	                " change the terminal's title
 """ tmux settings
 "Allow set correct terminal paramater for tmux
 if exists('$TMUX')
-    set term=screen-256colori
+    set term=screen-256color
 endif
 
 " Correct cursor shape for vim in tmux
