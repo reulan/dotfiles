@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/msimo001c/.oh-my-zsh
+export ZSH=/home/mpmsimo/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,7 +54,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/msimo001c/.local/bin:/home/msimo001c/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mpmsimo/.local/bin:/home/mpmsimo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,7 +83,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias subl="/home/msimo001c/Downloads/sublime_text_3/sublime_text"
+alias subl="/home/mpmsimo/Downloads/sublime_text_3/sublime_text"
 
 # Powerline
 if [[ -r /usr/share/powerline/zsh/powerline.zsh ]]; then
