@@ -7,12 +7,12 @@ sudo apt-get install zsh -y
 echo "Checking zsh version..."
 zsh --version
 
-# Make ZSH default shell
-echo "Making ZSH the default shell"
-chsh -s $(chsh -l | grep "zsh" -m 1)
-
 echo "Installing Oh My ZSH!"
 cd ~
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+
+# Make ZSH default shell
+echo "Making ZSH the default shell"
+chsh -s $(chsh -l | grep "zsh" -m 1)
 
 echo "Current shell is: $SHELL"
