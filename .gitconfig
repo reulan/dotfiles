@@ -14,6 +14,7 @@
     o = checkout
     ob = checkout -b 
     p = push
+    pom = push origin master
     pl = pull
     st = status
 #################################
