@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Setting default text editor to vim"
 export VISUAL=vim
 export EDITOR="$VISUAL"
