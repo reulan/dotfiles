@@ -20,4 +20,4 @@ chsh -s $(chsh -l | grep "zsh" -m 1)
 
 echo "Current shell is: $SHELL"
 
-. setup_dotfiles.sh
+. ~/dotfiles/setup_dotfiles.sh
