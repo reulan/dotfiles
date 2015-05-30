@@ -2,23 +2,6 @@
 set nocompatible
 set title	                " change the terminal's title
 
-""" tmux settings
-"Allow set correct terminal paramater for tmux
-if exists('$TMUX')
-    set term=screen-256color
-endif
-
-" Correct cursor shape for vim in tmux
-if exists('$ITERM_PROFILE')
-    if exists('$TMUX')
-        let &t_SI = "\<Esc>[3 q"
-        let &t_EI = "\<Esc>[0 q"
-    else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    endif
-end
-
 "Enable syntax highlighting
 syntax enable
 
@@ -106,10 +89,27 @@ set t_vb=
 set listchars=tab:▸.,eol:¬ "  " Use the same symbols as TextMate for tabstops and EOLs
 
 " Toggle nerdtree with F10
-map <F10> :NERDTreeToggle<CR>
+"map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
-map <F9> :NERDTreeFind<CR>
-let NERDTreeDirArrows=0
+"map <F9> :NERDTreeFind<CR>
+"let NERDTreeDirArrows=0
+
+""" tmux settings
+"Allow set correct terminal paramater for tmux
+if exists('$TMUX')
+    set term=screen-256color
+endif
+
+" Correct cursor shape for vim in tmux
+if exists('$ITERM_PROFILE')
+    if exists('$TMUX')
+        let &t_SI = "\<Esc>[3 q"
+        let &t_EI = "\<Esc>[0 q"
+    else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
+end
 
 "Powerline settings
 " needs powerline installed, pip install powerline-status
