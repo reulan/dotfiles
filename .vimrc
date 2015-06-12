@@ -105,6 +105,9 @@ set t_vb=
 " set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 set listchars=tab:▸.,eol:¬ "  " Use the same symbols as TextMate for tabstops and EOLs
 
+""" NERDTree stuff
+" Automatically open NERDTree upon entering vim
+autocmd vimenter * NERDTree
 " Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
