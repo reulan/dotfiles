@@ -8,6 +8,11 @@ set undolevels=500	        "You can make 500 mistakes.
 set wildmenu                "A menu with autocomplete options
 
 set so=7                    "Moves 7 lines vertically
+
+"Nobackup - most info is stored in git anyways
+set nobackup
+set nowritebackup
+set noswapfile 
 "}}}
 
 "File layout, cursor, coloring and sounds{{{
@@ -36,6 +41,7 @@ set incsearch               "Allows matching while word is being typed
 set hlsearch                "Highlight matches - :noh to clear
 set laststatus=2            "Always display the status line
 set smartcase               "Ignore case if patter is all lowercase, otherwise its case sensitive
+set matchpairs+=<:>         "Useful for HTML/XML editing
 
 set showmatch               "Show the matching part of the pair for parenthesis
 set mat=1                   "Blink (in tenth of seconds) when matching brackets
