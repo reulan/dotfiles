@@ -1,4 +1,4 @@
-" General settings {{{
+" General settings {{{/*{{{*/
 set nocompatible            "Use vim settings instead of vi
 set encoding=utf-8          "Enables utf-8 encoding
 "set title	                "Change the terminal's title
@@ -13,7 +13,7 @@ set so=7                    "Moves 7 lines vertically
 set nobackup
 set nowritebackup
 set noswapfile 
-"}}}
+"}}}/*}}}*/
 
 "File layout, cursor, coloring and sounds{{{
 set number                  "Show line numbers
@@ -56,7 +56,7 @@ set nowrap                  "No need to worry about fixing autowrapped text
 set autoindent
 set shiftround
 set shiftwidth=4            "Spaces used when indenting
-set tabstop=4               "Tab will span four spaces
+set tabstop=4               "Tab will span four paces
 set softtabstop=4           "Tab spacing while editing, works with bksp
 "set textwidth=79           "Wraps line of text after 79 chars
 set backspace=2
@@ -86,12 +86,6 @@ ino <up> <Nop>
 "Allow indenting code in visual mode
 vmap <tab> >gv
 vmap <s-tab> <gv
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
-map <silent> <leader><cr> :noh<cr>
-" }}}
 
 "Plugin settings {{{
 "Powerline settings
