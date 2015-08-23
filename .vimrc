@@ -158,8 +158,6 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession<CR>
 
 ""Getting organized in vim
-foldmethod=manual
-foldlevel=0
 set modelines=1
 
 " Folding keybinds
