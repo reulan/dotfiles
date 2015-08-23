@@ -1,59 +1,64 @@
-"Use vim settings instead of vi
-set nocompatible
-set title	                " change the terminal's title
+" General settings {{{
+set nocompatible            "Use vim settings instead of vi
+set encoding=utf-8          "Enables utf-8 encoding
+"set title	                "Change the terminal's title
 
-"Enable syntax highlighting
-syntax enable
-
-set background=dark
-set t_Co=256
-"Loads colorscheme ~/.vim/colors/jellybeans.vim
-colorscheme jellybeans
-set encoding=utf-8
-
-"Show line numbers
-set number
-set numberwidth=3
-
-"Show a horizontal line indicator under the cursor
-"set cursorline
-set ruler
-" Highlight line number of where cursor currently is
-hi CursorLineNr guifg=#704E77
-
-"Ignore case if patter is all lowercase, otherwise its case sensitive
-set smartcase
-"Highlight matches
-set hlsearch
-"Show search matches while typing
-set incsearch
-set laststatus=2		" always display the status line
-set shiftround "Call shiftwidth mutlple times when indenting
-
-"Automatically indent
-"set autoindent
-"set smartindent
-"set wrap
-"Don't wrap lines
-set nowrap
-
-"Show the matching part of the pair for parenthesis
-set showmatch
-set mat=2 "blink when matching brackets
-"Show command
-set showcmd
-"Python Development (PEP8 styling)
-set tabstop=4 "Tab should span four spaces
-set shiftwidth=4 "Spaces used when indenting
-set textwidth=79
-set backspace=2
-set expandtab "Breaks tab character into multiple spaces
-let python_highlight_all = 1 "Enable Python syntax highlighting
-
-set history=500	        " remember more commands and search history
+set history=500	            "Remember more commands and search history
 set undolevels=500	        "You can make 500 mistakes.
+set wildmenu                "A menu with autocomplete options
 
-""" Keybindings
+set so=7                    "Moves 7 lines vertically
+"}}}
+
+"File layout, cursor, coloring and sounds{{{
+set number                  "Show line numbers
+set numberwidth=3
+set ruler
+
+set cursorline              "Highlight line number of where cursor currently is
+
+"set background=dark        "Makes background opaque black
+set t_Co=256                "256 color allowed
+try
+    colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim
+catch
+endtry
+
+"Remove annoying bell sound on errors
+set noerrorbells
+set novisualbell
+set tm=500
+set t_vb=
+" }}}
+
+"""Searching the file {{{
+set incsearch               "Allows matching while word is being typed
+set hlsearch                "Highlight matches - :noh to clear
+set laststatus=2            "Always display the status line
+set smartcase               "Ignore case if patter is all lowercase, otherwise its case sensitive
+
+set showmatch               "Show the matching part of the pair for parenthesis
+set mat=1                   "Blink (in tenth of seconds) when matching brackets
+" }}}
+
+"Text and indentation {{{
+syntax enable               "Enable syntax highlighting
+set shiftround              "Call shiftwidth mutlple times when indenting
+set nowrap                  "No need to worry about fixing autowrapped text
+
+"Python Development (PEP8 styling)
+set autoindent
+set shiftround
+set shiftwidth=4            "Spaces used when indenting
+set tabstop=4               "Tab will span four spaces
+set softtabstop=4           "Tab spacing while editing, works with bksp
+"set textwidth=79           "Wraps line of text after 79 chars
+set backspace=2
+set expandtab               "Breaks tab character into multiple spaces
+let python_highlight_all = 1 "Enable Python syntax highlighting
+" }}}
+
+""" Keybindings {{{
 " Leader Mappings
 "map <Space> <leader>
 
@@ -62,13 +67,11 @@ set undolevels=500	        "You can make 500 mistakes.
 let mapleader = ","
 let g:mapleader = ","
 
-"Unbind arrow keys in normal mode
+"Unbind arrow keys in normal and insert mode
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
 no <up> <Nop>
-
-"Unbind arrow keys in insert mode
 ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
@@ -78,32 +81,35 @@ ino <up> <Nop>
 vmap <tab> >gv
 vmap <s-tab> <gv
 
-"No annoying sound on errors
-set noerrorbells
-set novisualbell
-set tm=500
-set t_vb=
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+map <silent> <leader><cr> :noh<cr>
+" }}}
 
-" Setup powerline within vim
-" set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
-set listchars=tab:▸.,eol:¬ "  " Use the same symbols as TextMate for tabstops and EOLs
+"Plugin settings {{{
+"Powerline settings
+" needs powerline installed, pip install powerline-status
+let g:Powerline_symbols = 'fancy'
 
-""" NERDTree stuff
-" Automatically open NERDTree upon entering vim
-autocmd vimenter * NERDTree
-" Toggle nerdtree with F10
-"map <F10> :NERDTreeToggle<CR>
-" Current file in nerdtree
-"map <F9> :NERDTreeFind<CR>
-"let NERDTreeDirArrows=0
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+" }}}
 
-""" tmux settings
+""" Settings and keybindings going through testing {{{
+"" tmux settings
 "Allow set correct terminal paramater for tmux
 if exists('$TMUX')
     set term=screen-256color
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"i
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Correct cursor shape for vim in tmux
+" Correct cursor shape for iTerm in tmux
 if exists('$ITERM_PROFILE')
     if exists('$TMUX')
         let &t_SI = "\<Esc>[3 q"
@@ -114,10 +120,50 @@ if exists('$ITERM_PROFILE')
     endif
 end
 
-"Powerline settings
-" needs powerline installed, pip install powerline-status
-let g:Powerline_symbols = 'fancy'
+"" NERDTree stuff
+" Automatically open NERDTree upon entering vim
+"autocmd vimenter * NERDTree
+" Toggle nerdtree with F10
+"map <F10> :NERDTreeToggle<CR>
+" Current file in nerdtree
+"map <F9> :NERDTreeFind<CR>
+"let NERDTreeDirArrows=0
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"" Folding
+set foldenable          "Enables folding
+set foldlevelstart=10   "Opens most folds by default
+set foldnestmax=10      "Delves 10 nests deep
+set foldmethod=indent   "Folds based on indent level
+
+"" Movement and keybindings taken from Doug Black's A Good Vimrc
+"Rebinds moving beginning of WORD to beginning of line
+nnoremap B ^
+"Rebinds moving end of WORD to end of line
+nnoremap E $            
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+"Highlights last inserted text
+nnoremap gV `[v`]
+
+"jk inherits the Esc function while in insert mode
+inoremap jk <esc>
+
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" save session
+nnoremap <leader>s :mksession<CR>
+
+""Getting organized in vim
+foldmethod=manual
+foldlevel=0
+set modelines=1
+
+" Folding keybinds
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+" }}}
+" vim:foldmethod=marker:foldlevel=0
