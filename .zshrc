@@ -6,11 +6,8 @@ export ZSH=/home/mpmsimo/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
-#ZSH_THEME="steeef"
-ZSH_THEME="sonicradish"
-#ZSH_THEME="dieter"
-#ZSH_THEME="jispwoso"
-#ZSH_THEME="muse"
+#ZSH_THEME="sonicradish"
+ZSH_THEME="kennethreitz"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
