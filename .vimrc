@@ -1,4 +1,4 @@
-" General settings {{{/*{{{*/
+" General settings {{{
 set nocompatible            "Use vim settings instead of vi
 set encoding=utf-8          "Enables utf-8 encoding
 "set title	                "Change the terminal's title
@@ -87,6 +87,8 @@ ino <up> <Nop>
 vmap <tab> >gv
 vmap <s-tab> <gv
 
+" Relative number line keybinding
+nmap <leader>R :set rnu<cr>
 "Plugin settings {{{
 "Powerline settings
 " needs powerline installed, pip install powerline-status
