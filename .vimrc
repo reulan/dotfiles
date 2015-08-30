@@ -137,14 +137,6 @@ set foldlevelstart=10   "Opens most folds by default
 set foldnestmax=10      "Delves 10 nests deep
 set foldmethod=indent   "Folds based on indent level
 
-"" Movement and keybindings taken from Doug Black's A Good Vimrc
-"Rebinds moving beginning of WORD to beginning of line
-nnoremap B ^
-"Rebinds moving end of WORD to end of line
-nnoremap E $            
-nnoremap $ <nop>
-nnoremap ^ <nop>
-
 "Highlights last inserted text
 nnoremap gV `[v`]
 
