@@ -6,7 +6,8 @@
     editor = vim
 
 [alias]
-    a = add --all
+    a = add
+    aa = add --all
     c = commit
     ca = commit -a
     cd = commit --amend
@@ -16,7 +17,7 @@
     p = push
     pom = push origin master
     pl = pull
-    st = status
+    s = status
 #################################
     lc = log ORIG_HEAD.. --stat --no-merges
     llog = log --date=local
