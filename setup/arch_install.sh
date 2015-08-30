@@ -6,3 +6,6 @@ pacman -S xorg-server xorg-xinit xmonad xmonad-config xmobar
 
 # Packages for tools and applications
 pacman -S git vim
+
+# Python Development
+pacman -S python python2 python-pip
