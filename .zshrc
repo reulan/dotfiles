@@ -4,11 +4,8 @@ export ZSH=/home/mpmsimo/.oh-my-zsh
 # oh-my-zsh theme
 ZSH_THEME="kennethreitz"
 
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -40,8 +37,4 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-# Powerline
-if [[ -r /usr/share/powerline/zsh/powerline.zsh ]]; then
-    source /usr/share/powerline/zsh/powerline.zsh
-fi
+alias py=$(which python)
