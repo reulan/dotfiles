@@ -4,18 +4,18 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 echo "Moving .vimrc to home directory"
-cp .vimrc $HOME
+cp $HOME/dotfiles/.vimrc $HOME
 
 echo "Moving .zshrc to home directory"
-cp .zshrc $HOME
+cp $HOME/dotfiles/.zshrc $HOME
 
 #echo "Moving .tmux.conf to home directory"
-#cp .tmux.conf $HOME
+#cp $HOME/dotfiles/.tmux.conf $HOME
 
 echo "Moving .gitconfig to home directory"
-cp .gitconfig $HOME
+cp $HOME/dotfiles/.gitconfig $HOME
 
 echo "Moving .vim to home directory"
-cp -r .vim $HOME
+cp -r $HOME/dotfiles/.vim $HOME
 
 echo "Setup complete"
