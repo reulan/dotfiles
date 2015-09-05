@@ -1,14 +1,17 @@
 # For the next Arch Linux install, get these essential packages.
-pacman -S openssh
+sudo pacman -S openssh
 
 # Install login manager
-pacman -S slim archlinux-themes-slim
+sudo pacman -S slim archlinux-themes-slim
 sudo systemctl enable slim.service
 
+# Install compositing window manager
+sudo pacman -S xcompmgr
+
 # Install packages associated with xmonad and others to allow to customize the xmonad tiling manager.
-sudo pacman -S xmonad xmonad-contrib xmobar xmonad-config trayer dmenu cabal-install
-cabal update
-cabal install yeganesh
+sudo pacman -S xmonad xmonad-contrib xmobar stalonetray dmenu cabal-install 
+sudo cabal update
+cabal install --global yeganesh
 
 # Install screenshot package
 sudo pacman -S scrot
