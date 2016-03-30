@@ -13,7 +13,7 @@ set so=7                    "Moves 7 lines vertically
 set nobackup
 set nowritebackup
 set noswapfile 
-"}}}/*}}}*/
+"}}}
 
 "File layout, cursor, coloring and sounds{{{
 set number                  "Show line numbers
@@ -53,12 +53,12 @@ set shiftround              "Call shiftwidth mutlple times when indenting
 set nowrap                  "No need to worry about fixing autowrapped text
 
 "Python Development (PEP8 styling)
-set autoindent
+"set autoindent             "Automatically indent lines, bad for copying existing code
 set shiftround
 set shiftwidth=4            "Spaces used when indenting
 set tabstop=4               "Tab will span four paces
 set softtabstop=4           "Tab spacing while editing, works with bksp
-"set textwidth=79           "Wraps line of text after 79 chars
+set textwidth=79           "Wraps line of text after 79 chars
 set backspace=2
 set expandtab               "Breaks tab character into multiple spaces
 let python_highlight_all = 1 "Enable Python syntax highlighting
@@ -94,9 +94,10 @@ nmap <leader>R :set rnu<cr>
 " needs powerline installed, pip install powerline-status
 let g:Powerline_symbols = 'fancy'
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"Install powerline-status in virtualenv instead
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 " }}}
 
 """ Settings and keybindings going through testing {{{
