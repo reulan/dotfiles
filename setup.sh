@@ -3,27 +3,38 @@
 #Date created; 04/04/2016
 #Author: mpmsimo
 
-ubuntu_install() {
-    # Install Ubuntu development packages
+install_ubuntu() {
+	# Install Ubuntu development packages
 	echo "Ubuntu or apt based systems"
 	sudo apt-get update
 	sudo apt-get install python-dev python-pip vim wget -y
+	sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
+	#libreadline5-dev #Find difference between base and 5
 
-	# Install zsh from package manger
+	# Python 3.2 +
+	sudo apt-get install liblzma-dev -y
+
+	# Optional
+	sudo apt-get install tk-dev libdb-dev -y
+	
+	# ZSH via package manager
 	#echo "Install zsh package"
-	# sudo yum install zsh
 	#sudo apt-get install zsh -y
 }
 
-centos_install() {
+install_centos() {
     # Install CentOS development packages
 	echo "CentOS or yum based based systems"
 	sudo yum update
-    sudo yum groupinstall "Development tools" -y
-    yum install python-dev vim wget
-    yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
-    yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
-    #yum -y install mysql-devel  # req'd to use MySQL with python('mysql-python' package)
+	sudo yum install python-dev vim wget
+	sudo yum groupinstall "Development tools" -y
+	yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
+	yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
+	#yum -y install mysql-devel  #Since I use PyMSQL - it's not really needed
+	
+	# ZSH via package manager
+	#echo "Install zsh package"
+	#sudo yum install zsh -y
 }
 
 install_zsh(){
@@ -65,6 +76,7 @@ install_dotfiles(){
 
 install_pip_packages(){
     # Install Python packages 
+	pip install virtualenv
 	cd ~
 	virtualenv env
 	source ~/env/bin/activate
@@ -103,11 +115,10 @@ if [[ $OSTYPE == 'linux-gnu' ]]
 	then
 		if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
 		then
-            echo "pass"
-			#ubuntu_install	
+			install_ubuntu
 		elif [[ $(grep -i "id=centos" /etc/*release) == *"centos"* ]]
 		then
-			echo "I am CentOS."	
+			install_centos
 		fi
 	echo "Packages have been installed."
 elif [[ $OSTYPE == 'darwin*' ]]
