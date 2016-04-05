@@ -130,5 +130,5 @@ fi
 
 install_zsh
 install_dotfiles
-#install_pip_packages
-#install_python
+install_pip_packages
+install_python
