@@ -18,8 +18,8 @@ install_ubuntu() {
 	sudo apt-get install tk-dev libdb-dev -y
 	
 	# ZSH via package manager
-	#echo "Install zsh package"
-	#sudo apt-get install zsh -y
+	echo "Install zsh package"
+	sudo apt-get install zsh -y
 }
 
 install_centos() {
@@ -28,13 +28,13 @@ install_centos() {
 	sudo yum update
 	sudo yum install python-dev vim wget
 	sudo yum groupinstall "Development tools" -y
-	yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
-	yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
+	sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
+	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
 	#yum -y install mysql-devel  #Since I use PyMSQL - it's not really needed
 	
 	# ZSH via package manager
-	#echo "Install zsh package"
-	#sudo yum install zsh -y
+	echo "Install zsh package"
+	sudo yum install zsh -y
 }
 
 install_zsh(){
@@ -45,13 +45,16 @@ install_zsh(){
     wget $ZSH_URL
     tar zxvf "zsh-$ZSH_V.tar.gz"
     cd ~/"zsh-$ZSH_V"
-    ./configure --prefix=/usr/local 
-    make && make altinstall
+    sudo ./configure --prefix=/usr/local 
+    sudo make && sudo make altinstall
+}
 
+install_oh_my_zsh(){
     # Install Oh My ZSH
 	echo "Installing Oh My ZSH!"
-	cd ~ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-	echo "Making ZSH the default shell" 
+	cd ~
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	echo "Making ZSH the default shell (restart will be required)" 
 	chsh -s "$(which zsh)" # Make ZSH default shell
 	echo "Current shell is: $SHELL"
 	echo "Zsh version is $(zsh --version)." # Check verison
@@ -107,15 +110,16 @@ install_python(){
     wget --no-check-certificate $PY_URL
     tar zxvf "Python-"$PY_V".tgz"
     cd ~/"Python-$PY_V"
-    ./configure --prefix=/usr/local 
-    make && make altinstall
+    sudo ./configure --prefix=/usr/local 
+    sudo make && sudo make altinstall
 }
 
 if [[ $OSTYPE == 'linux-gnu' ]]
 	then
 		if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
 		then
-			install_ubuntu
+            echo ""
+			#install_ubuntu
 		elif [[ $(grep -i "id=centos" /etc/*release) == *"centos"* ]]
 		then
 			install_centos
@@ -128,7 +132,8 @@ else
 	echo "Operating system "$OSTYPE" is not supported."
 fi
 
-install_zsh
+#install_zsh
+install_oh_my_zsh
 install_dotfiles
 install_pip_packages
 install_python
