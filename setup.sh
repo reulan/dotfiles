@@ -67,7 +67,7 @@ install_dotfiles(){
 	export VISUAL=vim
 	export EDITOR="$VISUAL"
 
-	for file in .vimrc .zshrc .gitconfig; #tmux.conf
+	for file in .vimrc .zshrc .gitconfig gamedev.sh; #tmux.conf
 	do 	
 		echo "Moving "$file" to home directory"
 		cp $HOME/dotfiles/$file $HOME
