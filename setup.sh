@@ -41,10 +41,10 @@ install_zsh(){
     # Install ZSH
     ZSH_V="5.2"
     ZSH_URL="www.zsh.org/pub/zsh-$ZSH_V.tar.gz"
-    cd ~
+    cd $HOME/dev
     wget $ZSH_URL
     tar zxvf "zsh-$ZSH_V.tar.gz"
-    cd ~/"zsh-$ZSH_V"
+    cd "$HOME/dev/zsh-$ZSH_V"
     sudo ./configure --prefix=/usr/local 
     sudo make && sudo make altinstall
 }
@@ -52,7 +52,7 @@ install_zsh(){
 install_oh_my_zsh(){
     # Install Oh My ZSH
 	echo "Installing Oh My ZSH!"
-	cd ~
+	cd $HOME 
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 	echo "Making ZSH the default shell (restart will be required)" 
 	chsh -s "$(which zsh)" # Make ZSH default shell
@@ -80,7 +80,7 @@ install_dotfiles(){
 install_pip_packages(){
     # Install Python packages 
 	pip install virtualenv
-	cd ~
+	cd $HOME
 	virtualenv env
 	source ~/env/bin/activate
 	pip install powerline-status
@@ -106,10 +106,10 @@ install_python(){
     done
     PY_URL="https://www.python.org/ftp/python/$PY_V/Python-$PY_V.tgz"
     echo ""; echo "Installing python $PY_V".
-    cd ~
+    cd $HOME/dev
     wget --no-check-certificate $PY_URL
     tar zxvf "Python-"$PY_V".tgz"
-    cd ~/"Python-$PY_V"
+    cd $HOME/dev/"Python-$PY_V"
     sudo ./configure --prefix=/usr/local 
     sudo make && sudo make altinstall
 }
@@ -132,6 +132,7 @@ else
 	echo "Operating system "$OSTYPE" is not supported."
 fi
 
+mkdir -p $HOME/dev
 #install_zsh
 install_oh_my_zsh
 install_dotfiles
