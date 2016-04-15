@@ -137,4 +137,4 @@ mkdir -p $HOME/dev
 install_oh_my_zsh
 install_dotfiles
 install_pip_packages
-install_python
+#install_python
