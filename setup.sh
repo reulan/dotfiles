@@ -26,7 +26,7 @@ install_centos() {
     # Install CentOS development packages
 	echo "CentOS or yum based based systems"
 	sudo yum update
-	sudo yum install python-dev python-pip vim wget
+	sudo yum install python-devel python-pip vim wget
 	sudo yum groupinstall "Development tools" -y
 	sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
 	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
@@ -112,7 +112,8 @@ install_python(){
     tar zxvf "Python-"$PY_V".tgz"
     cd $HOME/dev/"Python-$PY_V"
     sudo ./configure --prefix=/usr/local 
-    sudo make && sudo make altinstall
+    sudo make
+    sudo make altinstall
 }
 
 if [[ $OSTYPE == 'linux-gnu' ]]
