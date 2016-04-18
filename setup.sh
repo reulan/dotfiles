@@ -26,7 +26,7 @@ install_centos() {
     # Install CentOS development packages
 	echo "CentOS or yum based based systems"
 	sudo yum update
-	sudo yum install python-dev vim wget
+	sudo yum install python-dev python-pip vim wget
 	sudo yum groupinstall "Development tools" -y
 	sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
 	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
@@ -79,7 +79,8 @@ install_dotfiles(){
 
 install_pip_packages(){
     # Install Python packages 
-	pip install virtualenv
+	sudo pip install --upgrade pip
+	sudo pip install virtualenv
 	cd $HOME
 	virtualenv env
 	source ~/env/bin/activate
@@ -120,7 +121,7 @@ if [[ $OSTYPE == 'linux-gnu' ]]
 		then
             echo ""
 			#install_ubuntu
-		elif [[ $(grep -i "id=centos" /etc/*release) == *"centos"* ]]
+		elif [[ $(grep -i "centos" /etc/*release) == *"CentOS"* ]]
 		then
 			install_centos
 		fi
@@ -137,4 +138,4 @@ mkdir -p $HOME/dev
 install_oh_my_zsh
 install_dotfiles
 install_pip_packages
-#install_python
+install_python
