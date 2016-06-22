@@ -34,6 +34,14 @@ set noerrorbells
 set novisualbell
 set tm=500
 set t_vb=
+
+"Pick up on the same line where you left off when editing a file 'perpetual cursor location'
+if has("autocmd")
+    augroup perpetual 
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+    augroup END
+endif
 " }}}
 
 """Searching the file {{{
@@ -137,6 +145,7 @@ set foldenable          "Enables folding
 set foldlevelstart=10   "Opens most folds by default
 set foldnestmax=10      "Delves 10 nests deep
 set foldmethod=indent   "Folds based on indent level
+" vim:foldmethod=marker:foldlevel=0
 
 "Highlights last inserted text
 nnoremap gV `[v`]
@@ -159,4 +168,3 @@ set modelines=1
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " }}}
-" vim:foldmethod=marker:foldlevel=0
