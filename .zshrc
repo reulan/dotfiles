@@ -2,7 +2,8 @@
 export ZSH=/home/mpmsimo/.oh-my-zsh
 
 # oh-my-zsh theme
-ZSH_THEME="kennethreitz"
+#ZSH_THEME="kennethreitz"
+ZSH_THEME="sunaku"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 #COMPLETION_WAITING_DOTS="true"
