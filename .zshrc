@@ -39,4 +39,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias py=$(which python)
-source /home/mpmsimo/gamedev.sh
+
+source $HOME/clouddev.sh
+#source $HOME/gamedev.sh
