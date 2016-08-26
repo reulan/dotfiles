@@ -44,3 +44,4 @@ alias py=$(which python)
 source $HOME/wikidev.sh
 #source $HOME/clouddev.sh
 #source $HOME/gamedev.sh
+python $HOME/Projects/hello_chengyu/hello_chengyu.py
