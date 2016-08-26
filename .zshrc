@@ -40,5 +40,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # For a full list of active aliases, run `alias`.
 alias py=$(which python)
 
-source $HOME/clouddev.sh
+
+source $HOME/wikidev.sh
+#source $HOME/clouddev.sh
 #source $HOME/gamedev.sh
