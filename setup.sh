@@ -16,7 +16,7 @@ install_ubuntu() {
 
 	# Optional
 	sudo apt-get install tk-dev libdb-dev -y
-	
+
 	# ZSH via package manager
 	echo "Install zsh package"
 	sudo apt-get install zsh -y
@@ -29,9 +29,9 @@ install_centos() {
 	sudo yum install python-devel python-pip vim wget
 	sudo yum groupinstall "Development tools" -y
 	sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
-	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y 
+	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y
 	#yum -y install mysql-devel  #Since I use PyMSQL - it's not really needed
-	
+
 	# ZSH via package manager
 	echo "Install zsh package"
 	sudo yum install zsh -y
@@ -45,16 +45,16 @@ install_zsh(){
     wget $ZSH_URL
     tar zxvf "zsh-$ZSH_V.tar.gz"
     cd "$HOME/dev/zsh-$ZSH_V"
-    sudo ./configure --prefix=/usr/local 
+    sudo ./configure --prefix=/usr/local
     sudo make && sudo make altinstall
 }
 
 install_oh_my_zsh(){
     # Install Oh My ZSH
 	echo "Installing Oh My ZSH!"
-	cd $HOME 
+	cd $HOME
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-	echo "Making ZSH the default shell (restart will be required)" 
+	echo "Making ZSH the default shell (restart will be required)"
 	chsh -s "$(which zsh)" # Make ZSH default shell
 	echo "Current shell is: $SHELL"
 	echo "Zsh version is $(zsh --version)." # Check verison
@@ -67,10 +67,11 @@ install_dotfiles(){
 	export VISUAL=vim
 	export EDITOR="$VISUAL"
 
-	for file in .vimrc .zshrc .gitconfig gamedev.sh; #tmux.conf
-	do 	
-		echo "Moving "$file" to home directory"
-		cp $HOME/dotfiles/$file $HOME
+DOTFILE_ARRAY=(.vimrc .zshrc .gitconfig gamedev.sh .atom)
+	for file in DOTFILE_ARRAY;
+	do
+		echo "Symlinking $file to $HOME"
+		ln -sfn $HOME/dotfiles/$file $HOME
 	done
 
 	echo "Moving .vim to home directory"
@@ -78,7 +79,7 @@ install_dotfiles(){
 }
 
 install_pip_packages(){
-    # Install Python packages 
+    # Install Python packages
 	sudo pip install --upgrade pip
 	sudo pip install virtualenv
 	cd $HOME
@@ -88,19 +89,19 @@ install_pip_packages(){
 }
 
 install_python(){
-    PY2_V="2.7.11"
-    PY3_V="3.4.4"
+    PY2_V="2.7.12" # Install Python 2.7.12 - Last updated: 2016-06-25
+    PY3_V="3.5.2" # Install Python 3.5.2 - Last updated: 2016-06-27
     while true
     do
         echo "Which version of Python would you like to install?"
         echo "1. $PY2_V"
         echo "2. $PY3_V"
-        echo "0. Quit" 
+        echo "0. Quit"
 
-        read -p "Which option would you like to select? > " version 
+        read -p "Which option would you like to select? > " version
         case $version in
-            1 ) PY_V=$PY2_V; break;; # Install Python 2.7.11 - Last updated: 2015-12-05
-            2 ) PY_V=$PY3_V; break;; # Install Python 3.4.4 - Last updated: 2015-12-21
+            1 ) PY_V=$PY2_V; break;;
+            2 ) PY_V=$PY3_V; break;;
             0 ) break;;
             * ) echo ""; echo "Please choose a valid option";;
         esac
@@ -111,7 +112,7 @@ install_python(){
     wget --no-check-certificate $PY_URL
     tar zxvf "Python-"$PY_V".tgz"
     cd $HOME/dev/"Python-$PY_V"
-    sudo ./configure --prefix=/usr/local 
+    sudo ./configure --prefix=/usr/local
     sudo make
     sudo make altinstall
 }
@@ -134,9 +135,10 @@ else
 	echo "Operating system "$OSTYPE" is not supported."
 fi
 
-mkdir -p $HOME/dev
+#install_centos
+#install_ubuntu
 #install_zsh
-install_oh_my_zsh
+#install_oh_my_zsh
 install_dotfiles
-install_pip_packages
-install_python
+#install_pip_packages
+#install_python
