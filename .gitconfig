@@ -13,9 +13,10 @@
     cd = commit --amend
     cad = commit -a --amend
     o = checkout
-    ob = checkout -b 
+    ob = checkout -b
     p = push
     pom = push origin master
+    po = push origin
     pl = pull
     s = status
 #################################
