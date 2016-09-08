@@ -67,7 +67,7 @@ install_dotfiles(){
 	export VISUAL=vim
 	export EDITOR="$VISUAL"
 
-DOTFILE_ARRAY=(.vimrc .zshrc .gitconfig gamedev.sh .atom)
+  DOTFILE_ARRAY=(.vimrc .zshrc .gitconfig gamedev.sh .atom)
 	for file in DOTFILE_ARRAY;
 	do
 		echo "Symlinking $file to $HOME"
