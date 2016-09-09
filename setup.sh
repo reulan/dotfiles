@@ -3,6 +3,8 @@
 #Date created; 04/04/2016
 #Author: mpmsimo
 
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'gamedev.sh')
+
 install_ubuntu() {
 	# Install Ubuntu development packages
 	echo "Ubuntu or apt based systems"
@@ -67,8 +69,7 @@ install_dotfiles(){
 	export VISUAL=vim
 	export EDITOR="$VISUAL"
 
-  DOTFILE_ARRAY=(.vimrc .zshrc .gitconfig gamedev.sh .atom)
-	for file in DOTFILE_ARRAY;
+	for file in ${DOTFILE_ARRAY[@]};
 	do
 		echo "Symlinking $file to $HOME"
 		ln -sfn $HOME/dotfiles/$file $HOME
