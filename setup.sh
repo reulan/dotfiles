@@ -123,7 +123,7 @@ if [[ $OSTYPE == 'linux-gnu' ]]
 		if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
 		then
             echo ""
-			#install_ubuntu
+			install_ubuntu
 		elif [[ $(grep -i "centos" /etc/*release) == *"CentOS"* ]]
 		then
 			install_centos
@@ -136,10 +136,8 @@ else
 	echo "Operating system "$OSTYPE" is not supported."
 fi
 
-#install_centos
-#install_ubuntu
 #install_zsh
-#install_oh_my_zsh
 install_dotfiles
-#install_pip_packages
+install_pip_packages
 #install_python
+install_oh_my_zsh
