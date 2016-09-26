@@ -1,6 +1,24 @@
-[user]
-	name = Michael Simo
-	email = os@mpmsimo.com
+[include]
+    path ~/.gitconfig.local
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current = red
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = cyan
+    frag = magenta
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [core]
     editor = vim
@@ -8,17 +26,28 @@
 [alias]
     a = add
     aa = add --all
+
+    b = branch
+
     c = commit
     ca = commit -a
     cd = commit --amend
     cad = commit -a --amend
-    o = checkout
-    ob = checkout -b
+
+    cp = cherry-pick
+
+    co = checkout
+    cob = checkout -b
+
+    lc = log ORIG_HEAD.. --stat --no-merges
+    llog = log --date=local
+
     p = push
     pom = push origin master
     po = push origin
+
     pl = pull
-    s = status
-#################################
-    lc = log ORIG_HEAD.. --stat --no-merges
-    llog = log --date=local
+
+    s = status -sb
+
+    uco = reset HEAD^
