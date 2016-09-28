@@ -3,13 +3,20 @@
 #Date created; 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'gamedev.sh')
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'gamedev.sh' '.gitconfig.local')
 
 install_ubuntu() {
 	# Install Ubuntu development packages
 	echo "Ubuntu or apt based systems"
+
+    # i3 WM repos
+    echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
 	sudo apt-get update
-	sudo apt-get install python-dev python-pip vim wget -y
+    # TODO: Unsecure!!! Fix this later.
+    sudo apt-get --allow-unauthenticated install sur5r-keyring
+
+    # Python related stuff, should trim down later.
+	sudo apt-get install python-dev python-pip vim wget i3 -y
 	sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
 	#libreadline5-dev #Find difference between base and 5
 
