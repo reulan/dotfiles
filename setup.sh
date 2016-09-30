@@ -15,6 +15,12 @@ install_ubuntu() {
     # TODO: Unsecure!!! Fix this later.
     sudo apt-get --allow-unauthenticated install sur5r-keyring
 
+    # atom???
+    cd /tmp
+    wget https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
+    sudo dpkg --install atom-amd64.deb
+    cd ~
+
     # Python related stuff, should trim down later.
 	sudo apt-get install python-dev python-pip vim wget i3 -y
 	sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
