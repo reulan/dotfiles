@@ -90,6 +90,9 @@ install_dotfiles(){
 
 	echo "Moving .vim to home directory"
 	cp -r $HOME/dotfiles/.vim $HOME
+
+	echo "Moving .i3 to home directory"
+    cp -r $HOME/dotfiles/.i3 $HOME
 }
 
 install_pip_packages(){
