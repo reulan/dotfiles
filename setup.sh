@@ -15,6 +15,9 @@ install_ubuntu() {
     # TODO: Unsecure!!! Fix this later.
     sudo apt-get --allow-unauthenticated install sur5r-keyring
 
+    # feh
+    sudo apt-get install feh -y
+
     # atom???
     cd /tmp
     wget https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
