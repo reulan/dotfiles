@@ -56,15 +56,12 @@ install_centos() {
 }
 
 install_zsh(){
-    # Install ZSH
-    ZSH_V="5.2"
-    ZSH_URL="www.zsh.org/pub/zsh-$ZSH_V.tar.gz"
-    cd $HOME/dev
-    wget $ZSH_URL
-    tar zxvf "zsh-$ZSH_V.tar.gz"
-    cd "$HOME/dev/zsh-$ZSH_V"
-    sudo ./configure --prefix=/usr/local
-    sudo make && sudo make altinstall
+    # Install ZSH addons
+    wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O
+    $HOME/.dircolors
+    echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
+    cd ~
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 }
 
 install_oh_my_zsh(){
@@ -95,9 +92,6 @@ install_numix(){
     sudo apt-get update
     sudo apt-get install numix-icon-theme
 }
-
-#install_atom(){
-#}
 
 install_dotfiles(){
     # Copy dotfiles to home directory
@@ -157,26 +151,29 @@ install_python(){
     sudo make altinstall
 }
 
-if [[ $OSTYPE == 'linux-gnu' ]]
-	then
-		if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
-		then
-            echo ""
-			install_ubuntu
-		elif [[ $(grep -i "centos" /etc/*release) == *"CentOS"* ]]
-		then
-			install_centos
-		fi
-	echo "Packages have been installed."
-elif [[ $OSTYPE == 'darwin*' ]]
-then
-	echo "I'm a Mac."
-else
-	echo "Operating system "$OSTYPE" is not supported."
-fi
+install_baseos(){
+    if [[ $OSTYPE == 'linux-gnu' ]]
+        then
+            if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
+            then
+                echo ""
+                install_ubuntu
+            elif [[ $(grep -i "centos" /etc/*release) == *"CentOS"* ]]
+            then
+                install_centos
+            fi
+        echo "Packages have been installed."
+    elif [[ $OSTYPE == 'darwin*' ]]
+    then
+        echo "I'm a Mac."
+    else
+        echo "Operating system "$OSTYPE" is not supported."
+    fi
+}
 
+#install_baseos
 #install_zsh
 install_dotfiles
-install_pip_packages
+#install_pip_packages
 #install_python
-install_oh_my_zsh
+#install_oh_my_zsh

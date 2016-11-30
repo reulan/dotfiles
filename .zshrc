@@ -27,6 +27,35 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 fi
 
+# Additional ZSH colorscheme
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload -U vcs_info && vcs_info
+
+zmodload zsh/complist
+zmodload zsh/terminfo
+
+# setopt
+setopt \
+  autocd \
+  ksh_glob \
+  extendedglob \
+  prompt_subst \
+  inc_append_history
+
+bindkey -v
+
+# Import alternate zsh configs
+#for file in $HOME/dotfiles/zsh/*.zsh; do
+#    if [[ $DEBUG > 0 ]]; then
+#        echo "zsh: sourcing $file"
+#    fi
+#    source $file
+#done
+
+eval $( dircolors -b $XDG_CONFIG_HOME/zsh/LS_COLORS/LS_COLORS )
+export LS_COLORS
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -40,11 +69,10 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias py=$(which python)
 alias aenv=$HOME'/env/bin/activate'
 
-source $HOME/wikidev.sh
-#source $HOME/clouddev.sh
-#source $HOME/gamedev.sh
-. $HOME/rcenv/bin/activate
-cd $HOME/Projects/rc_code
-
+# Enter virtualenv 
+. $HOME/osenv/bin/activate
 echo ''
 python $HOME/Projects/hello_chengyu/hello_chengyu.py
+
+# Enable syntax highlighting
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
