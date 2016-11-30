@@ -90,6 +90,10 @@ install_numix(){
     sudo make install
     gsettings set org.gnome.desktop.interface gtk-theme "Numix"
     gsettings set org.gnome.desktop.wm.preferences theme "Numix"
+    
+    sudo add-apt-repository ppa:numix/ppa
+    sudo apt-get update
+    sudo apt-get install numix-icon-theme
 }
 
 #install_atom(){
