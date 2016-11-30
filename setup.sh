@@ -79,6 +79,22 @@ install_oh_my_zsh(){
     echo ""
 }
 
+install_numix(){
+    sudo apt install numix-gtk-theme ruby
+    sudo gem install sass
+    sudo apt-get install libglib2.0-dev libgdk-pixbuf2.0-dev libxml2-utils
+    cd ~
+    git clone git@github.com:numixproject/numix-gtk-theme.git
+    cd numix-gtk-theme
+    make
+    sudo make install
+    gsettings set org.gnome.desktop.interface gtk-theme "Numix"
+    gsettings set org.gnome.desktop.wm.preferences theme "Numix"
+}
+
+#install_atom(){
+#}
+
 install_dotfiles(){
     # Copy dotfiles to home directory
 	echo "Setting default text editor to vim"
