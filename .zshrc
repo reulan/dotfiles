@@ -1,11 +1,10 @@
+
+# oh-my-zsh stff{{{
 # Path to your oh-my-zsh installation.
 export ZSH=/home/mpmsimo/.oh-my-zsh
 
 # oh-my-zsh theme
 ZSH_THEME="sunaku"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -18,6 +17,8 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# }}}
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
