@@ -146,7 +146,7 @@ bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/scre
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 
+    i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
 }
 
 # ----->

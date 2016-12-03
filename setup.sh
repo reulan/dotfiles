@@ -110,6 +110,9 @@ install_dotfiles(){
 
 	echo "Moving .i3 to home directory"
     cp -r $HOME/dotfiles/.i3 $HOME
+
+	echo "Copying .fonts to home directory"
+    cp -r $HOME/dotfiles/.fonts $HOME
 }
 
 install_pip_packages(){
