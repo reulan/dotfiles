@@ -54,8 +54,8 @@ bindkey -v
 #    source $file
 #done
 
-eval $( dircolors -b $XDG_CONFIG_HOME/zsh/LS_COLORS/LS_COLORS )
-export LS_COLORS
+#eval $( dircolors -b $XDG_CONFIG_HOME/zsh/LS_COLORS/LS_COLORS )
+#export LS_COLORS
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -71,9 +71,10 @@ alias py=$(which python)
 alias aenv=$HOME'/env/bin/activate'
 
 # Enter virtualenv 
-. $HOME/osenv/bin/activate
-echo ''
-python $HOME/Projects/hello_chengyu/hello_chengyu.py
+. $HOME/env/bin/activate
+
+#echo ''
+#python $HOME/Projects/hello_chengyu/hello_chengyu.py
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

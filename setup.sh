@@ -3,7 +3,7 @@
 #Date created; 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'gamedev.sh' '.gitconfig.local')
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local')
 
 install_ubuntu() {
 	# Install Ubuntu development packages
@@ -18,11 +18,7 @@ install_ubuntu() {
     # feh
     sudo apt-get install feh -y
 
-    # atom???
-    cd /tmp
-    wget https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
-    sudo dpkg --install atom-amd64.deb
-    cd ~
+    #install_atom
 
     # Python related stuff, should trim down later.
 	sudo apt-get install python-dev python-pip vim wget i3 -y
@@ -126,8 +122,8 @@ install_pip_packages(){
 }
 
 install_python(){
-    PY2_V="2.7.12" # Install Python 2.7.12 - Last updated: 2016-06-25
-    PY3_V="3.5.2" # Install Python 3.5.2 - Last updated: 2016-06-27
+    PY2_V="2.7.13" # Install Python 2.7.13 - Last updated: 2016-12-17
+    PY3_V="3.6.0" # Install Python 3.6.0- Last updated: 2016-12-23
     while true
     do
         echo "Which version of Python would you like to install?"
@@ -154,6 +150,13 @@ install_python(){
     sudo make altinstall
 }
 
+install_atom(){
+    cd /tmp
+    wget https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
+    sudo dpkg --install atom-amd64.deb
+    cd ~
+}
+
 install_baseos(){
     if [[ $OSTYPE == 'linux-gnu' ]]
         then
@@ -174,9 +177,10 @@ install_baseos(){
     fi
 }
 
-#install_baseos
-#install_zsh
+install_baseos
+install_python
+install_pip_packages
+install_zsh
 install_dotfiles
-#install_pip_packages
-#install_python
-#install_oh_my_zsh
+install_oh_my_zsh
+#install_numix
