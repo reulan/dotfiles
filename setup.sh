@@ -21,7 +21,7 @@ install_ubuntu() {
     #install_atom
 
     # Python related stuff, should trim down later.
-	sudo apt-get install python-dev python-pip vim wget i3 -y
+	sudo apt-get install python-dev python3-dev python-pip vim wget i3 -y
 	sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
 	#libreadline5-dev #Find difference between base and 5
 

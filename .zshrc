@@ -71,10 +71,13 @@ alias py=$(which python)
 alias aenv=$HOME'/env/bin/activate'
 
 # Enter virtualenv 
-. $HOME/env/bin/activate
+. $HOME/denv/bin/activate
 
 #echo ''
 #python $HOME/Projects/hello_chengyu/hello_chengyu.py
+
+# Load OpenStack openrc
+source ~/openrc.sh
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
