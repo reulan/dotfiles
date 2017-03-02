@@ -1,5 +1,4 @@
-
-# oh-my-zsh stff{{{
+# oh-my-zsh stuff{{{
 # Path to your oh-my-zsh installation.
 export ZSH=/home/mpmsimo/.oh-my-zsh
 
@@ -15,10 +14,7 @@ plugins=(git)
 # User configuration
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mpmsimo/.local/bin:/home/mpmsimo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
-
-# }}}
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8

@@ -9,13 +9,13 @@ set wildmenu                "A menu with autocomplete options
 
 set so=7                    "Moves 7 lines vertically
 
-"Nobackup - most info is stored in git anyways
+" Nobackup - most info is stored in git anyways
 set nobackup
 set nowritebackup
 set noswapfile 
 "}}}
 
-"File layout, cursor, coloring and sounds{{{
+" File layout, cursor, coloring and sounds{{{
 set number                  "Show line numbers
 set numberwidth=3
 set ruler
@@ -29,13 +29,13 @@ try
 catch
 endtry
 
-"Remove annoying bell sound on errors
+" Remove annoying bell sound on errors
 set noerrorbells
 set novisualbell
 set tm=500
 set t_vb=
 
-"Pick up on the same line where you left off when editing a file 'perpetual cursor location'
+" Pick up on the same line where you left off when editing a file 'perpetual cursor location'
 if has("autocmd")
     augroup perpetual 
     autocmd!
@@ -55,12 +55,12 @@ set showmatch               "Show the matching part of the pair for parenthesis
 set mat=1                   "Blink (in tenth of seconds) when matching brackets
 " }}}
 
-"Text and indentation {{{
+" Text and indentation {{{
 syntax enable               "Enable syntax highlighting
 set shiftround              "Call shiftwidth mutlple times when indenting
 set nowrap                  "No need to worry about fixing autowrapped text
 
-"Python Development (PEP8 styling)
+" Python Development (PEP8 styling)
 "set autoindent             "Automatically indent lines, bad for copying existing code
 set shiftround
 set shiftwidth=4            "Spaces used when indenting
@@ -81,7 +81,7 @@ let python_highlight_all = 1 "Enable Python syntax highlighting
 let mapleader = ","
 let g:mapleader = ","
 
-"Unbind arrow keys in normal and insert mode
+" Unbind arrow keys in normal and insert mode
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
@@ -91,7 +91,7 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-"Allow indenting code in visual mode
+" Allow indenting code in visual mode
 vmap <tab> >gv
 vmap <s-tab> <gv
 
@@ -101,16 +101,11 @@ nmap <leader>R :set rnu<cr>
 "Powerline settings
 " needs powerline installed, pip install powerline-status
 let g:Powerline_symbols = 'fancy'
-
-"Install powerline-status in virtualenv instead
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 " }}}
 
 """ Settings and keybindings going through testing {{{
 "" tmux settings
-"Allow set correct terminal paramater for tmux
+" Allow set correct terminal paramater for tmux
 if exists('$TMUX')
     set term=screen-256color
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -145,23 +140,23 @@ set foldenable          "Enables folding
 set foldlevelstart=10   "Opens most folds by default
 set foldnestmax=10      "Delves 10 nests deep
 set foldmethod=indent   "Folds based on indent level
-" vim:foldmethod=marker:foldlevel=0
+"vim:foldmethod=marker:foldlevel=0
 
-"Highlights last inserted text
+" Highlights last inserted text
 nnoremap gV `[v`]
 
 "jk inherits the Esc function while in insert mode
 inoremap jk <esc>
 
-" edit vimrc/zshrc and load vimrc bindings
+"edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" save session
+" Save session
 nnoremap <leader>s :mksession<CR>
 
-""Getting organized in vim
+" Getting organized in vim
 set modelines=1
 
 " Folding keybinds
