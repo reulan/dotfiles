@@ -75,5 +75,8 @@ alias aenv=$HOME'/env/bin/activate'
 # Load OpenStack openrc
 source ~/openrc.sh
 
+# Change directory to current project
+cd ~/Projects/nsb
+
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
