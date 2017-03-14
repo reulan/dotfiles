@@ -6,12 +6,12 @@
 DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local')
 
 install_ubuntu() {
-	# Install Ubuntu development packages
-	echo "Ubuntu or apt based systems"
+    # Install Ubuntu development packages
+    echo "Ubuntu or apt based systems"
 
     # i3 WM repos
     echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
-	sudo apt-get update
+    sudo apt-get update
     # TODO: Unsecure!!! Fix this later.
     sudo apt-get --allow-unauthenticated install sur5r-keyring
 
@@ -21,43 +21,43 @@ install_ubuntu() {
     #install_atom
 
     # Python related stuff, should trim down later.
-	sudo apt-get install python-dev python3-dev python-pip vim wget i3 -y
-	sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
-	#libreadline5-dev #Find difference between base and 5
+    sudo apt-get install python-dev python3-dev python-pip vim wget i3 -y
+    sudo apt get install build-essential libz-dev libreadline-dev libncursesw5-dev libssl-dev libgdbm-dev libsqlite3-dev libbz2-dev libc6-dev -y
+    #libreadline5-dev #Find difference between base and 5
 
-	# Python 3.2 +
-	sudo apt-get install liblzma-dev -y
+    # Python 3.2 +
+    sudo apt-get install liblzma-dev -y
 
-	# Optional
-	sudo apt-get install tk-dev libdb-dev -y
+    # Optional
+    sudo apt-get install tk-dev libdb-dev -y
 
-	# ZSH via package manager
-	echo "Install zsh package"
-	sudo apt-get install zsh -y
+    # ZSH via package manager
+    echo "Install zsh package"
+    sudo apt-get install zsh -y
 }
 
 install_centos() {
     # Install CentOS development packages
-	echo "CentOS or yum based based systems"
-	sudo yum update
-	sudo yum install python-devel python-pip vim wget
-	sudo yum groupinstall "Development tools" -y
-	sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
-	sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y
-	#yum -y install mysql-devel  #Since I use PyMSQL - it's not really needed
+    echo "CentOS or yum based based systems"
+    sudo yum update
+    sudo yum install python-devel python-pip vim wget
+    sudo yum groupinstall "Development tools" -y
+    sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel -y
+    sudo yum install libxml2-devel libxslt-devel sqlite sqlite-devel  # -y
+    #yum -y install mysql-devel  #Since I use PyMSQL - it's not really needed
 
-	# ZSH via package manager
-	echo "Install zsh package"
-	sudo yum install zsh -y
+    # ZSH via package manager
+    echo "Install zsh package"
+    sudo yum install zsh -y
 }
 
 install_mac(){
     # Install brew package manager
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     # Install Homebrew tap for brewfile usage
-	brew tap Homebrew/bundle
+    brew tap Homebrew/bundle
     cd ~/dotfiles
-	brew bundle
+    brew bundle
 }
 
 install_zsh(){
@@ -71,13 +71,13 @@ install_zsh(){
 
 install_oh_my_zsh(){
     # Install Oh My ZSH
-	echo "Installing Oh My ZSH!"
-	cd $HOME
+    echo "Installing Oh My ZSH!"
+    cd $HOME
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-	echo "Making ZSH the default shell (restart will be required)"
-	chsh -s "$(which zsh)" # Make ZSH default shell
-	echo "Current shell is: $SHELL"
-	echo "Zsh version is $(zsh --version)." # Check verison
+    echo "Making ZSH the default shell (restart will be required)"
+    chsh -s "$(which zsh)" # Make ZSH default shell
+    echo "Current shell is: $SHELL"
+    echo "Zsh version is $(zsh --version)." # Check verison
     echo ""
 }
 
@@ -92,7 +92,7 @@ install_numix(){
     sudo make install
     gsettings set org.gnome.desktop.interface gtk-theme "Numix"
     gsettings set org.gnome.desktop.wm.preferences theme "Numix"
-    
+
     sudo add-apt-repository ppa:numix/ppa
     sudo apt-get update
     sudo apt-get install numix-icon-theme
@@ -100,35 +100,35 @@ install_numix(){
 
 install_dotfiles(){
     # Copy dotfiles to home directory
-	echo "Setting default text editor to vim"
-	export VISUAL=vim
-	export EDITOR="$VISUAL"
+    echo "Setting default text editor to vim"
+    export VISUAL=vim
+    export EDITOR="$VISUAL"
 
-	for file in ${DOTFILE_ARRAY[@]};
-	do
-		echo "Symlinking $file to $HOME"
-		ln -sfn $HOME/dotfiles/$file $HOME
-	done
+    for file in ${DOTFILE_ARRAY[@]};
+    do
+        echo "Symlinking $file to $HOME"
+        ln -sfn $HOME/dotfiles/$file $HOME
+    done
 
-	# Moving folders one by one
-	echo "Moving .vim to home directory"
-	cp -r $HOME/dotfiles/.vim $HOME
+    # Moving folders one by one
+    echo "Moving .vim to home directory"
+    cp -r $HOME/dotfiles/.vim $HOME
 
-	echo "Moving .i3 to home directory"
+    echo "Moving .i3 to home directory"
     cp -r $HOME/dotfiles/.i3 $HOME
 
-	echo "Copying .fonts to home directory"
+    echo "Copying .fonts to home directory"
     cp -r $HOME/dotfiles/.fonts $HOME
 }
 
 install_pip_packages(){
     # Install Python packages
-	sudo pip install --upgrade pip
-	sudo pip install virtualenv
-	cd $HOME
-	virtualenv env
-	source ~/env/bin/activate
-	pip install powerline-status
+    sudo pip install --upgrade pip
+    sudo pip install virtualenv
+    cd $HOME
+    virtualenv env
+    source ~/env/bin/activate
+    pip install powerline-status
 }
 
 install_python(){
@@ -178,12 +178,12 @@ install_baseos(){
             then
                 install_centos
             fi
-	install_python
-	install_zsh
+    install_python
+    install_zsh
         echo "Packages have been installed."
     elif [[ $OSTYPE == "darwin"* ]]
     then
-	install_mac
+    install_mac
     else
         echo "Operating system "$OSTYPE" is not supported."
     fi
