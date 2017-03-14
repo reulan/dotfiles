@@ -1,6 +1,7 @@
 # oh-my-zsh stuff{{{
 # Path to your oh-my-zsh installation.
-export ZSH=/home/mpmsimo/.oh-my-zsh
+#export ZSH=/home/mpmsimo/.oh-my-zsh
+export ZSH=/Users/mpmsimo/.oh-my-zsh
 
 # oh-my-zsh theme
 ZSH_THEME="sunaku"
@@ -67,16 +68,7 @@ alias py=$(which python)
 alias aenv=$HOME'/env/bin/activate'
 
 # Enter virtualenv 
-. $HOME/denv/bin/activate
-
-#echo ''
-#python $HOME/Projects/hello_chengyu/hello_chengyu.py
-
-# Load OpenStack openrc
-source ~/openrc.sh
-
-# Change directory to current project
-cd ~/Projects/nsb
+. $HOME/env/bin/activate
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

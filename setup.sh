@@ -191,6 +191,6 @@ install_baseos(){
 
 install_baseos
 install_pip_packages
-install_dotfiles
 install_oh_my_zsh
+install_dotfiles
 #install_numix
