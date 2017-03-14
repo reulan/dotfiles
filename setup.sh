@@ -51,6 +51,15 @@ install_centos() {
 	sudo yum install zsh -y
 }
 
+install_mac(){
+    # Install brew package manager
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # Install Homebrew tap for brewfile usage
+	brew tap Homebrew/bundle
+    cd ~/dotfiles
+	brew bundle
+}
+
 install_zsh(){
     # Install ZSH addons
     wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O
@@ -101,6 +110,7 @@ install_dotfiles(){
 		ln -sfn $HOME/dotfiles/$file $HOME
 	done
 
+	# Moving folders one by one
 	echo "Moving .vim to home directory"
 	cp -r $HOME/dotfiles/.vim $HOME
 
@@ -168,19 +178,19 @@ install_baseos(){
             then
                 install_centos
             fi
+	install_python
+	install_zsh
         echo "Packages have been installed."
-    elif [[ $OSTYPE == 'darwin*' ]]
+    elif [[ $OSTYPE == "darwin"* ]]
     then
-        echo "I'm a Mac."
+	install_mac
     else
         echo "Operating system "$OSTYPE" is not supported."
     fi
 }
 
 install_baseos
-install_python
 install_pip_packages
-install_zsh
 install_dotfiles
 install_oh_my_zsh
 #install_numix
