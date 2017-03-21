@@ -20,6 +20,7 @@ brew 'git'
 
 # ZSH shell environment - then oh-my-zsh is installed afterwards
 brew 'zsh'
+brew 'zsh-syntax-highlighting'
 
 # Terminal multiplexer
 brew 'tmux'
@@ -27,6 +28,9 @@ brew 'tmux'
 # Other useful packages
 brew 'openssl'
 brew 'xz'
+brew 'gpg'
+brew 'hub'
+brew 'node'
 
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
