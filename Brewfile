@@ -10,6 +10,8 @@ brew 'vim'
 
 # Programming lanaguages and language-specific package managers
 brew 'python3'
+brew 'go'
+brew 'glide'
 
 # CLI file downloading / http accessors
 brew 'curl'
@@ -41,3 +43,4 @@ cask 'virtualbox'
 cask 'slack'
 cask 'spotify'
 cask 'iterm2'
+cask 'java'

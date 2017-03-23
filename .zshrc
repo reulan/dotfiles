@@ -1,7 +1,8 @@
 # oh-my-zsh stuff{{{
 # Path to your oh-my-zsh installation.
 #export ZSH=/home/mpmsimo/.oh-my-zsh
-export ZSH=/Users/mpmsimo/.oh-my-zsh
+#export ZSH=/Users/mpmsimo/.oh-my-zsh
+export ZSH=/Users/msimo/.oh-my-zsh
 
 # oh-my-zsh theme
 ZSH_THEME="sunaku"
@@ -69,6 +70,13 @@ alias aenv=$HOME'/env/bin/activate'
 
 # Enter virtualenv 
 . $HOME/env/bin/activate
+
+# Golang export variables
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
