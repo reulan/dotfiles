@@ -8,16 +8,10 @@
 # Text editors
 brew 'vim'
 
-# Programming lanaguages and language-specific package managers
+# Programming lanaguages, language-specific package managers, and source control
 brew 'python3'
 brew 'go'
 brew 'glide'
-
-# CLI file downloading / http accessors
-brew 'curl'
-brew 'wget'
-
-# Source control
 brew 'git'
 
 # ZSH shell environment - then oh-my-zsh is installed afterwards
@@ -27,21 +21,27 @@ brew 'zsh-syntax-highlighting'
 # Terminal multiplexer
 brew 'tmux'
 
-# Other useful packages
+# Sysadmin/useful packages
+brew 'curl'
+brew 'wget'
 brew 'openssl'
 brew 'xz'
 brew 'gpg'
 brew 'hub'
 brew 'node'
+
+# Automation
 brew 'kubernetes-cli'
+brew 'awscli'
+brew 'terraform'
 
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 
 # Install application casks
-cask 'google-chrome'
 cask 'virtualbox'
 cask 'slack'
-cask 'spotify'
 cask 'iterm2'
 cask 'java'
+cask 'google-chrome'
+cask 'spotify'

@@ -1,8 +1,6 @@
 # oh-my-zsh stuff{{{
 # Path to your oh-my-zsh installation.
-#export ZSH=/home/mpmsimo/.oh-my-zsh
-#export ZSH=/Users/mpmsimo/.oh-my-zsh
-export ZSH=/Users/msimo/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # oh-my-zsh theme
 ZSH_THEME="sunaku"
