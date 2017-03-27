@@ -33,6 +33,7 @@ brew 'xz'
 brew 'gpg'
 brew 'hub'
 brew 'node'
+brew 'kubernetes-cli'
 
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'

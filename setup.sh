@@ -167,6 +167,10 @@ install_atom(){
     cd ~
 }
 
+install_vim_plug(){
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 install_baseos(){
     if [[ $OSTYPE == 'linux-gnu' ]]
         then
@@ -193,4 +197,5 @@ install_baseos
 #install_pip_packages
 #install_oh_my_zsh
 install_dotfiles
+install_vim_plug
 #install_numix
