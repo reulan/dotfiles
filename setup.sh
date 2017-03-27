@@ -1,9 +1,9 @@
 #!/bin/bash
 #setup.sh
-#Date created; 04/04/2016
+#Date created: 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local' 'tmux.conf')
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local' 'tmux.conf' 'Brewfile')
 
 install_ubuntu() {
     # Install Ubuntu development packages
@@ -17,8 +17,6 @@ install_ubuntu() {
 
     # feh
     sudo apt-get install feh -y
-
-    #install_atom
 
     # Python related stuff, should trim down later.
     sudo apt-get install python-dev python3-dev python-pip vim wget i3 -y
@@ -76,26 +74,7 @@ install_oh_my_zsh(){
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     echo "Making ZSH the default shell (restart will be required)"
     chsh -s "$(which zsh)" # Make ZSH default shell
-    echo "Current shell is: $SHELL"
-    echo "Zsh version is $(zsh --version)." # Check verison
-    echo ""
-}
-
-install_numix(){
-    sudo apt install numix-gtk-theme ruby
-    sudo gem install sass
-    sudo apt-get install libglib2.0-dev libgdk-pixbuf2.0-dev libxml2-utils
-    cd ~
-    git clone git@github.com:numixproject/numix-gtk-theme.git
-    cd numix-gtk-theme
-    make
-    sudo make install
-    gsettings set org.gnome.desktop.interface gtk-theme "Numix"
-    gsettings set org.gnome.desktop.wm.preferences theme "Numix"
-
-    sudo add-apt-repository ppa:numix/ppa
-    sudo apt-get update
-    sudo apt-get install numix-icon-theme
+    echo "ZSH version is $(zsh --version)." # Check verison
 }
 
 install_dotfiles(){
@@ -160,13 +139,6 @@ install_python(){
     sudo make altinstall
 }
 
-install_atom(){
-    cd /tmp
-    wget https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
-    sudo dpkg --install atom-amd64.deb
-    cd ~
-}
-
 install_vim_plug(){
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
@@ -198,4 +170,3 @@ install_baseos
 #install_oh_my_zsh
 install_dotfiles
 install_vim_plug
-#install_numix
