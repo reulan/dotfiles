@@ -41,6 +41,7 @@ setopt \
   inc_append_history
 
 bindkey -v
+bindkey "^R" history-incremental-search-backward
 
 # Import alternate zsh configs
 #for file in $HOME/dotfiles/zsh/*.zsh; do
