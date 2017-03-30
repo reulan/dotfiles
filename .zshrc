@@ -1,18 +1,13 @@
-# oh-my-zsh stuff{{{
-# Path to your oh-my-zsh installation.
+# Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
-# oh-my-zsh theme
 ZSH_THEME="sunaku"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# ZSH plugins
 plugins=(git)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mpmsimo/.local/bin:/home/mpmsimo/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -40,32 +35,17 @@ setopt \
   prompt_subst \
   inc_append_history
 
+# Custom keybindings
 bindkey -v
 bindkey "^R" history-incremental-search-backward
-
-# Import alternate zsh configs
-#for file in $HOME/dotfiles/zsh/*.zsh; do
-#    if [[ $DEBUG > 0 ]]; then
-#        echo "zsh: sourcing $file"
-#    fi
-#    source $file
-#done
-
-#eval $( dircolors -b $XDG_CONFIG_HOME/zsh/LS_COLORS/LS_COLORS )
-#export LS_COLORS
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# aliases
 alias py=$(which python)
 alias aenv=$HOME'/env/bin/activate'
+alias tf=$(terraform)
 
 # Enter virtualenv 
 . $HOME/env/bin/activate
@@ -79,3 +59,5 @@ export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Local scripts
