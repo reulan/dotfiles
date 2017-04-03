@@ -39,6 +39,20 @@ setopt \
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
+# Import alternate zsh configs
+#for file in $HOME/dotfiles/zsh/*.zsh; do
+#    if [[ $DEBUG > 0 ]]; then
+#        echo "zsh: sourcing $file"
+#    fi
+#    source $file
+#done
+
+#eval $( dircolors -b $XDG_CONFIG_HOME/zsh/LS_COLORS/LS_COLORS )
+#export LS_COLORS
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
@@ -51,11 +65,15 @@ alias tf=$(terraform)
 . $HOME/env/bin/activate
 
 # Golang export variables
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$(pwd)
+export PATH=$PATH:$GOPATH/bin
+export GO15VENDOREXPERIMENT=1
+export CGO_ENABLED=1
+#export GOPATH=$HOME/golang
+#export GOROOT=/usr/local/opt/go/libexec
+#export GOBIN=$GOPATH/bin
+#export PATH=$PATH:$GOPATH
+#export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
