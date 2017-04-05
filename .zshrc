@@ -76,6 +76,6 @@ export CGO_ENABLED=1
 #export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Local scripts
