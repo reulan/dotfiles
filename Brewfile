@@ -34,6 +34,7 @@ brew 'node'
 brew 'kubernetes-cli'
 brew 'awscli'
 brew 'terraform'
+brew 'docker'
 
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
