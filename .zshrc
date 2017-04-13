@@ -58,11 +58,11 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # aliases
 alias py=$(which python)
-alias aenv=$HOME'/env/bin/activate'
-alias tf=$(terraform)
+alias tf=terraform
 
 # Enter virtualenv 
-. $HOME/env/bin/activate
+AENV=$HOME'/env/bin/activate'
+source $AENV
 
 # Golang export variables
 export GOPATH=$(pwd)
