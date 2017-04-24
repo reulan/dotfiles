@@ -1,3 +1,5 @@
 [user]  
     name = Michael Simo
     email = os@mpmsimo.com
+[push]
+    default = simple
