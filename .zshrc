@@ -59,7 +59,10 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # aliases
 alias py=$(which python)
 alias tf=terraform
+
+# k8's aliases
 alias kc=kubectl
+alias kcsc='kubectl config use-context'
 
 # Enter virtualenv 
 AENV=$HOME'/env/bin/activate'
