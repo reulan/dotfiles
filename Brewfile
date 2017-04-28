@@ -34,13 +34,17 @@ brew 'node'
 brew 'kubernetes-cli'
 brew 'awscli'
 brew 'terraform'
+
+# Docker and virtual machines
 brew 'docker'
+brew 'docker-machine'
+brew 'docker-compose'
+cask 'virtualbox'
 
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 
 # Install application casks
-cask 'virtualbox'
 cask 'slack'
 cask 'iterm2'
 cask 'java'

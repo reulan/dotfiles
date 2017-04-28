@@ -62,11 +62,15 @@ alias tf=terraform
 
 # k8's aliases
 alias kc=kubectl
-alias kcsc='kubectl config use-context'
+alias kcon='kubectl config use-context'
+alias kc3='kubectl config current-context'
 
 # Enter virtualenv 
 AENV=$HOME'/env/bin/activate'
 source $AENV
+
+# Enter docker-machine env
+#eval $(docker-machine env default)
 
 # Golang export variables
 export GOPATH=$(pwd)
