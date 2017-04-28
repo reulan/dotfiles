@@ -35,10 +35,11 @@ brew 'kubernetes-cli'
 brew 'awscli'
 brew 'terraform'
 
+# Install Docker Edge from website
 # Docker and virtual machines
-brew 'docker'
-brew 'docker-machine'
-brew 'docker-compose'
+#brew 'docker'
+#brew 'docker-machine'
+#brew 'docker-compose'
 cask 'virtualbox'
 
 # Support for install casks (desktop applications/3rd-party repos)
