@@ -62,6 +62,7 @@ alias tf=terraform
 
 # k8's aliases
 alias kc=kubectl
+alias kcd='kubectl describe'
 alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 
