@@ -45,6 +45,10 @@ cask 'virtualbox'
 # Support for install casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 
+# Window manager
+tap 'crisidev/homebrew-chunkwm'
+brew 'chunkwm'
+
 # Install application casks
 cask 'slack'
 cask 'iterm2'
