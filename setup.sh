@@ -77,29 +77,6 @@ install_oh_my_zsh(){
     echo "ZSH version is $(zsh --version)." # Check verison
 }
 
-install_dotfiles(){
-    # Copy dotfiles to home directory
-    echo "Setting default text editor to vim"
-    export VISUAL=vim
-    export EDITOR="$VISUAL"
-
-    for file in ${DOTFILE_ARRAY[@]};
-    do
-        echo "Symlinking $file to $HOME"
-        ln -sfn $HOME/dotfiles/$file $HOME
-    done
-
-    # Moving folders one by one
-    echo "Moving .vim to home directory"
-    cp -r $HOME/dotfiles/.vim $HOME
-
-    echo "Moving .i3 to home directory"
-    cp -r $HOME/dotfiles/.i3 $HOME
-
-    echo "Copying .fonts to home directory"
-    cp -r $HOME/dotfiles/.fonts $HOME
-}
-
 install_pip_packages(){
     # Install Python packages
     sudo pip install --upgrade pip
@@ -168,5 +145,5 @@ install_baseos(){
 install_baseos
 #install_pip_packages
 #install_oh_my_zsh
-install_dotfiles
+bash ./link.sh
 install_vim_plug
