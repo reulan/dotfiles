@@ -51,3 +51,4 @@
     s = status -sb
 
     uco = reset HEAD^
+    hist = log --follow --
