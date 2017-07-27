@@ -56,6 +56,8 @@ install_mac(){
     brew tap Homebrew/bundle
     cd ~/dotfiles
     brew bundle
+    brew services start khd
+    brew services start chunkwm
 }
 
 install_zsh(){

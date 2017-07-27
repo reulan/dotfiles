@@ -46,9 +46,10 @@ cask 'virtualbox'
 tap 'caskroom/homebrew-cask'
 tap 'homebrew/services' # service manager
 
-# Window manager
+# Window manager and hotkey-daemon
 tap 'crisidev/homebrew-chunkwm'
 brew 'chunkwm'
+brew 'koekeishiya/formulae/khd'
 
 # Install application casks
 cask 'slack'
