@@ -94,3 +94,5 @@ if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/msimo/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/msimo/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

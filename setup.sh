@@ -118,10 +118,6 @@ install_python(){
     sudo make altinstall
 }
 
-install_vim_plug(){
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 install_baseos(){
     if [[ $OSTYPE == 'linux-gnu' ]]
         then
@@ -144,8 +140,15 @@ install_baseos(){
     fi
 }
 
+# https://github.com/junegunn/vim-plug
+install_vim(){
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 install_baseos
-#install_pip_packages
-#install_oh_my_zsh
+install_vim
+install_pip_packages
+install_oh_my_zsh
 bash ./link.sh
 install_vim_plug
