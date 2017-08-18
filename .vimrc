@@ -159,12 +159,12 @@ vnoremap <Space> zf
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim 
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'					" Various snippets for programming
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }				" Visual directories similar to ranger
-Plug 'valloric/youcompleteme'										" YouCompleteMe syntax suggestion
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }				" YouCompleteMe config generator
-Plug 'fatih/vim-go', { 'tag': '*' }									" Golang IDE for Vim
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }			" Autocomplete daemon for Golang
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'					" Various snippets for programming
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }				" Visual directories similar to ranger
+"Plug 'valloric/youcompleteme'										" YouCompleteMe syntax suggestion
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }				" YouCompleteMe config generator
+"Plug 'fatih/vim-go', { 'tag': '*' }									" Golang IDE for Vim
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }			" Autocomplete daemon for Golang
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder for Vim
 Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling' is such a fitting un
 Plug 'scrooloose/nerdcommenter'										" L2 comment fool
