@@ -1,9 +1,10 @@
 # Launch iTerm
-alt - return		:    ~/bin/iterm-new-window
+alt - return : $HOME/.chunkwm/iterm-new-window.sh
 
-# Quit Kwm
-cmd + alt + ctrl - q	:    kwmc quit
+# Quit kwmc
+cmd + alt + ctrl - q : kwmc quit
 
+# Reload khd
 cmd + alt + ctrl - r : khd -e "reload"
 
 # focus window
