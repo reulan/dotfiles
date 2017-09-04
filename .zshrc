@@ -70,9 +70,6 @@ alias kc3='kubectl config current-context'
 AENV=$HOME'/env/bin/activate'
 source $AENV
 
-# Enter docker-machine env
-#eval $(docker-machine env default)
-
 # Golang export variables
 export GOPATH=$(pwd)
 export PATH=$PATH:$GOPATH/bin
@@ -85,12 +82,12 @@ export CGO_ENABLED=1
 #export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
-# source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Local scripts
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mpmsimo/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mpmsimo/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mpmsimo/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/mpmsimo/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mpmsimo/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/msimo/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

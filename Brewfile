@@ -34,6 +34,7 @@ brew 'node'
 brew 'kubernetes-cli'
 brew 'awscli'
 brew 'terraform'
+brew 'graphviz' # for terraform graph functionality
 
 # Install Docker Edge from website
 # Docker and virtual machines

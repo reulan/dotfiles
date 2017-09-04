@@ -126,15 +126,6 @@ if exists('$ITERM_PROFILE')
     endif
 end
 
-"" NERDTree stuff
-" Automatically open NERDTree upon entering vim
-"autocmd vimenter * NERDTree
-" Toggle nerdtree with F10
-"map <F10> :NERDTreeToggle<CR>
-" Current file in nerdtree
-"map <F9> :NERDTreeFind<CR>
-"let NERDTreeDirArrows=0
-
 "" Folding
 set foldenable          "Enables folding
 set foldlevelstart=10   "Opens most folds by default
@@ -145,7 +136,7 @@ set foldmethod=indent   "Folds based on indent level
 " Highlights last inserted text
 nnoremap gV `[v`]
 
-"jk inherits the Esc function while in insert mode
+" jk inherits the Esc function while in insert mode
 inoremap jk <esc>
 
 "edit vimrc/zshrc and load vimrc bindings
@@ -162,4 +153,28 @@ set modelines=1
 " Folding keybinds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+" }}}
+
+" Vim Plugin management via vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim 
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'					" Various snippets for programming
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }				" Visual directories similar to ranger
+"Plug 'valloric/youcompleteme'										" YouCompleteMe syntax suggestion
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }				" YouCompleteMe config generator
+"Plug 'fatih/vim-go', { 'tag': '*' }									" Golang IDE for Vim
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }			" Autocomplete daemon for Golang
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder for Vim
+Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling' is such a fitting un
+Plug 'scrooloose/nerdcommenter'										" L2 comment fool
+Plug 'davidhalter/jedi-vim'											" IDE like completion for Python
+Plug 'godlygeek/tabular'											" What's a space, what's a tab?
+Plug 'flazz/vim-colorschemes'										" Colors are nice...
+
+" Initialize Vim plugins
+call plug#end()
+
+" :source %
+" :PlugInstall
 " }}}
