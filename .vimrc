@@ -66,7 +66,7 @@ set shiftround
 set shiftwidth=4            "Spaces used when indenting
 set tabstop=4               "Tab will span four paces
 set softtabstop=4           "Tab spacing while editing, works with bksp
-set textwidth=79           "Wraps line of text after 79 chars
+"set textwidth=79           "Wraps line of text after 79 chars
 set backspace=2
 set expandtab               "Breaks tab character into multiple spaces
 let python_highlight_all = 1 "Enable Python syntax highlighting
@@ -168,7 +168,7 @@ Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder for Vim
 Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling' is such a fitting un
 Plug 'scrooloose/nerdcommenter'										" L2 comment fool
-Plug 'davidhalter/jedi-vim'											" IDE like completion for Python
+"Plug 'davidhalter/jedi-vim'											" IDE like completion for Python
 Plug 'godlygeek/tabular'											" What's a space, what's a tab?
 Plug 'flazz/vim-colorschemes'										" Colors are nice...
 

@@ -6,7 +6,7 @@ ZSH_THEME="sunaku"
 plugins=(git)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mpmsimo/.local/bin:/home/mpmsimo/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
@@ -82,12 +82,13 @@ export CGO_ENABLED=1
 #export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mpmsimo/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source $HOME'/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/msimo/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
 
+# Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
