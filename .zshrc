@@ -82,7 +82,7 @@ export CGO_ENABLED=1
 #export PATH=$PATH:$GOROOT/bin
 
 # Enable syntax highlighting
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source $HOME'/google-cloud-sdk/path.zsh.inc'; fi
@@ -92,3 +92,6 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# info
+#dig +short txt istheinternetonfire.com
