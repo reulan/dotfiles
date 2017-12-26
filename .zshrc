@@ -94,4 +94,4 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # info
-#dig +short txt istheinternetonfire.com
+dig +short txt istheinternetonfire.com
