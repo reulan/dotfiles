@@ -47,7 +47,6 @@
     po = push origin
 
     pl = pull
-
     s = status -sb
 
     uco = reset HEAD^
