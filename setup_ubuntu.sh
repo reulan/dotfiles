@@ -19,7 +19,12 @@ echo -e "${purple}Starting $0${reset}"
 
 install_ubuntu() {
     # Required packages
-    sudo apt-get install curl wget git -y
+    sudo apt-get install curl wget git vim -y
+
+    # vim-plug
+    echo -e "${blue}Installing vim-plug ${rnl}".
+    mkdir -p ~/.vim/autoload/
+    curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 
     ### Experimental
 
@@ -32,16 +37,6 @@ install_ubuntu() {
 
     # feh
     #sudo apt-get install feh -y
-}
-
-install_vim(){
-    # Install vim
-    sudo apt-get install vim -y
-
-    # Install vim plugin manager
-    # https://github.com/junegunn/vim-plug
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_zsh(){
@@ -71,7 +66,7 @@ prompt_python(){
     PY3_V="3.6.4" # Install Python 3.6.4
     while true
     do
-        echo "${yellow} Which version of Python would you like to install?"
+        echo "${yellow}Which version of Python would you like to install?"
         echo "1. $PY2_V"
         echo "2. $PY3_V"
         echo -e "0. Skip ${rnl}"
@@ -81,7 +76,7 @@ prompt_python(){
             1 ) PY_V=$PY2_V; install_python;;
             2 ) PY_V=$PY3_V; install_python;;
             0 ) break;;
-            * ) echo -e "${red} Please choose a valid option. ${rnl}";;
+            * ) echo -e "${red}Please choose a valid option. ${rnl}";;
         esac
     done
 }
@@ -127,6 +122,7 @@ install_baseos(){
     fi
 }
 
+# Fix this to work with link based on OS
 DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local' 'tmux.conf') 
 
 install_dotfiles(){

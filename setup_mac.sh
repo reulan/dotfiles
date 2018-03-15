@@ -13,9 +13,10 @@ install_mac(){
     brew services start khd
     brew services start chunkwm
 
+    # Install Vim
+    curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
     install_zsh
     install_pip_packages
-    install_vim
 }
 
 install_zsh(){
@@ -43,12 +44,6 @@ install_pip_packages(){
     virtualenv env
     source ~/env/bin/activate
     pip install powerline-status
-}
-
-# https://github.com/junegunn/vim-plug
-install_vim(){
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_mac

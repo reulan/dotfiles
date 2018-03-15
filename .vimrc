@@ -156,6 +156,8 @@ vnoremap <Space> zf
 " }}}
 
 " Vim Plugin management via vim-plug
+" https://github.com/junegunn/vim-plug
+
 call plug#begin('~/.vim/plugged')
 
 "Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim 
