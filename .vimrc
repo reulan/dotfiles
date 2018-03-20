@@ -156,9 +156,11 @@ vnoremap <Space> zf
 " }}}
 
 " Vim Plugin management via vim-plug
+" https://github.com/junegunn/vim-plug
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim 
+"Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim 
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'					" Various snippets for programming
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }				" Visual directories similar to ranger
 "Plug 'valloric/youcompleteme'										" YouCompleteMe syntax suggestion
@@ -167,10 +169,10 @@ Plug 'junegunn/vim-easy-align'										" Alignment for text in Vim
 "Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }			" Autocomplete daemon for Golang
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder for Vim
 Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling' is such a fitting un
-Plug 'scrooloose/nerdcommenter'										" L2 comment fool
+"Plug 'scrooloose/nerdcommenter'										" L2 comment fool
 "Plug 'davidhalter/jedi-vim'											" IDE like completion for Python
-Plug 'godlygeek/tabular'											" What's a space, what's a tab?
-Plug 'flazz/vim-colorschemes'										" Colors are nice...
+"Plug 'godlygeek/tabular'											" What's a space, what's a tab?
+"Plug 'flazz/vim-colorschemes'										" Colors are nice...
 
 " Initialize Vim plugins
 call plug#end()
