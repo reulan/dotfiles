@@ -3,7 +3,8 @@
 #Date created: 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' '.gitconfig.local' 'tmux.conf') 
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' '.gitconfig.local')
+TMP="/tmp"
 
 # Colorize text
 red=`tput setaf 1`
@@ -19,14 +20,26 @@ echo -e "${purple}Starting $0${reset}"
 
 install_ubuntu() {
     # Required packages
-    sudo apt-get install curl wget git vim -y
+    sudo apt-get install curl wget git -y
+}
 
-    # vim-plug
-    echo -e "${blue}Installing vim-plug ${rnl}".
-    mkdir -p ~/.vim/autoload/
-    curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+install_zsh(){
+    # ZSH via package manager
+    echo -e "${blue}Installing ZSH${rnl}\n"
+    sudo apt-get install zsh -y
 
+    # Install Oh My ZSH
+    cd $TMP
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    cd $HOME
+    chsh -s "$(which zsh)" # Make ZSH default shell
+    echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
+}
+
+# Window Manager
+install_i3(){
     ### Experimental
+    echo -e "${blue}Installing i3${rnl}\n"
 
     # i3 WM repos
     #echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
@@ -39,70 +52,56 @@ install_ubuntu() {
     #sudo apt-get install feh -y
 }
 
-install_zsh(){
-    # ZSH via package manager
-    echo -e "${blue}Installing ZSH${rnl}\n"
-    sudo apt-get install zsh -y
+# Vim
+install_onivim(){
+    echo -e "${blue}Installing onivim${rnl}\n"
 
-    # Install Oh My ZSH
+    sudo apt-get install libappindicator1 -y
+    sudo apt-get install -f -y
+
+    # Install neovim
+    sudo apt-get install software-properties-common -y
+    sudo add-apt-repository ppa:neovim-ppa/stable
+    sudo apt-get update
+    sudo apt-get install neovim -y
+
+    OMNI_V="0.3.1"
+    cd $TMP
+    wget https://github.com/onivim/oni/releases/download/v$OMNI_V/Oni-$OMNI_V-amd64-linux.deb
+    sudo dpkg -i Oni-$OMNI_V-amd64-linux.deb
     cd $HOME
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-    chsh -s "$(which zsh)" # Make ZSH default shell
-    echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
+
+    # vim-plug
+    #echo -e "${blue}Installing vim-plug ${rnl}".
+    #mkdir -p ~/.vim/autoload/
+    #curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+}
+
+install_python(){
+    echo -e "${blue}Installing Python${rnl}\n"
+
+    # Python 2
+    sudo apt-get install python-dev python-pip python-dev -y
+
+    # Python 3
+    sudo apt-get install python3-dev python3-pip python3-dev -y
+
+    # Neovim
+    sudo apt-get install python-neovim python3-neovim -y
 }
 
 install_pip_packages(){
     # Install Python packages
+    echo -e "${blue}Installing pip packages${rnl}\n"
+
     sudo pip install --upgrade pip
     sudo pip install virtualenv
+
     cd $HOME
     virtualenv env
     source ~/env/bin/activate
+
     pip install powerline-status
-}
-
-prompt_python(){
-    PY2_V="2.7.14" # Install Python 2.7.14
-    PY3_V="3.6.4" # Install Python 3.6.4
-    while true
-    do
-        echo "${yellow}Which version of Python would you like to install?"
-        echo "1. $PY2_V"
-        echo "2. $PY3_V"
-        echo -e "0. Skip ${rnl}"
-
-        read -p "Which option would you like to select? > " version
-        case $version in
-            1 ) PY_V=$PY2_V; install_python;;
-            2 ) PY_V=$PY3_V; install_python;;
-            0 ) break;;
-            * ) echo -e "${red}Please choose a valid option. ${rnl}";;
-        esac
-    done
-}
-
-install_python(){
-    # Python related packages 
-    sudo apt-get install python-pip -y
-    install_pip_packages
-
-    # Install Python dependancies
-    if $PY_V=$PY2_V; then
-        sudo apt-get install python-dev -y
-    elif $PY_V=$PY3_V; then
-        sudo apt-get install python3-dev -y
-    fi
-
-    # Install Python
-    PY_URL="https://www.python.org/ftp/python/$PY_V/Python-$PY_V.tgz"
-    echo -e "${blue}Installing Python $PY_V ${rnl}".
-    cd $HOME/dev
-    wget --no-check-certificate $PY_URL
-    tar zxvf "Python-"$PY_V".tgz"
-    cd $HOME/dev/"Python-$PY_V"
-    sudo ./configure --prefix=/usr/local
-    sudo make
-    sudo make altinstall
 }
 
 install_baseos(){
@@ -112,9 +111,12 @@ install_baseos(){
             then
                 install_ubuntu
             fi
-    prompt_python 
+    install_i3
+    install_python
+    install_onivim
     install_zsh
     install_dotfiles
+    install_gcloud
         echo -e "${green}Packages have been installed.${rnl}"
     else
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
@@ -122,12 +124,11 @@ install_baseos(){
     fi
 }
 
-# Fix this to work with link based on OS
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local' 'tmux.conf') 
-
 install_dotfiles(){
     # Copy dotfiles to home directory
     echo "${purple}Setting default text editor to vim"
+    cd $HOME/dotfiles
+
     export VISUAL=vim
     export EDITOR="$VISUAL"
 
@@ -162,6 +163,5 @@ install_gcloud(){
     gcloud init
 }
 
-#install_baseos
-install_gcloud
+install_baseos
 source ~/.zshrc
