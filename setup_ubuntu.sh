@@ -115,8 +115,8 @@ install_baseos(){
     install_python
     install_onivim
     install_zsh
-    install_gcloud
     install_dotfiles
+    install_gcloud
         echo -e "${green}Packages have been installed.${rnl}"
     else
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
@@ -127,6 +127,8 @@ install_baseos(){
 install_dotfiles(){
     # Copy dotfiles to home directory
     echo "${purple}Setting default text editor to vim"
+    cd $HOME/dotfiles
+
     export VISUAL=vim
     export EDITOR="$VISUAL"
 
