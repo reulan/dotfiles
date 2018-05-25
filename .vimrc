@@ -173,6 +173,7 @@ Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling' is such a fitti
 "Plug 'davidhalter/jedi-vim'											" IDE like completion for Python
 "Plug 'godlygeek/tabular'											" What's a space, what's a tab?
 "Plug 'flazz/vim-colorschemes'										" Colors are nice...
+Plug 'hashivim/vim-terraform'                                       " Terraform niceify
 
 " Initialize Vim plugins
 call plug#end()
