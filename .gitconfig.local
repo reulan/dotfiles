@@ -1,8 +1,0 @@
-[user]  
-    name = Michael Simo
-    email = os@mpmsimo.com
-[push]
-    default = simple
-[branch "master"]
-    remote = origin
-    merge = refs/heads/master

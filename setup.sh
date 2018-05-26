@@ -18,6 +18,18 @@ rnl="${reset}\n"
 
 echo -e "${purple}Starting $0${reset}"
 
+install_mac(){
+    echo -e "${blue}Installing MacOS settings${rnl}\n"
+    # Install brew package manager
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # Install Homebrew tap for brewfile usage
+    brew tap Homebrew/bundle
+    cd ~/dotfiles
+    brew bundle
+    brew services start khd
+    brew services start chunkwm
+}
+
 install_ubuntu() {
     # Required packages
     sudo apt-get install curl wget git -y
@@ -53,28 +65,16 @@ install_i3(){
 }
 
 # Vim
-install_onivim(){
-    echo -e "${blue}Installing onivim${rnl}\n"
+install_vim(){
+    echo -e "${blue}Installing vim${rnl}\n"
 
     sudo apt-get install libappindicator1 -y
     sudo apt-get install -f -y
 
-    # Install neovim
-    sudo apt-get install software-properties-common -y
-    sudo add-apt-repository ppa:neovim-ppa/stable
-    sudo apt-get update
-    sudo apt-get install neovim -y
-
-    OMNI_V="0.3.1"
-    cd $TMP
-    wget https://github.com/onivim/oni/releases/download/v$OMNI_V/Oni-$OMNI_V-amd64-linux.deb
-    sudo dpkg -i Oni-$OMNI_V-amd64-linux.deb
-    cd $HOME
-
     # vim-plug
-    #echo -e "${blue}Installing vim-plug ${rnl}".
-    #mkdir -p ~/.vim/autoload/
-    #curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    echo -e "${blue}Installing vim-plug ${rnl}".
+    mkdir -p ~/.vim/autoload/
+    curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_python(){
@@ -112,16 +112,19 @@ install_baseos(){
                 install_ubuntu
             fi
     install_i3
-    install_python
-    install_onivim
-    install_zsh
-    install_dotfiles
-    install_gcloud
-        echo -e "${green}Packages have been installed.${rnl}"
+    elif [[ $OSTYPE == "darwin"* ]]
+    then
+    install_mac
     else
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
         exit 1
     fi
+    install_dotfiles
+    install_gcloud
+    install_python
+    install_vim
+    install_zsh
+    echo -e "${green}Packages have been installed.${rnl}"
 }
 
 install_dotfiles(){

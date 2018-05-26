@@ -4,6 +4,7 @@
 #Created: 2/2/17
 #Author: mpmsimo
 #Usage . ./venv.sh
+# Why not pipenv?
 
 ENV="env"
 DIR="$HOME/$ENV"

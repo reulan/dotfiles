@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #link.sh - symbolic link and copy stuff over
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' '.gitconfig.local' 'tmux.conf' 'Brewfile' '.khdrc' '.chunkwmrc')
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc')
 
 install_dotfiles(){
     # Copy dotfiles to home directory
@@ -15,20 +15,15 @@ install_dotfiles(){
         ln -sfn $HOME/dotfiles/$file $HOME
     done
 
+    chmod +x ~/.chunkwmrc
+
     # Moving folders one by one
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
 
+    # Should be ubuntu only
     echo "Moving .i3 to home directory"
     cp -r $HOME/dotfiles/.i3 $HOME
-
-    echo "Copying .fonts to home directory"
-    cp -r $HOME/dotfiles/.fonts $HOME
-
-    echo "Copying .chunkwm to home directory"
-    cp -r $HOME/dotfiles/.chunkwm $HOME
-
-    chmod +x ~/.chunkwmrc
 }
 
 install_dotfiles
