@@ -14,6 +14,9 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Kitty
+export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
+
 # =========================================
 # ZSH configuration
 # =========================================
