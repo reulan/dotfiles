@@ -15,6 +15,9 @@ install_dotfiles(){
         ln -sfn $HOME/dotfiles/$file $HOME
     done
 
+    # Snowflake kitty
+    ln -sfn $HOME/dotfiles/kitty.conf $HOME/Library/Preferences/kitty/kitty.conf
+
     chmod +x ~/.chunkwmrc
 
     # Moving folders one by one
