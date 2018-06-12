@@ -16,7 +16,10 @@ install_dotfiles(){
     done
 
     # Snowflake kitty
-    ln -sfn $HOME/dotfiles/kitty.conf $HOME/Library/Preferences/kitty/kitty.conf
+    KITTY_PATH="$HOME/.config/kitty/"
+    mkdir -p $KITTY_PATH
+    echo "Symlinking kitty.conf to $KITTY_PATH"
+    ln -sfn $HOME/dotfiles/kitty.conf $KITTY_PATH
 
     chmod +x ~/.chunkwmrc
 
