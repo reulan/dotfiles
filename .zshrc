@@ -23,7 +23,8 @@ export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
 
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="sunaku"
+ZSH_THEME="kennethreitz"
+#ZSH_THEME="sunaku"
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 

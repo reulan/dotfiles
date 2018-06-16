@@ -32,6 +32,7 @@ set background=dark        "Makes background opaque black
 
 " nanotech/jellybeans.vim
 colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+
 " set guifont=Monaco:h10 noanti
 
 " =========================================
@@ -191,7 +192,8 @@ Plug 'junegunn/limelight.vim'                                       " Focus on w
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder
 Plug 'junegunn/fzf.vim'                                             " Fuzzy finder for Vim <3 <3 <3
 Plug 'junegunn/vim-peekaboo'                                        " Preview register - nm: @ // im: <CTRL-R>
-"
+Plug 'noahfrederick/vim-noctu' "Colorscheme based of 16bit ANSI colors
+
 " Initialize Vim plugins
 call plug#end()
 
