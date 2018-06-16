@@ -26,15 +26,14 @@ set cursorline              "Highlight line number of where cursor currently is
 " =========================================
 " Colorscheme
 " =========================================
-"set background=dark        "Makes background opaque black
-set t_Co=256                "256 color allowed
-"
+set t_Co=256               "256 color allowed
+set t_ut=                  "Fix background color weirdness when using xterm-kitty
+set background=dark        "Makes background opaque black
+
 " nanotech/jellybeans.vim
-set guifont=Monaco:h10 noanti
-try
-    colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
-catch
-endtry
+colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+
+" set guifont=Monaco:h10 noanti
 
 " =========================================
 " Sound
@@ -153,7 +152,7 @@ let g:limelight_conceal_ctermfg = 240
 let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
-" Default: 0.5
+" Default 0.5
 let g:limelight_default_coefficient = 0.7
 
 " Number of preceding/following paragraphs to include (default: 0)
@@ -185,7 +184,7 @@ let g:jedi#popup_select_first = 0
 call plug#begin('~/.vim/plugged')
 
 Plug 'davidhalter/jedi-vim'										    " IDE like completion for Python
-Plug 'fatih/vim-go', { 'tag': '*' }								    " Golang IDE for Vim
+"Plug 'fatih/vim-go', { 'tag': '*' }								    " Golang IDE for Vim
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }			    " Visual directories similar to ranger
 Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling'
 Plug 'hashivim/vim-terraform'                                       " Terraform niceify
@@ -193,7 +192,8 @@ Plug 'junegunn/limelight.vim'                                       " Focus on w
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder
 Plug 'junegunn/fzf.vim'                                             " Fuzzy finder for Vim <3 <3 <3
 Plug 'junegunn/vim-peekaboo'                                        " Preview register - nm: @ // im: <CTRL-R>
-"
+Plug 'noahfrederick/vim-noctu' "Colorscheme based of 16bit ANSI colors
+
 " Initialize Vim plugins
 call plug#end()
 

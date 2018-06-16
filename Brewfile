@@ -21,6 +21,9 @@ brew 'zsh-syntax-highlighting'
 # Terminal multiplexer
 brew 'tmux'
 
+# dotfiles things
+brew 'neofetch'
+
 # Sysadmin/useful packages
 brew 'curl'
 brew 'wget'
@@ -28,7 +31,6 @@ brew 'openssl'
 brew 'xz'
 brew 'gpg'
 brew 'hub'
-brew 'node'
 
 # Automation
 brew 'kubernetes-cli'
@@ -36,11 +38,7 @@ brew 'awscli'
 brew 'terraform'
 brew 'graphviz' # for terraform graph functionality
 
-# Install Docker Edge from website
-# Docker and virtual machines
-#brew 'docker'
-#brew 'docker-machine'
-#brew 'docker-compose'
+# Virtualization
 cask 'virtualbox'
 
 # Support for install casks (desktop applications/3rd-party repos)

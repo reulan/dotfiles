@@ -20,6 +20,13 @@ install_dotfiles(){
     mkdir -p $KITTY_PATH
     echo "Symlinking kitty.conf to $KITTY_PATH"
     ln -sfn $HOME/dotfiles/kitty.conf $KITTY_PATH
+    
+    # Snowflake kitty
+    CHUNKWM_PLUGIN_PATH="$HOME/.chunkwm_plugins/"
+    mkdir -p $CHUNKWM_PLUGIN_PATH
+    echo "Symlinking .so files to $CHUNKWM_PLUGIN_PATH"
+    ln -sfn $HOME/dotfiles/kitty.conf $CHUNKWM_PLUGIN_PATH
+
 
     chmod +x ~/.chunkwmrc
 

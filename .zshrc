@@ -23,7 +23,8 @@ export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
 
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="sunaku"
+ZSH_THEME="kennethreitz"
+#ZSH_THEME="sunaku"
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -70,6 +71,9 @@ alias kcd='kubectl describe'
 alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 
+# utilties
+alias diffy='diff -y --suppress-common-lines'
+
 # =========================================
 # Python 
 # =========================================
@@ -100,7 +104,8 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 # Ansible Vault
 decrypt ()
 {
-    ansible-vault decrypt --vault-password-file=~/.vault_kd $1
+    #ansible-vault decrypt --vault-password-file=~/.vault_kd $1
+    ansible-vault decrypt --vault-password-file=~/.vault_ai $1
 }
 
 encrypt ()
