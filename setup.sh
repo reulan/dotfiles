@@ -3,7 +3,6 @@
 #Date created: 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' '.gitconfig.local')
 TMP="/tmp"
 
 # Colorize text
@@ -128,26 +127,7 @@ install_baseos(){
 }
 
 install_dotfiles(){
-    # Copy dotfiles to home directory
-    echo "${purple}Setting default text editor to vim"
-    cd $HOME/dotfiles
-
-    export VISUAL=vim
-    export EDITOR="$VISUAL"
-
-    for file in ${DOTFILE_ARRAY[@]};
-    do
-        echo "Symlinking $file to $HOME"
-        ln -sfn $HOME/dotfiles/$file $HOME
-    done
-
-    # Moving folders one by one
-    echo "Moving .vim to home directory"
-    cp -r $HOME/dotfiles/.vim $HOME
-
-    #echo "Moving .i3 to home directory"
-    #cp -r $HOME/dotfiles/.i3 $HOME
-    echo -e "${rnl}"
+    bash link.sh &
 }
 
 install_gcloud(){
