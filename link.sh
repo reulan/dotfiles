@@ -1,7 +1,11 @@
 #!/usr/bin/bash
 #link.sh - symbolic link and copy stuff over
 
+#echo "${purple}Setting default text editor to vim"
+#echo -e "${rnl}"
+
 DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc')
+
 
 install_dotfiles(){
     # Copy dotfiles to home directory
@@ -15,13 +19,18 @@ install_dotfiles(){
         ln -sfn $HOME/dotfiles/$file $HOME
     done
 
-    # Snowflake kitty
+    # kitty
+    KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf')
     KITTY_PATH="$HOME/.config/kitty/"
     mkdir -p $KITTY_PATH
-    echo "Symlinking kitty.conf to $KITTY_PATH"
-    ln -sfn $HOME/dotfiles/kitty.conf $KITTY_PATH
+
+    for file in ${KITTY_CONFIGS[@]};
+    do
+        echo "Symlinking $file to $KITTY_PATH"
+        ln -sfn $HOME/dotfiles/kitty/$file $KITTY_PATH
+    done
     
-    # Snowflake kitty
+    # Snowflake chunkwm
     CHUNKWM_PLUGIN_PATH="$HOME/.chunkwm_plugins/"
     mkdir -p $CHUNKWM_PLUGIN_PATH
     echo "Symlinking .so files to $CHUNKWM_PLUGIN_PATH"
