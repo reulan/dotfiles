@@ -14,8 +14,11 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# =========================================
 # Kitty
-export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
+# =========================================
+# export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
+#alias kittyt=$(/Applications/kitty.app/Contents/MacOS/kitty) - don't do this!
 
 # =========================================
 # ZSH configuration

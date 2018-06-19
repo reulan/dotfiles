@@ -6,7 +6,6 @@
 
 DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc')
 
-
 install_dotfiles(){
     # Copy dotfiles to home directory
     echo "Setting default text editor to vim"
@@ -34,7 +33,7 @@ install_dotfiles(){
     CHUNKWM_PLUGIN_PATH="$HOME/.chunkwm_plugins/"
     mkdir -p $CHUNKWM_PLUGIN_PATH
     echo "Symlinking .so files to $CHUNKWM_PLUGIN_PATH"
-    ln -sfn $HOME/dotfiles/kitty.conf $CHUNKWM_PLUGIN_PATH
+    #ln -sfn $HOME/dotfiles/kitty.conf $CHUNKWM_PLUGIN_PATH
 
 
     chmod +x ~/.chunkwmrc
