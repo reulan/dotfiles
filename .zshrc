@@ -107,8 +107,8 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 # Ansible Vault
 decrypt ()
 {
-    #ansible-vault decrypt --vault-password-file=~/.vault_kd $1
-    ansible-vault decrypt --vault-password-file=~/.vault_ai $1
+    ansible-vault decrypt --vault-password-file=~/.vault_kd $1
+    #ansible-vault decrypt --vault-password-file=~/.vault_ai $1
 }
 
 encrypt ()

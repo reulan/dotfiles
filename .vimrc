@@ -176,6 +176,13 @@ let g:jedi#use_tabs_not_buffers = 1
 "let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_select_first = 0
 
+" vim-terraform
+" =========================================
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
+let g:terraform_fold_sections = 1
+let g:terraform_remap_spacebar = 1
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
