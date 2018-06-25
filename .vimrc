@@ -1,6 +1,8 @@
 " =========================================
 " General Settings
 " =========================================
+syntax on
+
 set nocompatible            "Use vim settings instead of vi
 set encoding=utf-8          "Enables utf-8 encoding
 "set title	                "Change the terminal's title
@@ -20,7 +22,9 @@ set noswapfile
 set number                  "Show line numbers
 set numberwidth=3
 set ruler
-
+set autochdir
+set ttyfast                 "Fast terminal 
+set hidden                  "Hidden buffers, not closed 
 set cursorline              "Highlight line number of where cursor currently is
 
 " =========================================
@@ -56,19 +60,32 @@ if has("autocmd")
 endif
 
 "Searching the file 
+set ignorecase              " Search ignoring case
 set incsearch               "Allows matching while word is being typed
 set hlsearch                "Highlight matches - :noh to clear
 set laststatus=2            "Always display the status line
 set smartcase               "Ignore case if patter is all lowercase, otherwise its case sensitive
 set matchpairs+=<:>         "Useful for HTML/XML editing
-
-set showmatch               "Show the matching part of the pair for parenthesis
 set mat=1                   "Blink (in tenth of seconds) when matching brackets
+set more                      
+
+"Show all the tings
+set showmatch               "Show the matching part of the pair for parenthesis
+set showcmd                 "Show current command
+set showmode
+set wildmenu
+set display+=lastline
 
 " Text and indentation 
 syntax enable               "Enable syntax highlighting
 set shiftround              "Call shiftwidth mutlple times when indenting
 set nowrap                  "No need to worry about fixing autowrapped text
+set diffopt=filler,iwhite   " Ignore all whitespace and sync
+
+" Filetype configuration
+filetype on                 " Enable filetype detection
+filetype indent on          " Enable filetype-specific indenting
+filetype plugin on          " Enable filetype-specific plugins
 
 " =========================================
 " Syntax configuration 
