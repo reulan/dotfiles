@@ -41,7 +41,7 @@ brew 'graphviz' # for terraform graph functionality
 # Virtualization
 cask 'virtualbox'
 
-# Support for install casks (desktop applications/3rd-party repos)
+# Support for installing casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 tap 'homebrew/services' # service manager
 
@@ -59,3 +59,4 @@ cask 'spotify'
 cask '1password'
 cask 'discord'
 cask 'sublime-text'
+cask 'viscosity'
