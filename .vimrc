@@ -3,7 +3,7 @@
 " =========================================
 syntax on
 
-set nocompatible            "Use vim settings instead of vi
+set nocompatible            "Use vim settings instead of vi behavior
 set encoding=utf-8          "Enables utf-8 encoding
 "set title	                "Change the terminal's title
 
@@ -18,14 +18,20 @@ set nobackup
 set nowritebackup
 set noswapfile 
 
-" File layout, cursor, coloring and sounds
+" Line numbers
 set number                  "Show line numbers
 set numberwidth=3
+set scrolloff=5
+
+" File layout, cursor, sounds
 set ruler
 set autochdir
 set ttyfast                 "Fast terminal 
 set hidden                  "Hidden buffers, not closed 
 set cursorline              "Highlight line number of where cursor currently is
+
+" Autorefresh file
+set autoread
 
 " =========================================
 " Colorscheme
@@ -185,6 +191,12 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 
+" vim-illuminate
+" =========================================
+" Time in millis (default 250)
+let g:Illuminate_delay = 250
+
+
 " jedi-vim
 " =========================================
 let g:jedi#auto_initialization = 1
@@ -207,16 +219,19 @@ let g:terraform_remap_spacebar = 1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'davidhalter/jedi-vim'										    " IDE like completion for Python
-"Plug 'fatih/vim-go', { 'tag': '*' }								    " Golang IDE for Vim
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }			    " Visual directories similar to ranger
-Plug 'bling/vim-airline'											" Pimpin' out the Vim 'bling'
-Plug 'hashivim/vim-terraform'                                       " Terraform niceify
-Plug 'junegunn/limelight.vim'                                       " Focus on where you are
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }	" Fuzzy finder
-Plug 'junegunn/fzf.vim'                                             " Fuzzy finder for Vim <3 <3 <3
-Plug 'junegunn/vim-peekaboo'                                        " Preview register - nm: @ // im: <CTRL-R>
-Plug 'noahfrederick/vim-noctu' "Colorscheme based of 16bit ANSI colors
+"Plug 'junegunn/limelight.vim'
+"Plug 'noahfrederick/vim-noctu'
+Plug 'RRethy/vim-illuminate'
+Plug 'bling/vim-airline'
+Plug 'hashivim/vim-terraform'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Language specific
+"Plug 'davidhalter/jedi-vim'
+"Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Initialize Vim plugins
 call plug#end()

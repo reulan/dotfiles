@@ -14,6 +14,19 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=999999
+SAVEHIST=999999
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+
 # =========================================
 # Kitty
 # =========================================
@@ -77,6 +90,10 @@ alias kc3='kubectl config current-context'
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 
+# FUN
+# https://github.com/busyloop/lolcat
+alias lc='lolcat'
+
 # =========================================
 # Python 
 # =========================================
@@ -113,7 +130,12 @@ decrypt ()
 
 encrypt ()
 {
-    echo -n "$1" | ansible-vault encrypt_string --vault-password-file=~/.vault_kd --stdin-name secretName
+    echo -n "$2" | ansible-vault encrypt_string --vault-password-file=~/.vault_kd --stdin-name $1
+}
+
+encryptf ()
+{
+    ansible-vault encrypt --vault-password-file=~/.vault_kd $1
 }
 
 # Other
