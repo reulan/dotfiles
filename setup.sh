@@ -110,7 +110,7 @@ install_baseos(){
             then
                 install_ubuntu
             fi
-    install_i3
+    #install_i3
     elif [[ $OSTYPE == "darwin"* ]]
     then
     install_mac
@@ -118,12 +118,16 @@ install_baseos(){
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
         exit 1
     fi
+    install_niceities
+    echo -e "${green}Packages have been installed.${rnl}"
+}
+
+install_niceities(){
     install_gcloud
     install_python
     install_vim
     install_zsh
     install_dotfiles
-    echo -e "${green}Packages have been installed.${rnl}"
 }
 
 install_dotfiles(){
