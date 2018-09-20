@@ -118,11 +118,11 @@ install_baseos(){
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
         exit 1
     fi
-    install_dotfiles
     install_gcloud
     install_python
     install_vim
     install_zsh
+    install_dotfiles
     echo -e "${green}Packages have been installed.${rnl}"
 }
 

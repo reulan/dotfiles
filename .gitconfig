@@ -30,7 +30,6 @@
 
 [core]
     editor = vim
-	excludesfile = /Users/msimo/.gitignore_global
 
 [alias]
     a = add
@@ -60,11 +59,3 @@
 
     uco = reset HEAD^
     hist = log --follow --
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/msimo/.stCommitMsg
