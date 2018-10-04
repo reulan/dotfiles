@@ -225,7 +225,6 @@ Plug 'RRethy/vim-illuminate'
 Plug 'bling/vim-airline'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 

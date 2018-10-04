@@ -63,7 +63,13 @@ setopt \
 # =========================================
 # ZSH plugins 
 # =========================================
-plugins=(git)
+plugins=(
+            autoenv
+            git
+            jira
+            kubectl
+            systemadmin
+        )
 
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
