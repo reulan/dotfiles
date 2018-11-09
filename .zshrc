@@ -104,7 +104,7 @@ source $AENV
 # =========================================
 # Go 
 # =========================================
-export GOPATH=$(pwd)
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
