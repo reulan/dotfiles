@@ -5,7 +5,8 @@ the dotfiles of mpmsimo
 Will configure a Macbook or a Ubuntu machine in slightly varying ways. At a glance, you will have the following tools customized for whatever OS the script is run on:
 - text editor configuration
 - window manager configuration 
-- dotfiles configuration
+- vim configuration
+- hotkey configuration
 
 ## Usage
 ### vim
@@ -33,7 +34,6 @@ Plugins
 I practially still am on training wheels with oh-my-zsh.
 * ZSH theme coming soon?
 
-
 ### window manager
 chunkwm
 
@@ -48,9 +48,7 @@ kitty
 ## Installation
 The setup script is intended to be used when a new system is being installed. The script is unfortunately not idempotent for Ubuntu but it's getting there.
 
-### Ubuntu (Experimental)
-1. Run `setup.sh` this will do a system kernel check and if you are using `darwin`.
-2. Installs `nvim`, `oni`, and `i3` tools that I don't use day to day so the setup might be wonky.
+If the machine is already bootstrapped, and you only want to configure the dotfiles the link.sh script can be run.
 
 ### Macbook
 1. Run `setup.sh` this will do a system kernel check and if you are using `darwin` it will:
@@ -60,4 +58,4 @@ The setup script is intended to be used when a new system is being installed. Th
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
 ZSH theme to come.
-vim theme to come.
+vim theme to come - jellybeans is just so good though!?
