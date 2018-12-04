@@ -41,7 +41,8 @@ set t_ut=                  "Fix background color weirdness when using xterm-kitt
 set background=dark        "Makes background opaque black
 
 " nanotech/jellybeans.vim
-colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+" colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+colorscheme dim               "Loads Default IMproved - a 4-bit 16 color scheme
 
 " set guifont=Monaco:h10 noanti
 
