@@ -28,7 +28,7 @@ set ruler
 set autochdir
 set ttyfast                 "Fast terminal 
 set hidden                  "Hidden buffers, not closed 
-set cursorline              "Highlight line number of where cursor currently is
+"set cursorline              "Underline current line where cursor is
 
 " Autorefresh file
 set autoread
@@ -42,6 +42,7 @@ set background=dark        "Makes background opaque black
 
 " nanotech/jellybeans.vim
 " colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+
 colorscheme dim               "Loads Default IMproved - a 4-bit 16 color scheme
 
 " set guifont=Monaco:h10 noanti
