@@ -29,13 +29,7 @@ install_dotfiles(){
         ln -sfn $HOME/dotfiles/kitty/$file $KITTY_PATH
     done
     
-    # Snowflake chunkwm
-    CHUNKWM_PLUGIN_PATH="$HOME/.chunkwm_plugins/"
-    mkdir -p $CHUNKWM_PLUGIN_PATH
-    echo "Symlinking .so files to $CHUNKWM_PLUGIN_PATH"
-    #ln -sfn $HOME/dotfiles/kitty.conf $CHUNKWM_PLUGIN_PATH
-
-
+    # chunkwm
     chmod +x ~/.chunkwmrc
 
     # Moving folders one by one
