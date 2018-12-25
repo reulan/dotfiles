@@ -46,9 +46,8 @@ tap 'caskroom/homebrew-cask'
 tap 'homebrew/services' # service manager
 
 # Window manager and hotkey-daemon
-tap 'crisidev/homebrew-chunkwm'
+tap 'koekeishiya/formulae'
 brew 'chunkwm'
-brew 'koekeishiya/formulae/khd'
 
 # Install application casks
 cask 'slack'
