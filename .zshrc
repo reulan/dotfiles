@@ -32,12 +32,6 @@ setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
 
 # =========================================
-# Kitty
-# =========================================
-# export KITTY_CONFIG_DIRECTORY=$HOME/Library/Preferences/kitty/kitty.conf
-#alias kittyt=$(/Applications/kitty.app/Contents/MacOS/kitty) - don't do this!
-
-# =========================================
 # ZSH configuration
 # =========================================
 
@@ -77,7 +71,6 @@ plugins=(
 
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 # =========================================
 # Keybindings
