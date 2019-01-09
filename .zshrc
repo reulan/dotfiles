@@ -192,7 +192,10 @@ uncordon () {
 # Git
 function mergebranch() {
     { GIT_REPO_NAME=$(basename -s .git $(git config --get remote.origin.url)) } || { echo "Please navigate to a valid git directory." && return 0 }
-    bash read -p "Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? " -n 1 -r
+    #read -e -p "Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? " REPLY
+    tput setaf 2
+    read "REPLY?Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? "
+    tput sgr0
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         git checkout $1
@@ -203,7 +206,12 @@ function mergebranch() {
         git checkout $2
         git pull origin $2
         git rev-parse HEAD
-        echo "To push up this branch run:\ngit merge $1\ngit push"
+
+        tput setaf 3
+        echo "\nTo push up this branch run:"
+        tput setaf 4
+        echo "git merge $1\ngit push"
+        tput sgr0
     else
         echo -e "Unable to merge $1 into $2."
     fi
