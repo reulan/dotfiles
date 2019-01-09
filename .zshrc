@@ -124,6 +124,7 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 # =========================================
 # Functions
 # =========================================
+
 # Ansible Vault
 decrypt ()
 {
@@ -139,20 +140,6 @@ encrypt ()
 encryptf ()
 {
     ansible-vault encrypt --vault-password-file=~/.vault_kd $1
-}
-
-# Other
-mkcdir ()
-{
-    mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
-
-mknow ()
-{
-    DATE=`date +%Y%m%d`
-    mkdir -p -- "$DATE" &&
-    cd -P -- "$DATE"
 }
 
 # Kubernetes
@@ -201,6 +188,41 @@ uncordon () {
         kubectl label node $NODE cordonExpire-
     fi
 }
+
+# Git
+function mergebranch() {
+    { GIT_REPO_NAME=$(basename -s .git $(git config --get remote.origin.url)) } || { echo "Please navigate to a valid git directory." && return 0 }
+    bash read -p "Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? " -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        git checkout $1
+        git pull origin $1
+        git submodule update --init
+        git rev-parse HEAD
+
+        git checkout $2
+        git pull origin $2
+        git rev-parse HEAD
+        echo "To push up this branch run:\ngit merge $1\ngit push"
+    else
+        echo -e "Unable to merge $1 into $2."
+    fi
+}
+
+# Other
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
+
+mknow ()
+{
+    DATE=`date +%Y%m%d`
+    mkdir -p -- "$DATE" &&
+    cd -P -- "$DATE"
+}
+
 
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
