@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 #link.sh - symbolic link and copy stuff over
 
+#echo "${purple}Setting default text editor to vim"
+#echo -e "${rnl}"
+
 DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc')
 
 install_dotfiles(){
@@ -15,15 +18,23 @@ install_dotfiles(){
         ln -sfn $HOME/dotfiles/$file $HOME
     done
 
+    # kitty
+    KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf')
+    KITTY_PATH="$HOME/.config/kitty/"
+    mkdir -p $KITTY_PATH
+
+    for file in ${KITTY_CONFIGS[@]};
+    do
+        echo "Symlinking $file to $KITTY_PATH"
+        ln -sfn $HOME/dotfiles/kitty/$file $KITTY_PATH
+    done
+    
+    # chunkwm
     chmod +x ~/.chunkwmrc
 
     # Moving folders one by one
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
-
-    # Should be ubuntu only
-    echo "Moving .i3 to home directory"
-    cp -r $HOME/dotfiles/.i3 $HOME
 }
 
 install_dotfiles

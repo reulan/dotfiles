@@ -1,57 +1,87 @@
 #!/bin/bash
 #.chunkwmrc - ChunkWM remote configuration
 
+# =========================================
+# Plugns
+# =========================================
 # Specify the absolutepath to the directory to use when 
 # loading a plugin. '~' expansion is supported.
-chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 
 # If enabled, chunkwm will monitor the specified plugin_dir
 # and automatically reload any '.so' file that is changed.
 chunkc core::hotload 1
 
-# The following are config variables for the chunkwm-tiling plugin
-chunkc set global_desktop_mode           bsp
+# =========================================
+# Logging
+# =========================================
+chunkc core::log_file stdout
+chunkc core::log_level warn
 
-# chunkwm-tiling settings
-#chunkc set 1_desktop_tree                ~/.chunkwm_layouts/dev_1
-#chunkc set 2_desktop_mode                monocle
-#chunkc set 5_desktop_mode                float
+# =========================================
+# chunkwm-tiling
+# =========================================
+chunkc set global_desktop_mode          bsp
+chunkc set global_desktop_offset_top    1
+chunkc set global_desktop_offset_bottom 1
+chunkc set global_desktop_offset_left   1
+chunkc set global_desktop_offset_right  1
+chunkc set global_desktop_offset_gap    4
 
-chunkc set global_desktop_offset_top     1
-chunkc set global_desktop_offset_bottom  1
-chunkc set global_desktop_offset_left    1
-chunkc set global_desktop_offset_right   1
-chunkc set global_desktop_offset_gap     4
+chunkc set desktop_padding_step_size    10.0
+chunkc set desktop_gap_step_size        5.0
 
-#chunkc set 1_desktop_offset_top          10
-#chunkc set 1_desktop_offset_bottom       10
-#chunkc set 1_desktop_offset_left         10
-#chunkc set 1_desktop_offset_right        10
-#chunkc set 1_desktop_offset_gap          4
+chunkc set bsp_spawn_left               1
+chunkc set bsp_optimal_ratio            1.618
+chunkc set bsp_split_mode               optimal
+chunkc set bsp_split_ratio              0.5
 
-chunkc set desktop_padding_step_size     10.0
-chunkc set desktop_gap_step_size         5.0
+chunkc set mouse_follows_focus          0
+chunkc set monitor_focus_cycle          1
+chunkc set window_focus_cycle           monitor
 
-chunkc set bsp_spawn_left                1
-chunkc set bsp_optimal_ratio             1.618
-chunkc set bsp_split_mode                vertical
-chunkc set bsp_split_ratio               0.5
+chunkc set window_float_next            0
+chunkc set window_float_center          1
+chunkc set window_region_locked         1
 
-chunkc set window_focus_cycle            monitor
-chunkc set mouse_follows_focus           0
-chunkc set window_float_next             0
-chunkc set window_float_center           1
-chunkc set window_region_locked          1
+chunkc set preselect_border_color       0xff960000
+chunkc set preselect_border_width       4
+chunkc set preselect_border_radius      4
 
+chunkc set custom_bar_enabled           1
+chunkc set custom_bar_all_monitors      0
+chunkc set custom_bar_offset_top        20
+chunkc set custom_bar_offset_bottom     0
+chunkc set custom_bar_offset_left       0
+chunkc set custom_bar_offset_right      0
+
+# =========================================
 # chunkwm-border
-chunkc set focused_border_color          0xff37138c
-chunkc set focused_border_width          4
-chunkc set focused_border_radius         4
-chunkc set focused_border_skip_floating  0
+# =========================================
+chunkc set focused_border_color         0xff37138c
+chunkc set focused_border_width         12
+chunkc set focused_border_radius        6
+chunkc set focused_border_skip_floating 0
+chunkc set focused_border_skip_monocle  1
 
-#chunkc set preselect_border_color        0xff960000
-#chunkc set preselect_border_width        4
-#chunkc set preselect_border_radius       4
+# =========================================
+# chunkwm-ffm
+# =========================================
+#chunkc set ffm_bypass_modifier           \"cmd shift\"
+#chunkc set ffm_standby_on_float          0
+
+# =========================================
+# chunkwm-sa
+# =========================================
+chunkc set window_float_topmost         1
+chunkc set window_fade_inactive         1
+chunkc set window_fade_alpha            0.7
+chunkc set window_fade_duration         0.5
+chunkc set window_use_cgs_move          1
+
+# =========================================
+# Load plugins + Start the WM
+# =========================================
 
 # If chunkc plugin_dir is not set, the absolutepath is necessary.
 chunkc core::load tiling.so
@@ -67,3 +97,5 @@ chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state til
 #chunkc tiling::rule --owner Spotify --desktop 5 --follow-desktop &
 #chunkc tiling::rule --owner Steam --desktop 5 --follow-desktop &
 #chunkc tiling::rule --owner Discord --desktop 5 --follow-desktop &
+chunkc tiling::rule --owner Slack --desktop 1 --follow-desktop &
+chunkwm --load-sa

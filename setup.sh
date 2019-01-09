@@ -3,7 +3,6 @@
 #Date created: 04/04/2016
 #Author: mpmsimo
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' '.gitconfig.local')
 TMP="/tmp"
 
 # Colorize text
@@ -46,22 +45,6 @@ install_zsh(){
     cd $HOME
     chsh -s "$(which zsh)" # Make ZSH default shell
     echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
-}
-
-# Window Manager
-install_i3(){
-    ### Experimental
-    echo -e "${blue}Installing i3${rnl}\n"
-
-    # i3 WM repos
-    #echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
-    #sudo apt-get update
-    # TODO: Unsecure!!! Fix this later.
-    #sudo apt-get install i3 -y
-    #sudo apt-get --allow-unauthenticated install sur5r-keyring
-
-    # feh
-    #sudo apt-get install feh -y
 }
 
 # Vim
@@ -111,7 +94,6 @@ install_baseos(){
             then
                 install_ubuntu
             fi
-    install_i3
     elif [[ $OSTYPE == "darwin"* ]]
     then
     install_mac
@@ -119,35 +101,20 @@ install_baseos(){
         echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
         exit 1
     fi
-    install_dotfiles
+    install_niceities
+    echo -e "${green}Packages have been installed.${rnl}"
+}
+
+install_niceities(){
     install_gcloud
     install_python
     install_vim
     install_zsh
-    echo -e "${green}Packages have been installed.${rnl}"
+    install_dotfiles
 }
 
 install_dotfiles(){
-    # Copy dotfiles to home directory
-    echo "${purple}Setting default text editor to vim"
-    cd $HOME/dotfiles
-
-    export VISUAL=vim
-    export EDITOR="$VISUAL"
-
-    for file in ${DOTFILE_ARRAY[@]};
-    do
-        echo "Symlinking $file to $HOME"
-        ln -sfn $HOME/dotfiles/$file $HOME
-    done
-
-    # Moving folders one by one
-    echo "Moving .vim to home directory"
-    cp -r $HOME/dotfiles/.vim $HOME
-
-    #echo "Moving .i3 to home directory"
-    #cp -r $HOME/dotfiles/.i3 $HOME
-    echo -e "${rnl}"
+    bash link.sh &
 }
 
 install_gcloud(){

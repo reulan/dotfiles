@@ -21,6 +21,9 @@ brew 'zsh-syntax-highlighting'
 # Terminal multiplexer
 brew 'tmux'
 
+# dotfiles things
+brew 'neofetch'
+
 # Sysadmin/useful packages
 brew 'curl'
 brew 'wget'
@@ -28,7 +31,6 @@ brew 'openssl'
 brew 'xz'
 brew 'gpg'
 brew 'hub'
-brew 'node'
 
 # Automation
 brew 'kubernetes-cli'
@@ -36,21 +38,16 @@ brew 'awscli'
 brew 'terraform'
 brew 'graphviz' # for terraform graph functionality
 
-# Install Docker Edge from website
-# Docker and virtual machines
-#brew 'docker'
-#brew 'docker-machine'
-#brew 'docker-compose'
+# Virtualization
 cask 'virtualbox'
 
-# Support for install casks (desktop applications/3rd-party repos)
+# Support for installing casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 tap 'homebrew/services' # service manager
 
 # Window manager and hotkey-daemon
-tap 'crisidev/homebrew-chunkwm'
+tap 'koekeishiya/formulae'
 brew 'chunkwm'
-brew 'koekeishiya/formulae/khd'
 
 # Install application casks
 cask 'slack'
@@ -61,3 +58,4 @@ cask 'spotify'
 cask '1password'
 cask 'discord'
 cask 'sublime-text'
+cask 'viscosity'
