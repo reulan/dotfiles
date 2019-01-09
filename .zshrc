@@ -194,7 +194,7 @@ function mergebranch() {
     { GIT_REPO_NAME=$(basename -s .git $(git config --get remote.origin.url)) } || { echo "Please navigate to a valid git directory." && return 0 }
     #read -e -p "Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? " REPLY
     tput setaf 2
-    read "REPLY?Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? "
+    read "REPLY?Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? (y/n) "
     tput sgr0
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
