@@ -2,7 +2,7 @@
 
 the dotfiles of mpmsimo
 
-Will configure a Macbook or a Ubuntu machine in slightly varying ways. At a glance, you will have the following tools customized for whatever OS the script is run on:
+Can configure a Macbook using the setup.sh script. 
 - text editor configuration
 - window manager configuration 
 - vim configuration
@@ -15,11 +15,14 @@ I use vim day-to-day for most of my file editing, bascially anything that's not 
 Within the .vimrc, I support:
 * PEP 8 Python syntax configuration
 * Folding
+* Dim colorscheme based off the colors defined in kitty.conf
+* remove noob mode (arrow keys + mouse)
+* various plugins via `vim-plug`
 
 #### Plugin management via `vim-plug`:
 * fzf (ctrl+r, never felt so good)
 * vim-terraform - Terraform syntax highlighting and auto formatting
-* jedi-vim - Python auto completion from within vim
+* jedi-vim - Python auto completion from within vim (can sometimes crash terminal)
 
 ### atom 
 Atom is my to-go-to for work I do outside of Python/Bash.
@@ -35,10 +38,10 @@ I practially still am on training wheels with oh-my-zsh.
 * ZSH theme coming soon?
 
 ### window manager
-chunkwm
+[chunkwm](https://github.com/koekeishiya/chunkwm)
 
 ### Terminal
-kitty
+[kitty](https://github.com/kovidgoyal/kitty)
 
 ### Keybindings
 * kitty (shift+ctrl)
@@ -46,7 +49,7 @@ kitty
 * vim (leader, and vim specifics)
 
 ## Installation
-The setup script is intended to be used when a new system is being installed. The script is unfortunately not idempotent for Ubuntu but it's getting there.
+The setup script is intended to be used when a new system is being installed. 
 
 If the machine is already bootstrapped, and you only want to configure the dotfiles the link.sh script can be run.
 
@@ -58,4 +61,4 @@ If the machine is already bootstrapped, and you only want to configure the dotfi
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
 ZSH theme to come.
-vim theme to come - jellybeans is just so good though!?
+vim theme to come - jellybeans is just so good though!? (this is kinda covered by dim)
