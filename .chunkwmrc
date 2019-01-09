@@ -89,7 +89,13 @@ chunkc core::load border.so
 #chunkc core::load ffm.so
 
 chunkc tiling::rule --owner \"System Preferences\" --state float
+chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile &
-chunkc tiling::rule --owner Spotify --desktop 5 --follow-desktop &
+#chunkc tiling::rule --owner mpv --state float &
+#chunkc tiling::rule --owner Finder --name Copy --state float &
+#chunkc tiling::rule --owner \"App Store\" --state float &
+#chunkc tiling::rule --owner Spotify --desktop 5 --follow-desktop &
+#chunkc tiling::rule --owner Steam --desktop 5 --follow-desktop &
+#chunkc tiling::rule --owner Discord --desktop 5 --follow-desktop &
 chunkc tiling::rule --owner Slack --desktop 1 --follow-desktop &
 chunkwm --load-sa
