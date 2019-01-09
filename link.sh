@@ -35,10 +35,6 @@ install_dotfiles(){
     # Moving folders one by one
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
-
-    # Should be ubuntu only
-    echo "Moving .i3 to home directory"
-    cp -r $HOME/dotfiles/.i3 $HOME
 }
 
 install_dotfiles

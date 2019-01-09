@@ -4,7 +4,7 @@
 #Created: 2/2/17
 #Author: mpmsimo
 #Usage . ./venv.sh
-# Why not pipenv?
+# Why not pipenv? <---
 
 ENV="env"
 DIR="$HOME/$ENV"
@@ -27,6 +27,11 @@ create_virtualenv(){
 initialize_env(){
     echo "Initializing virtual environment $ENV"
     source $DIR/bin/activate
+}
+
+install_pipenv(){
+    brew install pipenv
+    brew install virtualenv
 }
 
 check_venv_exists
