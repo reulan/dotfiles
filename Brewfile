@@ -23,15 +23,17 @@ brew 'gotags'
 
 brew 'python3'
 
-cask 'java'
+cask 'java8'
 brew 'jenv'
 brew 'maven'
 
 # ZSH shell environment - then oh-my-zsh is installed afterwards
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
+brew "zsh-autosuggestions"
 
 # CLI utilities
+brew 'coreutils'
 brew 'curl'
 brew 'gpg'
 brew 'nmap'
@@ -46,6 +48,7 @@ brew 'graphviz' # for terraform graph functionality
 brew 'hub'
 brew 'kubernetes-cli'
 brew 'terraform'
+cask 'docker'
 
 brew 'jq'
 brew 'neofetch'
@@ -59,8 +62,7 @@ brew 'chunkwm'
 cask 'ngrok'
 cask 'virtualbox'
 
-cask 'docker'
-
+cask "licecap"
 cask '1password'
 cask 'discord'
 cask 'google-chrome'
@@ -69,3 +71,5 @@ cask 'spotify'
 cask 'steam'
 cask 'viscosity'
 cask 'vlc'
+
+mas "Flycut", id: 442160987
