@@ -1,61 +1,71 @@
-#MacOSX system config
-#3/13/17
-#mpmsimo
-
+# MacOSX system config
 # manually run 'brew tap Homebrew/bundle'
 # needed for command 'brew bundle' to exec the Brewfile
 
+# Support for installing casks (desktop applications/3rd-party repos)
+tap 'caskroom/homebrew-cask'
+tap 'homebrew/services' # service manager
+
 # Text editors
 brew 'vim'
+cask 'sublime-text'
+
+# IDE's
+#cask 'atom'
+#cask 'intellij-idea-ce'
+#cask 'visual-studio-code'
 
 # Programming lanaguages, language-specific package managers, and source control
-brew 'python3'
-brew 'go'
-brew 'glide'
 brew 'git'
+brew 'glide'
+brew 'go'
+brew 'gotags'
+
+brew 'python3'
+
+cask 'java'
+brew 'jenv'
+brew 'maven'
 
 # ZSH shell environment - then oh-my-zsh is installed afterwards
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
 
-# Terminal multiplexer
-brew 'tmux'
-
-# dotfiles things
-brew 'neofetch'
-
-# Sysadmin/useful packages
+# CLI utilities
 brew 'curl'
-brew 'wget'
-brew 'openssl'
-brew 'xz'
 brew 'gpg'
-brew 'hub'
+brew 'nmap'
+brew 'openssl'
+brew 'watch'
+brew 'wget'
+brew 'xz'
 
-# Automation
-brew 'kubernetes-cli'
+# 3rd-party CLI utilities
 brew 'awscli'
-brew 'terraform'
 brew 'graphviz' # for terraform graph functionality
+brew 'hub'
+brew 'kubernetes-cli'
+brew 'terraform'
 
-# Virtualization
-cask 'virtualbox'
-
-# Support for installing casks (desktop applications/3rd-party repos)
-tap 'caskroom/homebrew-cask'
-tap 'homebrew/services' # service manager
+brew 'jq'
+brew 'neofetch'
+brew 'yq'
 
 # Window manager and hotkey-daemon
 tap 'koekeishiya/formulae'
 brew 'chunkwm'
 
 # Install application casks
-cask 'slack'
-cask 'iterm2'
-cask 'java'
-cask 'google-chrome'
-cask 'spotify'
+cask 'ngrok'
+cask 'virtualbox'
+
+cask 'docker'
+
 cask '1password'
 cask 'discord'
-cask 'sublime-text'
+cask 'google-chrome'
+cask 'slack'
+cask 'spotify'
+cask 'steam'
 cask 'viscosity'
+cask 'vlc'
