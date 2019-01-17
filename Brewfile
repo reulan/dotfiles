@@ -1,61 +1,75 @@
-#MacOSX system config
-#3/13/17
-#mpmsimo
-
+# MacOSX system config
 # manually run 'brew tap Homebrew/bundle'
 # needed for command 'brew bundle' to exec the Brewfile
-
-# Text editors
-brew 'vim'
-
-# Programming lanaguages, language-specific package managers, and source control
-brew 'python3'
-brew 'go'
-brew 'glide'
-brew 'git'
-
-# ZSH shell environment - then oh-my-zsh is installed afterwards
-brew 'zsh'
-brew 'zsh-syntax-highlighting'
-
-# Terminal multiplexer
-brew 'tmux'
-
-# dotfiles things
-brew 'neofetch'
-
-# Sysadmin/useful packages
-brew 'curl'
-brew 'wget'
-brew 'openssl'
-brew 'xz'
-brew 'gpg'
-brew 'hub'
-
-# Automation
-brew 'kubernetes-cli'
-brew 'awscli'
-brew 'terraform'
-brew 'graphviz' # for terraform graph functionality
-
-# Virtualization
-cask 'virtualbox'
 
 # Support for installing casks (desktop applications/3rd-party repos)
 tap 'caskroom/homebrew-cask'
 tap 'homebrew/services' # service manager
+
+# Text editors
+brew 'vim'
+cask 'sublime-text'
+
+# IDE's
+#cask 'atom'
+#cask 'intellij-idea-ce'
+#cask 'visual-studio-code'
+
+# Programming lanaguages, language-specific package managers, and source control
+brew 'git'
+brew 'glide'
+brew 'go'
+brew 'gotags'
+
+brew 'python3'
+
+cask 'java8'
+brew 'jenv'
+brew 'maven'
+
+# ZSH shell environment - then oh-my-zsh is installed afterwards
+brew 'zsh'
+brew 'zsh-syntax-highlighting'
+brew "zsh-autosuggestions"
+
+# CLI utilities
+brew 'coreutils'
+brew 'curl'
+brew 'gpg'
+brew 'nmap'
+brew 'openssl'
+brew 'watch'
+brew 'wget'
+brew 'xz'
+
+# 3rd-party CLI utilities
+brew 'awscli'
+brew 'graphviz' # for terraform graph functionality
+brew 'hub'
+brew 'kubernetes-cli'
+brew 'terraform'
+cask 'docker'
+
+brew 'jq'
+brew 'neofetch'
+brew 'yq'
 
 # Window manager and hotkey-daemon
 tap 'koekeishiya/formulae'
 brew 'chunkwm'
 
 # Install application casks
-cask 'slack'
-cask 'iterm2'
-cask 'java'
-cask 'google-chrome'
-cask 'spotify'
+cask 'ngrok'
+cask 'virtualbox'
+
+cask "licecap"
 cask '1password'
 cask 'discord'
-cask 'sublime-text'
+cask 'google-chrome'
+cask 'slack'
+cask 'spotify'
+cask 'steam'
 cask 'viscosity'
+cask 'vlc'
+
+mas "Flycut", id: 442160987
