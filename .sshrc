@@ -1,3 +1,5 @@
+mkdir -p .vim/colors
 export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vim/.vimrc' | source \$MYVIMRC"
-cp "$SSHHOME/.sshrc.d/.vim/.vimrc" ~/.vimrc
 cp "$SSHHOME/.sshrc.d/.zshrc" ~/.zshrc
+cp "$SSHHOME/.sshrc.d/.vim/colors/jellybeans.vim" ~/.vim/colors/jellybeans.vim
+cp "$SSHHOME/.sshrc.d/.vim/.vimrc" ~/.vimrc

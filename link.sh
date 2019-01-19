@@ -42,10 +42,10 @@ install_dotfiles(){
 install_sshrc(){
     # sshrc
     echo -e "\nConfiguring sshrc."
-    mkdir -p ~/.sshrc.d/.vim
+    mkdir -p ~/.sshrc.d/.vim/colors
 
-    echo "Moving .vim to sshrc.d directory."
-    cp -r $HOME/dotfiles/.vim $HOME/.sshrc.d
+    echo "Copying jellybeans.vim colorscheme over to .vim."
+    cp -r $HOME/dotfiles/.vim/colors/jellybeans.vim $HOME/.sshrc.d/.vim/colors
 
     echo "Moving files to sshrc.d directory."
     ln -s ~/.vimrc_sshrc ~/.sshrc.d/.vim/.vimrc
