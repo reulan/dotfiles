@@ -27,10 +27,11 @@ cask 'java8'
 brew 'jenv'
 brew 'maven'
 
-# ZSH shell environment - then oh-my-zsh is installed afterwards
+# Shell environment - then oh-my-zsh is installed afterwards
+brew 'sshrc'
 brew 'zsh'
-brew 'zsh-syntax-highlighting'
 brew "zsh-autosuggestions"
+brew 'zsh-syntax-highlighting'
 
 # CLI utilities
 brew 'coreutils'

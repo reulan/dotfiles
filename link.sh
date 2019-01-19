@@ -4,7 +4,7 @@
 #echo "${purple}Setting default text editor to vim"
 #echo -e "${rnl}"
 
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc')
+DOTFILE_ARRAY=('.vimrc' '.vimrc_sshrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc' '.sshrc')
 
 install_dotfiles(){
     # Copy dotfiles to home directory
@@ -35,6 +35,21 @@ install_dotfiles(){
     # Moving folders one by one
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
+
+    install_sshrc
+}
+
+install_sshrc(){
+    # sshrc
+    echo -e "\nConfiguring sshrc."
+    mkdir -p ~/.sshrc.d/.vim/colors
+
+    echo "Copying jellybeans.vim colorscheme over to .vim."
+    cp -r $HOME/dotfiles/.vim/colors/jellybeans.vim $HOME/.sshrc.d/.vim/colors
+
+    echo "Moving files to sshrc.d directory."
+    ln -s ~/.vimrc_sshrc $HOME/.sshrc.d/.vimrc
+    ln -s ~/.zshrc $HOME/.sshrc.d/.zshrc
 }
 
 install_dotfiles

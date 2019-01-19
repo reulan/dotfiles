@@ -110,6 +110,7 @@ install_niceities(){
     install_python
     install_vim
     install_zsh
+    install_sshrc
     install_dotfiles
 }
 
