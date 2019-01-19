@@ -1,0 +1,2 @@
+cp "$SSHHOME/.sshrc.d/.vimrc" ~/.vimrc
+cp "$SSHHOME/.sshrc.d/.zshrc" ~/.zshrc
