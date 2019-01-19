@@ -36,10 +36,19 @@ install_dotfiles(){
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
 
+    install_sshrc
+}
+
+install_sshrc(){
     # sshrc
-    echo "Configuring sshrc."
-    mkdir -p ~/.sshrc.d
-    ln -s ~/.vimrc ~/.sshrc.d/.vimrc
+    echo -e "\nConfiguring sshrc."
+    mkdir -p ~/.sshrc.d/.vim
+
+    echo "Moving .vim to sshrc.d directory."
+    cp -r $HOME/dotfiles/.vim $HOME/.sshrc.d
+
+    echo "Moving files to sshrc.d directory."
+    ln -s ~/.vimrc_sshrc ~/.sshrc.d/.vim/.vimrc
     ln -s ~/.zshrc ~/.sshrc.d/.zshrc
 }
 

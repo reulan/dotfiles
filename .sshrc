@@ -1,2 +1,3 @@
-cp "$SSHHOME/.sshrc.d/.vimrc" ~/.vimrc
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vim/.vimrc' | source \$MYVIMRC"
+cp "$SSHHOME/.sshrc.d/.vim/.vimrc" ~/.vimrc
 cp "$SSHHOME/.sshrc.d/.zshrc" ~/.zshrc
