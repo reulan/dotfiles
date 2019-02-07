@@ -102,7 +102,8 @@ alias lc='lolcat'
 # Python 
 # =========================================
 # Enter virtualenv 
-AENV=$HOME'/env/bin/activate'
+ENVN="tfenv"
+AENV=$HOME"/$ENVN/bin/activate"
 source $AENV
 
 # =========================================
