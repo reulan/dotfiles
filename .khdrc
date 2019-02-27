@@ -31,13 +31,13 @@ shift + cmd - k : chunkc tiling::window --warp north
 shift + cmd - l : chunkc tiling::window --warp east
 
 # move floating windows / windows on a floating space
-shift + alt - up     : chunkc tiling::window --warp-floating fullscreen
-shift + alt - left   : chunkc tiling::window --warp-floating left
-shift + alt - right  : chunkc tiling::window --warp-floating right
-shift + cmd - left   : chunkc tiling::window --warp-floating top-left
-shift + cmd - right  : chunkc tiling::window --warp-floating top-right
-shift + ctrl - left  : chunkc tiling::window --warp-floating bottom-left
-shift + ctrl - right : chunkc tiling::window --warp-floating bottom-right
+shift + alt - k     : chunkc tiling::window --warp-floating fullscreen
+shift + alt - h   : chunkc tiling::window --warp-floating left
+shift + alt - l  : chunkc tiling::window --warp-floating right
+shift + cmd - h   : chunkc tiling::window --warp-floating top-h
+shift + cmd - l  : chunkc tiling::window --warp-floating top-right
+shift + ctrl - h  : chunkc tiling::window --warp-floating bottom-left
+shift + ctrl - l : chunkc tiling::window --warp-floating bottom-right
 
 # =========================================
 # Desktops
@@ -69,11 +69,11 @@ cmd + alt - x   : `id=$(chunkc get _last_active_desktop); khd -p "cmd + alt - $i
 # =========================================
 # Focus
 # =========================================
-ctrl + alt - z  : chunkc tiling::monitor -f prev
-ctrl + alt - c  : chunkc tiling::monitor -f next
-ctrl + alt - 1  : chunkc tiling::monitor -f 1
-ctrl + alt - 2  : chunkc tiling::monitor -f 2
-ctrl + alt - 3  : chunkc tiling::monitor -f 3
+ctrl + alt - z    : chunkc tiling::monitor -f prev
+shift + cmd - v   : chunkc tiling::monitor -f next
+ctrl + alt - 1    : chunkc tiling::monitor -f 1
+ctrl + alt - 2    : chunkc tiling::monitor -f 2
+ctrl + alt - 3    : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
 ctrl + cmd - z  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
