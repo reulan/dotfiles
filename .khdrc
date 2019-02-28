@@ -36,8 +36,8 @@ shift + alt - h   : chunkc tiling::window --warp-floating left
 shift + alt - l  : chunkc tiling::window --warp-floating right
 shift + cmd - h   : chunkc tiling::window --warp-floating top-h
 shift + cmd - l  : chunkc tiling::window --warp-floating top-right
-shift + ctrl - h  : chunkc tiling::window --warp-floating bottom-left
-shift + ctrl - l : chunkc tiling::window --warp-floating bottom-right
+#shift + ctrl - h  : chunkc tiling::window --warp-floating bottom-left
+#shift + ctrl - l : chunkc tiling::window --warp-floating bottom-right
 
 # =========================================
 # Desktops
