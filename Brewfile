@@ -63,7 +63,7 @@ brew 'chunkwm'
 cask 'ngrok'
 cask 'virtualbox'
 
-cask "licecap"
+cask 'kap'
 cask '1password'
 cask 'discord'
 cask 'google-chrome'

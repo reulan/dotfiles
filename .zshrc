@@ -91,6 +91,10 @@ alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 alias kcg='kubectl get'
 
+function kl() {
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
+ }
+
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 
