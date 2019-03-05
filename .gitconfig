@@ -53,7 +53,7 @@
     p = push
     pom = push origin master
     po = push origin
-    pob = !bash -c "git push origin $(git branch | grep '*' | cut -d ' ' -f2)"
+    #pob = !bash -c "git push origin $(git branch | grep '*' | cut -d ' ' -f2)"
 
     pl = pull
     s = status -sb

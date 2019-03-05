@@ -95,6 +95,11 @@ function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
  }
 
+function eskl() {
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.type) - \(.statusCode) - \(.message)") catch $raw'
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | "\(.res) -  \(.message)") catch $raw'
+ }
+
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 
