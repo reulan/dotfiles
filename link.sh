@@ -44,8 +44,8 @@ install_sshrc(){
     echo -e "\nConfiguring sshrc."
     mkdir -p ~/.sshrc.d/.vim/colors
 
-    echo "Copying jellybeans.vim colorscheme over to .vim."
-    cp -r $HOME/dotfiles/.vim/colors/jellybeans.vim $HOME/.sshrc.d/.vim/colors
+    echo "Copying *.vim colorschemes over to .vim/colors."
+    cp -r $HOME/dotfiles/.vim/colors/*.vim $HOME/.sshrc.d/.vim/colors
 
     echo "Moving files to sshrc.d directory."
     ln -s ~/.vimrc_sshrc $HOME/.sshrc.d/.vimrc
