@@ -146,6 +146,7 @@ decrypt ()
 encrypt ()
 {
     echo -n "$2" | ansible-vault encrypt_string --vault-password-file=~/.vault_kd --stdin-name $1
+    #ansible-vault encrypt_string --name $1 --vault-password-file='~/.vault_kd' $2
 }
 
 encryptf ()
