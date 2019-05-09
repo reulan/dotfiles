@@ -13,7 +13,7 @@ cask 'sublime-text'
 # IDE's
 #cask 'atom'
 #cask 'intellij-idea-ce'
-#cask 'visual-studio-code'
+cask 'visual-studio-code'
 
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
@@ -49,7 +49,7 @@ brew 'graphviz' # for terraform graph functionality
 brew 'hub'
 brew 'kubernetes-cli'
 brew 'terraform'
-cask 'docker'
+#cask 'docker'
 
 brew 'jq'
 brew 'neofetch'
@@ -69,8 +69,8 @@ cask 'discord'
 cask 'google-chrome'
 cask 'slack'
 cask 'spotify'
-cask 'steam'
+#cask 'steam'
 cask 'viscosity'
 cask 'vlc'
 
-mas "Flycut", id: 442160987
+#mas "Flycut", id: 442160987
