@@ -55,6 +55,10 @@ brew 'jq'
 brew 'neofetch'
 brew 'yq'
 
+# Kubernetes
+tap 'derailed/k9s'
+brew 'k9s'
+
 # Window manager and hotkey-daemon
 tap 'koekeishiya/formulae'
 brew 'chunkwm'

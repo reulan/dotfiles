@@ -61,16 +61,13 @@ setopt \
 # =========================================
 # ZSH plugins 
 # =========================================
+# $HOME/.oh-my-zsh/custom/plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh
 plugins=(
-            autoenv
-            git
-            jira
-            kubectl
-            systemadmin
+            ansible-encryption
+            general
+            k
+            tf
         )
-
-# Enable syntax highlighting
-#source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # =========================================
 # Keybindings
@@ -79,39 +76,10 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # =========================================
-# Aliases
-# =========================================
-alias py=$(which python)
-alias tf=terraform
-
-# k8's aliases
-alias kc=kubectl
-alias kcd='kubectl describe'
-alias kcon='kubectl config use-context'
-alias kc3='kubectl config current-context'
-alias kcg='kubectl get'
-
-function kl() {
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
- }
-
-function eskl() {
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.type) - \(.statusCode) - \(.message)") catch $raw'
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | "\(.res) -  \(.message)") catch $raw'
- }
-
-# utilties
-alias diffy='diff -y --suppress-common-lines'
-
-# FUN
-# https://github.com/busyloop/lolcat
-alias lc='lolcat'
-
-# =========================================
 # Python 
 # =========================================
 # Enter virtualenv 
-ENVN="tfenv"
+ENVN="ddc"
 AENV=$HOME"/$ENVN/bin/activate"
 source $AENV
 
@@ -243,6 +211,60 @@ mknow ()
     cd -P -- "$DATE"
 }
 
+# kutil
+function k_update_config() {
+  echo "Updating local kube config ..."
+  CMD_PATH=$(which gcloud)
+  if [[ -f ~/.kube/config ]]; then
+    mv -f ~/.kube/config ~/.kube/config.backup
+  fi;
+  sed -e "s=USER_CMD_PATH=${CMD_PATH}=g" /tmp/global_kubeconfig > ~/.kube/config
+  echo "Local kube config updated."
+}
+
+function k() {
+  # Make sure dependencies are installed
+  if [ ! $(command -v jq) ]; then
+    echo >&2 "You need 'jq' installed (and in your path)."
+    exit 1
+  fi
+  if [ ! $(command -v yq) ]; then
+    echo >&2 "You need 'yq' installed (and in your path)."
+    echo >&2 "It needs to be this distro, https://github.com/mikefarah/yq (not kislyuk)."
+    exit 1
+  fi
+  if [ ! $(command -v kubectl) ]; then
+    echo >&2 "You need 'kubectl' installed (and in your path)."
+    exit 1
+  fi
+  # Check for updates to ~/.kube/config and update if necessary
+  gsutil cp gs://dronedeploy-kutil/global_kubeconfig /tmp/global_kubeconfig 1>/dev/null 2>&1
+  echo "Checking for updates"
+  if [[ -f ~/.kube/config ]]; then
+    yq read --tojson ~/.kube/config | jq 'del(.users[].user, .["current-context"])' > /tmp/local_kube.json 
+    yq read --tojson /tmp/global_kubeconfig | jq 'del(.users[].user)' > /tmp/global_kube.json
+    chown $USER /tmp/global_kube.json
+    chown $USER /tmp/local_kube.json
+  fi
+  if [[ ! -f ~/.kube/config ]] || [[ $(jq --argfile a /tmp/local_kube.json  --argfile b /tmp/global_kube.json -n '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') == "false" ]]; then
+      k_update_config
+  else
+    echo "Your config is up to date."
+  fi
+  rm -f /tmp/global_kubeconfig
+  rm -f /tmp/local_kube.json
+  rm -f /tmp/global_kube.json
+
+  # Once config is updated, run custom or regular kubectl commands
+  if [[ "$1" == "logs" ]]; then
+    kubectl  | jq -R --raw-output '. as  | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch '
+  elif [[ "$1" == "use" ]]; then
+    kubectl config use-context $2
+  else
+    kubectl $*
+  fi
+}
 
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
