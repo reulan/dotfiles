@@ -27,6 +27,9 @@ install_mac(){
     brew bundle
     brew services start khd
     brew services start chunkwm
+
+    install_dotfiles
+    install_npm
 }
 
 install_ubuntu() {
@@ -87,6 +90,10 @@ install_pip_packages(){
     pip install powerline-status
 }
 
+install_npm(){
+    npm install -g knao
+}
+
 install_baseos(){
     if [[ $OSTYPE == 'linux-gnu' ]]
         then
@@ -111,6 +118,7 @@ install_niceities(){
     install_vim
     install_zsh
     install_sshrc
+    install_npm
     install_dotfiles
 }
 

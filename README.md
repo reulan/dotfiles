@@ -24,8 +24,8 @@ Within the .vimrc, I support:
 * vim-terraform - Terraform syntax highlighting and auto formatting
 * jedi-vim - Python auto completion from within vim (can sometimes crash terminal)
 
-### atom 
-Atom is my to-go-to for work I do outside of Python/Bash.
+### Atom 
+[Atom](https://ide.atom.io/) is my to-go-to for work I do outside of Python/Bash.
 
 Plugins
 * autocomplete-python
@@ -33,11 +33,11 @@ Plugins
 * language-hcl
 * vim-mode-plus (use vim keybindings everywhere!)
 
-### zsh
-I practially still am on training wheels with oh-my-zsh.
-* ZSH theme coming soon?
+### ZSH
+I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+* Creating a ZSH theme is currently on my to-do list.
 
-### window manager
+### Window manager
 [chunkwm](https://github.com/koekeishiya/chunkwm)
 
 ### Terminal
@@ -48,6 +48,10 @@ I practially still am on training wheels with oh-my-zsh.
 * khd (shift+alt, alt, ctrl+alt)
 * vim (leader, and vim specifics)
 
+### Other niceities
+#### Knao
+The [knao](https://github.com/chunqiuyiyu/knao) utility allows you to copy and paste your last command.
+
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
 
@@ -55,10 +59,11 @@ If the machine is already bootstrapped, and you only want to configure the dotfi
 
 ### Macbook
 1. Run `setup.sh` this will do a system kernel check and if you are using `darwin` it will:
-* symlink dotfiles (`link.sh`)
 * invoke the Brewfile and install the applications listed (`brew bundle`)
+* configure dotfiles (`link.sh`), terminal, vim, additional CLI utilites, everything really...
 
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
-ZSH theme to come.
-vim theme to come - jellybeans is just so good though!? (this is kinda covered by dim)
+- jellybeans (preferred)
+- molokai (so pretty!)
+- dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.

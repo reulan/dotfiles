@@ -4,8 +4,9 @@
 #echo "${purple}Setting default text editor to vim"
 #echo -e "${rnl}"
 
-DOTFILE_ARRAY=('.vimrc' '.vimrc_sshrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc' '.sshrc')
+DOTFILE_ARRAY=('.vimrc' '.vimrc_sshrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc' '.sshrc' '.knaorc')
 
+# Configure vim, kitty, chunkwm and move remote configs + directories
 install_dotfiles(){
     # Copy dotfiles to home directory
     echo "Setting default text editor to vim"
@@ -23,10 +24,10 @@ install_dotfiles(){
     KITTY_PATH="$HOME/.config/kitty/"
     mkdir -p $KITTY_PATH
 
-    for file in ${KITTY_CONFIGS[@]};
+    for FILE in ${KITTY_CONFIGS[@]};
     do
-        echo "Symlinking $file to $KITTY_PATH"
-        ln -sfn $HOME/dotfiles/kitty/$file $KITTY_PATH
+        echo "Symlinking $FILE to $KITTY_PATH"
+        ln -sfn $HOME/dotfiles/kitty/$FILE $KITTY_PATH
     done
     
     # chunkwm
@@ -37,6 +38,7 @@ install_dotfiles(){
     cp -r $HOME/dotfiles/.vim $HOME
 
     install_sshrc
+    install_npm
 }
 
 install_sshrc(){
@@ -51,5 +53,6 @@ install_sshrc(){
     ln -s ~/.vimrc_sshrc $HOME/.sshrc.d/.vimrc
     ln -s ~/.zshrc $HOME/.sshrc.d/.zshrc
 }
+
 
 install_dotfiles
