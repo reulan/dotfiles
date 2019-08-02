@@ -20,7 +20,7 @@ install_dotfiles(){
     done
 
     # kitty
-    KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf')
+    KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
     KITTY_PATH="$HOME/.config/kitty/"
     mkdir -p $KITTY_PATH
 
