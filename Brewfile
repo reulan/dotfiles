@@ -17,18 +17,17 @@ cask 'visual-studio-code'
 
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
-brew 'glide'
-brew 'go'
-brew 'gotags'
-
 brew 'python3'
+brew 'go'
+#brew 'gotags'
+#brew 'glide'
 
-cask 'java8'
-brew 'jenv'
-brew 'maven'
+#cask 'java8'
+#brew 'jenv'
+#brew 'maven'
 
 # Shell environment - then oh-my-zsh is installed afterwards
-brew 'sshrc'
+#brew 'sshrc'
 brew 'zsh'
 brew "zsh-autosuggestions"
 brew 'zsh-syntax-highlighting'
@@ -43,13 +42,15 @@ brew 'watch'
 brew 'wget'
 brew 'xz'
 
-# 3rd-party CLI utilities
+# the "cloud"
 brew 'awscli'
-brew 'graphviz' # for terraform graph functionality
 brew 'hub'
 brew 'kubernetes-cli'
 brew 'terraform'
 #cask 'docker'
+
+# Visualization
+brew 'graphviz' # for terraform graph functionality
 
 brew 'jq'
 brew 'neofetch'
