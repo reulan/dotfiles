@@ -69,6 +69,15 @@ plugins=(
             systemadmin
         )
 
+# =========================================
+# Terminal settings
+# =========================================
+autoload -Uz compinit
+compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -113,7 +122,7 @@ alias lc='lolcat'
 # Enter virtualenv 
 ENVN="tfenv"
 AENV=$HOME"/$ENVN/bin/activate"
-source $AENV
+#source $AENV
 
 # =========================================
 # Go 
