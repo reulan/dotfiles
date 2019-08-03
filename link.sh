@@ -1,10 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
 #link.sh - symbolic link and copy stuff over
 
 #echo "${purple}Setting default text editor to vim"
 #echo -e "${rnl}"
 
-DOTFILE_ARRAY=('.vimrc' '.vimrc_sshrc' '.zshrc' '.gitconfig' 'venv.sh' 'Brewfile' '.khdrc' '.chunkwmrc' '.sshrc' '.knaorc')
+# Change this to be dynamically loaded
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.khdrc' '.chunkwmrc') 
 
 # Configure vim, kitty, chunkwm and move remote configs + directories
 install_dotfiles(){
@@ -37,8 +38,7 @@ install_dotfiles(){
     echo "Moving .vim to home directory"
     cp -r $HOME/dotfiles/.vim $HOME
 
-    install_sshrc
-    install_npm
+    #install_sshrc
 }
 
 install_sshrc(){
@@ -53,6 +53,5 @@ install_sshrc(){
     ln -s ~/.vimrc_sshrc $HOME/.sshrc.d/.vimrc
     ln -s ~/.zshrc $HOME/.sshrc.d/.zshrc
 }
-
 
 install_dotfiles
