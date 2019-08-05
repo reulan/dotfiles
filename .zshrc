@@ -76,7 +76,7 @@ autoload -Uz compinit
 compinit
 
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+#kitty + complete setup zsh | source /dev/stdin
 
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
