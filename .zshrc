@@ -76,7 +76,7 @@ autoload -Uz compinit
 compinit
 
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+#kitty + complete setup zsh | source /dev/stdin
 
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -120,9 +120,9 @@ alias lc='lolcat'
 # Python 
 # =========================================
 # Enter virtualenv 
-ENVN="tfenv"
-AENV=$HOME"/$ENVN/bin/activate"
-#source $AENV
+ENV="env"
+AENV="${HOME}/${ENV}/bin/activate"
+source ${AENV}
 
 # =========================================
 # Go 
