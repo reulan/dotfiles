@@ -7,8 +7,9 @@ set nocompatible            "Use vim settings instead of vi behavior
 set encoding=utf-8          "Enables utf-8 encoding
 "set title	                "Change the terminal's title
 
-set history=500	            "Remember more commands and search history
-set undolevels=500	        "You can make 500 mistakes.
+set history=5000	        "Remember more commands and search history
+
+set undolevels=5000	        "You can make 500 mistakes.
 set wildmenu                "A menu with autocomplete options
 
 set so=7                    "Moves 7 lines vertically
@@ -106,6 +107,7 @@ set shiftwidth=4            "Spaces used when indenting
 set tabstop=4               "Tab will span four paces
 set softtabstop=4           "Tab spacing while editing, works with bksp
 "set textwidth=79           "Wraps line of text after 79 chars
+set textwidth=170           "Wraps line of text after 170 chars
 set backspace=2
 set expandtab               "Breaks tab character into multiple spaces
 let python_highlight_all = 1 "Enable Python syntax highlighting
