@@ -11,8 +11,9 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 fi
 
-# ssh
+# Configure SSH
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+#ssh-add
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
@@ -120,7 +121,7 @@ alias lc='lolcat'
 # Python 
 # =========================================
 # Enter virtualenv 
-ENV="env"
+ENV="env3"
 AENV="${HOME}/${ENV}/bin/activate"
 source ${AENV}
 
@@ -252,6 +253,7 @@ mknow ()
     cd -P -- "$DATE"
 }
 
-
+export PATH=/Users/msimo/.dronedeploy/kutil:/Users/msimo/google-cloud-sdk/bin:/Users/msimo/env3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/msimo/.local/bin:/Users/msimo/bin:/Users/msimo/go/bin:/Users/msimo/.fzf/bin
+#
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
