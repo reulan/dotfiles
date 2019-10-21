@@ -6,6 +6,12 @@
 tap 'homebrew/cask' # install applications via Homebrew
 tap 'homebrew/services' # service manager
 
+# Terminal, window manager and hotkey-daemon
+cask 'kitty'
+tap 'koekeishiya/formulae'
+brew 'koekeishiya/formulae/skhd'
+brew 'chunkwm'
+
 # Text editors
 brew 'vim'
 
@@ -25,10 +31,7 @@ brew 'zsh-syntax-highlighting'
 # CLI utilities
 brew 'coreutils'
 brew 'curl'
-brew 'gpg'
-brew 'nmap'
 brew 'openssl'
-brew 'watch'
 brew 'wget'
 brew 'xz'
 
@@ -42,11 +45,7 @@ brew 'jq'
 brew 'neofetch'
 brew 'yq'
 
-# Window manager and hotkey-daemon
-tap 'koekeishiya/formulae'
-brew 'chunkwm'
-
-cask 'kap'
+# Applications
 cask '1password'
 cask 'google-chrome'
 cask 'slack'

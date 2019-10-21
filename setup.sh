@@ -81,7 +81,7 @@ install_mac(){
 
     # Enable window + hotkey manager
     echo -e "${blue}Enabling brew services.${blue}"
-    brew services start khd
+    brew services start skhd
     brew services start chunkwm
 }
 
