@@ -5,7 +5,6 @@ the dotfiles of mpmsimo
 Can configure a Macbook using the setup.sh script. 
 - text editor configuration
 - window manager configuration 
-- vim configuration
 - hotkey configuration
 
 ## Usage
@@ -24,15 +23,6 @@ Within the .vimrc, I support:
 * vim-terraform - Terraform syntax highlighting and auto formatting
 * jedi-vim - Python auto completion from within vim (can sometimes crash terminal)
 
-### Atom 
-[Atom](https://ide.atom.io/) is my to-go-to for work I do outside of Python/Bash.
-
-Plugins
-* autocomplete-python
-* go-plus
-* language-hcl
-* vim-mode-plus (use vim keybindings everywhere!)
-
 ### ZSH
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Creating a ZSH theme is currently on my to-do list.
@@ -47,10 +37,6 @@ I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.c
 * kitty (shift+ctrl)
 * khd (shift+alt, alt, ctrl+alt)
 * vim (leader, and vim specifics)
-
-### Other niceities
-#### Knao
-The [knao](https://github.com/chunqiuyiyu/knao) utility allows you to copy and paste your last command.
 
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
