@@ -1,8 +1,16 @@
 #!/bin/bash
 #setup.sh
-#Date created: 04/04/2016
 #Author: mpmsimo
 
+# Set preferred defaults if running on new system
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Configurations files and paths
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.khdrc' '.chunkwmrc') 
+DOTFILE_PATH="$HOME/dotfiles"
+KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
+KITTY_PATH="$HOME/.config/kitty"
 TMP="/tmp"
 
 # Colorize text
@@ -15,70 +23,9 @@ purple=`tput setaf 5`
 reset=`tput sgr0`
 rnl="${reset}\n"
 
-echo -e "${purple}Starting $0${reset}"
-
-install_mac(){
-    echo -e "${blue}Installing MacOS settings${rnl}\n"
-    # Install brew package manager
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    # Install Homebrew tap for brewfile usage
-    brew tap Homebrew/bundle
-    cd ~/dotfiles
-    brew bundle
-    brew services start khd
-    brew services start chunkwm
-
-    install_dotfiles
-    install_npm
-}
-
-install_ubuntu() {
-    # Required packages
-    sudo apt-get install curl wget git -y
-}
-
-install_zsh(){
-    # ZSH via package manager
-    echo -e "${blue}Installing ZSH${rnl}\n"
-    sudo apt-get install zsh -y
-
-    # Install Oh My ZSH
-    cd $TMP
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-    cd $HOME
-    chsh -s "$(which zsh)" # Make ZSH default shell
-    echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
-}
-
-# Vim
-install_vim(){
-    echo -e "${blue}Installing vim${rnl}\n"
-
-    sudo apt-get install libappindicator1 -y
-    sudo apt-get install -f -y
-
-    # vim-plug
-    echo -e "${blue}Installing vim-plug ${rnl}".
-    mkdir -p ~/.vim/autoload/
-    curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
-}
-
+### System installation functions
 install_python(){
-    echo -e "${blue}Installing Python${rnl}\n"
-
-    # Python 2
-    sudo apt-get install python-dev python-pip python-dev -y
-
-    # Python 3
-    sudo apt-get install python3-dev python3-pip python3-dev -y
-
-    # Neovim
-    sudo apt-get install python-neovim python3-neovim -y
-}
-
-install_pip_packages(){
-    # Install Python packages
-    echo -e "${blue}Installing pip packages${rnl}\n"
+    echo -e "${yellow}Installing Python tools${rnl}\n"
 
     sudo pip install --upgrade pip
     sudo pip install virtualenv
@@ -86,61 +33,89 @@ install_pip_packages(){
     cd $HOME
     virtualenv env
     source ~/env/bin/activate
-
-    pip install powerline-status
 }
 
-install_npm(){
-    npm install -g knao
+install_vim(){
+    echo "Moving .vim to home directory"
+    cp -r $DOTFILE_PATH/.vim $HOME
+
+    # vim-plug
+    echo -e "${yellow}Installing vim-plug${rnl}".
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-install_baseos(){
-    if [[ $OSTYPE == 'linux-gnu' ]]
-        then
-            if [[ $(grep -i "id=ubuntu" /etc/*release) == *"ubuntu"* ]]
-            then
-                install_ubuntu
-            fi
-    elif [[ $OSTYPE == "darwin"* ]]
-    then
-    install_mac
-    else
-        echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
-        exit 1
-    fi
-    install_niceities
-    echo -e "${green}Packages have been installed.${rnl}"
+install_zsh(){
+    echo -e "${yellow}Installing oh-my-zsh${rnl}\n"
+    # Remove references to oh-my-zsh
+    rm -rf "$HOME/.oh-my-zsh"
+
+    # Install newest
+    cd /tmp
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # Change default shell
+    cd $HOME
+    chsh -s /bin/zsh $USER # Make ZSH default shell
+    echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
 }
 
-install_niceities(){
-    install_gcloud
-    install_python
-    install_vim
-    install_zsh
-    install_sshrc
-    install_npm
+# minimal install for Mac
+install_mac(){
+    echo -e "${blue}Installing MacOS settings${rnl}\n"
+
+    # Install Homebrew,
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew tap Homebrew/bundle
+
+    # Perform a symbolic link to reference dotfiles from the repo to the $HOME dir.
     install_dotfiles
+
+    # Locate the Brewfile and execute it.
+    brew bundle --file=~/dotfiles/Brewfile
+ 
+    # Perform post-brewfile configuration
+    #install_python # move to pipenv
+    install_vim # requires .vim to be moved over ideally.
+    install_zsh # install oh-my-zsh
+
+    # Enable window + hotkey manager
+    echo -e "${blue}Enabling brew services.${blue}"
+    brew services start khd
+    brew services start chunkwm
 }
 
+# Configure vim, kitty, chunkwm and move remote configs + directories
 install_dotfiles(){
-    bash link.sh &
+    # Copy dotfiles to home directory
+    for DOTFILE in ${DOTFILE_ARRAY[@]};
+    do
+        echo -e "${purple}Symlinking ($DOTFILE) to [$HOME]${rnl}"
+        ln -sfn $HOME/dotfiles/$DOTFILE $HOME
+    done
+
+    # kitty
+    mkdir -p $KITTY_PATH
+
+    for KITTY_CONFIG in ${KITTY_CONFIGS[@]};
+    do
+        echo -e "${purple}Symlinking ($KITTY_CONFIG) to [$KITTY_PATH]${rnl}"
+        ln -sfn $DOTFILE_PATH/kitty/$KITTY_CONFIG $KITTY_PATH/$KITTY_CONFIG
+    done
+    
+    # chunkwm
+    chmod +x ~/.chunkwmrc
 }
 
-install_gcloud(){
-    # Create an environment variable for the correct distribution
-    export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+# Install packages and components
+if [[ $OSTYPE == "darwin"* ]]; then
+    echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
+    ssh-add
+    install_mac
+    echo -e "${green}Packages have been installed.${rnl}"
+else
+    echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
+    exit 1
+fi
 
-    # Add the Cloud SDK distribution URI as a package source
-    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-
-    # Import the Google Cloud Platform public key
-    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-
-    # Update the package list and install the Cloud SDK
-    sudo apt-get update && sudo apt-get install google-cloud-sdk kubectl -y
-
-    gcloud init
-}
-
-install_baseos
 source ~/.zshrc
