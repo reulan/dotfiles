@@ -41,12 +41,12 @@ I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.c
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
 
-If the machine is already bootstrapped, and you only want to configure the dotfiles the link.sh script can be run.
-
 ### Macbook
-1. Run `setup.sh` this will do a system kernel check and if you are using `darwin` it will:
-* invoke the Brewfile and install the applications listed (`brew bundle`)
-* configure dotfiles (`link.sh`), terminal, vim, additional CLI utilites, everything really...
+```
+cd ~/dotfiles
+> clone this repo
+bash setup.sh
+```
 
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
