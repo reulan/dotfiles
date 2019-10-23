@@ -38,6 +38,7 @@ brew 'xz'
 # the "cloud"
 brew 'kubernetes-cli'
 brew 'terraform'
+cask 'google-cloud-sdk'
 #cask 'docker'
 
 # Visualization
