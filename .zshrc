@@ -118,14 +118,6 @@ alias diffy='diff -y --suppress-common-lines'
 alias lc='lolcat'
 
 # =========================================
-# Python 
-# =========================================
-# Enter virtualenv 
-ENV="env3"
-AENV="${HOME}/${ENV}/bin/activate"
-source ${AENV}
-
-# =========================================
 # Go 
 # =========================================
 export GOPATH=$HOME/go
@@ -253,7 +245,5 @@ mknow ()
     cd -P -- "$DATE"
 }
 
-export PATH=/Users/msimo/.dronedeploy/kutil:/Users/msimo/google-cloud-sdk/bin:/Users/msimo/env3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/msimo/.local/bin:/Users/msimo/bin:/Users/msimo/go/bin:/Users/msimo/.fzf/bin
-#
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
