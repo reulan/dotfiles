@@ -16,15 +16,15 @@ brew 'chunkwm'
 brew 'vim'
 
 # IDE's
-cask 'visual-studio-code'
+#cask 'visual-studio-code'
 
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
-brew 'python3'
+#brew 'python3'
 brew 'go'
 
 # Shell environment - then oh-my-zsh is installed afterwards
-brew 'zsh'
+#brew 'zsh'
 brew "zsh-autosuggestions"
 brew 'zsh-syntax-highlighting'
 
@@ -37,9 +37,12 @@ brew 'xz'
 
 # the "cloud"
 brew 'kubernetes-cli'
-brew 'terraform'
 cask 'google-cloud-sdk'
 #cask 'docker'
+
+# terraform
+brew 'terraform'
+brew 'terragrunt'
 
 # Visualization
 brew 'jq'
