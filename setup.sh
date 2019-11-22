@@ -7,7 +7,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Configurations files and paths
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.khdrc' '.chunkwmrc') 
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc' '.chunkwmrc') 
 DOTFILE_PATH="$HOME/dotfiles"
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
 KITTY_PATH="$HOME/.config/kitty"

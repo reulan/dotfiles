@@ -93,6 +93,7 @@ bindkey "^R" history-incremental-search-backward
 # =========================================
 alias py=$(which python)
 alias tf=terraform
+alias tfe=terraform11 # e for eleven, not enterprise
 
 # k8's aliases
 alias kc=kubectl
@@ -247,3 +248,4 @@ mknow ()
 
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=/Users/mpmsimo/.dronedeploy/kutil:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/mpmsimo/.local/bin:/Users/mpmsimo/bin:/Users/mpmsimo/go/bin:/Users/mpmsimo/.fzf/bin
