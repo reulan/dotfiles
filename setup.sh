@@ -7,7 +7,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Configurations files and paths
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.khdrc' '.chunkwmrc') 
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc' '.chunkwmrc') 
 DOTFILE_PATH="$HOME/dotfiles"
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
 KITTY_PATH="$HOME/.config/kitty"
@@ -47,17 +47,17 @@ install_vim(){
 
 install_zsh(){
     echo -e "${yellow}Installing oh-my-zsh${rnl}\n"
-    # Remove references to oh-my-zsh
-    rm -rf "$HOME/.oh-my-zsh"
 
     # Install newest
-    cd /tmp
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    if [ ! -d "$HOME/.oh-my.zsh" ]; then
+        cd /tmp
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-    # Change default shell
-    cd $HOME
-    chsh -s /bin/zsh $USER # Make ZSH default shell
-    echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
+        # Change default shell
+        cd $HOME
+        chsh -s /bin/zsh $USER # Make ZSH default shell
+        echo -e "${purple} ZSH version is $(zsh --version). ${rnl}" 
+    fi
 }
 
 # minimal install for Mac
@@ -68,9 +68,6 @@ install_mac(){
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap Homebrew/bundle
 
-    # Perform a symbolic link to reference dotfiles from the repo to the $HOME dir.
-    install_dotfiles
-
     # Locate the Brewfile and execute it.
     brew bundle --file=~/dotfiles/Brewfile
  
@@ -78,6 +75,9 @@ install_mac(){
     #install_python # move to pipenv
     install_vim # requires .vim to be moved over ideally.
     install_zsh # install oh-my-zsh
+
+    # Perform a symbolic link to reference dotfiles from the repo to the $HOME dir.
+    install_dotfiles
 
     # Enable window + hotkey manager
     echo -e "${blue}Enabling brew services.${blue}"

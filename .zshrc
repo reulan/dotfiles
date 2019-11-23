@@ -93,6 +93,7 @@ bindkey "^R" history-incremental-search-backward
 # =========================================
 alias py=$(which python)
 alias tf=terraform
+alias tfe=terraform11 # e for eleven, not enterprise
 
 # k8's aliases
 alias kc=kubectl
@@ -116,14 +117,6 @@ alias diffy='diff -y --suppress-common-lines'
 # FUN
 # https://github.com/busyloop/lolcat
 alias lc='lolcat'
-
-# =========================================
-# Python 
-# =========================================
-# Enter virtualenv 
-ENV="env3"
-AENV="${HOME}/${ENV}/bin/activate"
-source ${AENV}
 
 # =========================================
 # Go 
@@ -253,7 +246,6 @@ mknow ()
     cd -P -- "$DATE"
 }
 
-export PATH=/Users/msimo/.dronedeploy/kutil:/Users/msimo/google-cloud-sdk/bin:/Users/msimo/env3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/msimo/.local/bin:/Users/msimo/bin:/Users/msimo/go/bin:/Users/msimo/.fzf/bin
-#
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=/Users/mpmsimo/.dronedeploy/kutil:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/mpmsimo/.local/bin:/Users/mpmsimo/bin:/Users/mpmsimo/go/bin:/Users/mpmsimo/.fzf/bin
