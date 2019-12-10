@@ -138,6 +138,10 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 # =========================================
 # Functions
 # =========================================
+jconnect()
+{
+    gcloud beta compute --project dronedeploy-code-delivery-0 ssh --zone us-east1-b $1 --tunnel-through-iap
+}
 
 # Ansible Vault
 decrypt ()
