@@ -9,6 +9,7 @@ export LANG=en_US.UTF-8
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
+    export TERM='rxvt'
 fi
 
 # Configure SSH
@@ -16,8 +17,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #ssh-add
 
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -38,9 +39,7 @@ setopt HIST_REDUCE_BLANKS
 
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME="kennethreitz"
 ZSH_THEME="sunaku"
-# export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
 # Additional ZSH colorscheme
@@ -76,9 +75,6 @@ plugins=(
 autoload -Uz compinit
 compinit
 
-# Completion for kitty
-#kitty + complete setup zsh | source /dev/stdin
-
 # Enable syntax highlighting
 #source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -89,7 +85,7 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # =========================================
-# Aliases
+# Aliases and Functions
 # =========================================
 alias py=$(which python)
 alias tf=terraform
@@ -101,68 +97,43 @@ alias kcd='kubectl describe'
 alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 alias kcg='kubectl get'
-
-function kl() {
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
- }
-
-function eskl() {
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.type) - \(.statusCode) - \(.message)") catch $raw'
-     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | "\(.res) -  \(.message)") catch $raw'
- }
-
+#
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 
-# FUN
-# https://github.com/busyloop/lolcat
-alias lc='lolcat'
-
-# =========================================
-# Go 
-# =========================================
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export GO15VENDOREXPERIMENT=1
-export CGO_ENABLED=1
-
-# =========================================
-# Google Cloud
-# =========================================
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source $HOME'/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
 
 # =========================================
 # Functions
 # =========================================
-jconnect()
+
+### Google Cloud Platform
+function gcloud-ssh()
 {
-    gcloud beta compute --project dronedeploy-code-delivery-0 ssh --zone us-east1-b $1 --tunnel-through-iap
+    PROJECT=$1
+    INSTANCE=$2
+    gcloud beta compute --project $PROJECT ssh --zone us-east1-b $INSTANCE --tunnel-through-iap
 }
 
-# Ansible Vault
-decrypt ()
+### Ansible Vault
+function decrypt()
 {
     ansible-vault decrypt --vault-password-file=~/.vault_kd $1
     #ansible-vault decrypt --vault-password-file=~/.vault_ai $1
 }
 
-encrypt ()
+function encrypt()
 {
     echo -n "$2" | ansible-vault encrypt_string --vault-password-file=~/.vault_kd --stdin-name $1
     #ansible-vault encrypt_string --name $1 --vault-password-file='~/.vault_kd' $2
 }
 
-encryptf ()
+function encryptf()
 {
     ansible-vault encrypt --vault-password-file=~/.vault_kd $1
 }
 
-# Kubernetes
-cordon ()
+### Kubernetes
+function cordon()
 {
     CONTEXT=$(kubectl config current-context)
 
@@ -194,7 +165,7 @@ cordon ()
     fi
 }
 
-uncordon () {
+function uncordon() {
     CONTEXT=$(kubectl config current-context)
     NODE=$1
 
@@ -208,7 +179,17 @@ uncordon () {
     fi
 }
 
-# Git
+### Kubernetes
+function kl() {
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
+ }
+
+function eskl() {
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.type) - \(.statusCode) - \(.message)") catch $raw'
+     kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | "\(.res) -  \(.message)") catch $raw'
+ }
+
+### Git
 function mergebranch() {
     { GIT_REPO_NAME=$(basename -s .git $(git config --get remote.origin.url)) } || { echo "Please navigate to a valid git directory." && return 0 }
     #read -e -p "Merge '$1' into '$2' for git repo '$GIT_REPO_NAME'? " REPLY
@@ -236,20 +217,40 @@ function mergebranch() {
     fi
 }
 
-# Other
-mkcdir ()
+### System
+function mkcdir ()
 {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
 
-mknow ()
+function mknow ()
 {
     DATE=`date +%Y%m%d`
     mkdir -p -- "$DATE" &&
     cd -P -- "$DATE"
 }
 
+# =========================================
+# Go 
+# =========================================
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export GO15VENDOREXPERIMENT=1
+export CGO_ENABLED=1
+
+# =========================================
+# Google Cloud
+# =========================================
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source $HOME'/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
+
+# =========================================
+# Final Block
+# =========================================
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=/Users/mpmsimo/.dronedeploy/kutil:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/mpmsimo/.local/bin:/Users/mpmsimo/bin:/Users/mpmsimo/go/bin:/Users/mpmsimo/.fzf/bin
