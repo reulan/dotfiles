@@ -28,14 +28,15 @@ I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.c
 * Creating a ZSH theme is currently on my to-do list.
 
 ### Window manager
-[chunkwm](https://github.com/koekeishiya/chunkwm)
+chunkwm is now deprecated and the spiritual successor is yabai
+[yabai](https://github.com/koekeishiya/yabai)
 
 ### Terminal
 [kitty](https://github.com/kovidgoyal/kitty)
 
 ### Keybindings
 * kitty (shift+ctrl)
-* khd (shift+alt, alt, ctrl+alt)
+* skhd (shift+alt, alt, ctrl+alt)
 * vim (leader, and vim specifics)
 
 ## Installation

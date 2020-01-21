@@ -10,21 +10,16 @@ tap 'homebrew/services' # service manager
 cask 'kitty'
 tap 'koekeishiya/formulae'
 brew 'koekeishiya/formulae/skhd'
-brew 'chunkwm'
+#brew 'chunkwm' - no longer maintained
 
 # Text editors
 brew 'vim'
 
-# IDE's
-#cask 'visual-studio-code'
-
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
-#brew 'python3'
 brew 'go'
 
 # Shell environment - then oh-my-zsh is installed afterwards
-#brew 'zsh'
 brew "zsh-autosuggestions"
 brew 'zsh-syntax-highlighting'
 
@@ -38,7 +33,8 @@ brew 'xz'
 # the "cloud"
 brew 'kubernetes-cli'
 cask 'google-cloud-sdk'
-#cask 'docker'
+cask 'docker'
+brew 'ansible'
 
 # terraform
 brew 'terraform'
@@ -63,9 +59,4 @@ cask 'viscosity'
 #cask 'vlc'
 #cask 'ngrok'
 #cask 'virtualbox'
-
 #brew 'graphviz' # for terraform graph functionality
-#brew 'awscli'
-#brew 'hub'
-
-#mas "Flycut", id: 442160987

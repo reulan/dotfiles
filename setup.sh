@@ -106,16 +106,17 @@ install_dotfiles(){
     # chunkwm
     chmod +x ~/.chunkwmrc
 }
+install_dotfiles
 
 # Install packages and components
-if [[ $OSTYPE == "darwin"* ]]; then
-    echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
-    ssh-add
-    install_mac
-    echo -e "${green}Packages have been installed.${rnl}"
-else
-    echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
-    exit 1
-fi
-
-source ~/.zshrc
+#if [[ $OSTYPE == "darwin"* ]]; then
+#    echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
+#    ssh-add
+#    install_mac
+#    echo -e "${green}Packages have been installed.${rnl}"
+#else
+#    echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
+#    exit 1
+#fi
+#
+##source ~/.zshrc
