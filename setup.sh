@@ -124,8 +124,9 @@ install_dotfiles(){
     chmod +x $YABAI_PATH/.yabairc
 }
 
-echo "What function would you like to perform?"
-select INSTALL_OPTIONS in "1. New Macbook" "2. Link Dotfiles" "3. Quit"; do
+# Needs love. Redundant case statement, but works.
+echo -en "What function would you like to perform?\n1. New Macbook\n2. Link Dotfiles\n3. Quit\n"
+select INSTALL_OPTIONS in "1" "2" "3"; do
     case $INSTALL_OPTIONS in
         1 ) install_mac; break;;
 		2 ) install_dotfiles; break;;
