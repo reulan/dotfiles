@@ -12,9 +12,8 @@ CONFIG_PATH="$HOME/.config"
 TMP="/tmp"
 
 # Define files that will need to be transferred.
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc') 
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc' '.yabairc') 
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
-YABAI_CONFIGS=('.yabairc')
 TMP="/tmp"
 
 # Colorize text
@@ -95,7 +94,7 @@ install_mac(){
     # Enable window + hotkey manager
     echo -e "${blue}Enabling brew services.${blue}"
     brew services start skhd
-    brew services start chunkwm
+    brew services start yabai
 }
 
 # Configure vim, kitty, chunkwm and move remote configs + directories
@@ -103,8 +102,8 @@ install_dotfiles(){
     # Copy dotfiles to home directory
     for DOTFILE in ${DOTFILE_ARRAY[@]};
     do
-        echo -e "${purple}Symlinking ($DOTFILE) to [$HOME]${rnl}"
-        ln -sfn $HOME/dotfiles/$DOTFILE $HOME
+        echo -e "${purple}Symlinking ($DOTFILE) to [$HOME/$DOTFILE]${rnl}"
+        ln -sfFn $HOME/dotfiles/$DOTFILE $HOME
     done
 
     # kitty
@@ -115,13 +114,6 @@ install_dotfiles(){
         echo -e "${purple}Symlinking ($KITTY_CONFIG) to [$KITTY_PATH]${rnl}"
         ln -sfn $DOTFILE_PATH/kitty/$KITTY_CONFIG $KITTY_PATH/$KITTY_CONFIG 
     done
-    
-    # yabai
-    YABAI_PATH="$CONFIG_PATH/kitty"
-    mkdir -p $YABAI_PATH
-    echo -e "${purple}Symlinking .yabairc to [$YABAI_PATH]${rnl}"
-    ln -sfn $DOTFILE_PATH/.yabairc $YABAI_PATH/.yabairc
-    chmod +x $YABAI_PATH/.yabairc
 }
 
 # Needs love. Redundant case statement, but works.
@@ -133,5 +125,3 @@ select INSTALL_OPTIONS in "1" "2" "3"; do
         3 ) exit;;
     esac
 done
-
-source ~/.zshrc
