@@ -6,11 +6,14 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Configurations files and paths
-DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc' '.chunkwmrc') 
+# Define hardcoded expected paths.
 DOTFILE_PATH="$HOME/dotfiles"
+CONFIG_PATH="$HOME/.config"
+TMP="/tmp"
+
+# Define files that will need to be transferred.
+DOTFILE_ARRAY=('.vimrc' '.zshrc' '.gitconfig' 'Brewfile' '.skhdrc' '.yabairc') 
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
-KITTY_PATH="$HOME/.config/kitty"
 TMP="/tmp"
 
 # Colorize text
@@ -62,6 +65,15 @@ install_zsh(){
 
 # minimal install for Mac
 install_mac(){
+	if [[ $OSTYPE == "darwin"* ]]; then
+		echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
+		ssh-add
+		echo -e "${green}Packages have been installed.${rnl}"
+	else
+		echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
+		exit 1
+	fi
+
     echo -e "${blue}Installing MacOS settings${rnl}\n"
 
     # Install Homebrew,
@@ -82,7 +94,7 @@ install_mac(){
     # Enable window + hotkey manager
     echo -e "${blue}Enabling brew services.${blue}"
     brew services start skhd
-    brew services start chunkwm
+    brew services start yabai
 }
 
 # Configure vim, kitty, chunkwm and move remote configs + directories
@@ -90,33 +102,26 @@ install_dotfiles(){
     # Copy dotfiles to home directory
     for DOTFILE in ${DOTFILE_ARRAY[@]};
     do
-        echo -e "${purple}Symlinking ($DOTFILE) to [$HOME]${rnl}"
-        ln -sfn $HOME/dotfiles/$DOTFILE $HOME
+        echo -e "${purple}Symlinking ($DOTFILE) to [$HOME/$DOTFILE]${rnl}"
+        ln -sfFn $HOME/dotfiles/$DOTFILE $HOME
     done
 
     # kitty
+    KITTY_PATH="$CONFIG_PATH/kitty"
     mkdir -p $KITTY_PATH
-
     for KITTY_CONFIG in ${KITTY_CONFIGS[@]};
     do
         echo -e "${purple}Symlinking ($KITTY_CONFIG) to [$KITTY_PATH]${rnl}"
-        ln -sfn $DOTFILE_PATH/kitty/$KITTY_CONFIG $KITTY_PATH/$KITTY_CONFIG
+        ln -sfn $DOTFILE_PATH/kitty/$KITTY_CONFIG $KITTY_PATH/$KITTY_CONFIG 
     done
-    
-    # chunkwm
-    chmod +x ~/.chunkwmrc
 }
-install_dotfiles
 
-# Install packages and components
-#if [[ $OSTYPE == "darwin"* ]]; then
-#    echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
-#    ssh-add
-#    install_mac
-#    echo -e "${green}Packages have been installed.${rnl}"
-#else
-#    echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
-#    exit 1
-#fi
-#
-##source ~/.zshrc
+# Needs love. Redundant case statement, but works.
+echo -en "What function would you like to perform?\n1. New Macbook\n2. Link Dotfiles\n3. Quit\n"
+select INSTALL_OPTIONS in "1" "2" "3"; do
+    case $INSTALL_OPTIONS in
+        1 ) install_mac; break;;
+		2 ) install_dotfiles; break;;
+        3 ) exit;;
+    esac
+done

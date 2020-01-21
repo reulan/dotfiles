@@ -10,7 +10,7 @@ tap 'homebrew/services' # service manager
 cask 'kitty'
 tap 'koekeishiya/formulae'
 brew 'koekeishiya/formulae/skhd'
-#brew 'chunkwm' - no longer maintained
+brew 'yabai'
 
 # Text editors
 brew 'vim'
