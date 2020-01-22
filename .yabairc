@@ -3,27 +3,14 @@
 # https://github.com/koekeishiya/yabai
 
 # =========================================
-# Variables
-# =========================================
-border_focused_color="0xff37138c"
-border_preselect_color="0xff960000"
-
-status_bg_color="0xff202020"
-status_fg_color="0xffa8a8a8"
-
-window_active_color="0xff775759"
-window_normal_color="0xff505050"
-window_insert_color="0xffd75f5f"
-
-# =========================================
 # Colors (regardless where they SHOULD be)
 # =========================================
-yabai -m config active_window_border_color   "${window_active_color}"
-yabai -m config normal_window_border_color   "${window_normal_color}"
-yabai -m config insert_window_border_color   "${window_insert_color}"
+yabai -m config active_window_border_color   0xff37138c
+yabai -m config normal_window_border_color   0xff960000
+yabai -m config insert_window_border_color   0xffd75f5f
 
-yabai -m config status_bar_background_color  "${status_bg_color}"
-yabai -m config status_bar_foreground_color  "${status_fg_color}"
+yabai -m config status_bar_background_color  0xff202020
+yabai -m config status_bar_foreground_color  0xffa8a8a8
 
 # =========================================
 # Global Settings (Section 6.1.2)
