@@ -20,7 +20,7 @@ yabai -m config status_bar_foreground_color  0xffa8a8a8
 debug_output off
 
 # Status Bar 
-yabai -m config status_bar                   on
+yabai -m config status_bar                   off
 yabai -m config status_bar_text_font         "Helvetica Neue:Bold:16.0"
 yabai -m config status_bar_icon_font         "FontAwesome:Regular:16.0"
 yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX X
