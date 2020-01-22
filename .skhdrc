@@ -3,6 +3,7 @@
 # mpmsimo custom hotkeys
 # kitty (ctrl+shift)
 # yabai (alt+ - for window movement)
+# I prefer displays vs. spaces. I do not use MacOS workspaces too often.
 # =========================================
 # reload hotkey config 
 alt + cmd + ctrl - r : khd -e "reload"
@@ -24,19 +25,39 @@ alt + cmd - n : yabai -m space --create && \
                 index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                 yabai -m space --focus "${index}"
 
+# destroy desktop
+alt + cmd - w : yabai -m space --destroy
+
 # =========================================
 # Yabai - vim-inspired movement (prev/next)
-# alt+ (shift, ctrl, cmd)
 # =========================================
 ### (base) - screen window | focus
-# Focus screen window
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
+### (shift) - screen window | swap
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
 
+### (ctrl) - display | focus 
+alt + ctrl - h  : yabai -m display --focus prev
+alt + ctrl - l  : yabai -m display --focus next
 
+### (cmd) display | focus & follow 
+# send window to monitor and follow focus
+alt + cmd - h  : yabai -m window --display prev; yabai -m display --focus prev
+alt + cmd - l  : yabai -m window --display next; yabai -m display --focus next
+
+# =========================================
+# Yabai (Sorted by hotkey combination)
+# alt+ (shift, ctrl, cmd)
+# =========================================
+
+#=== alt + base
 # toggle desktop offset
 alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
 
@@ -74,13 +95,7 @@ alt - x : yabai -m space --mirror x-axis
 # mirror tree y-axis
 alt - y : yabai -m space --mirror y-axis
 
-### (shift) - screen window | swap
-# Swap window in screen
-alt + shift - h : yabai -m window --swap west
-alt + shift - j : yabai -m window --swap south
-alt + shift - k : yabai -m window --swap north
-alt + shift - l : yabai -m window --swap east
-
+#=== alt + shift
 # increase window size
 alt + shift - a : yabai -m window --resize left:-20:0
 alt + shift - d : yabai -m window --resize right:20:0
@@ -103,38 +118,15 @@ alt + shift - y: yabai -m window --grid 1:2:0:0:1:1
 # Right-half
 alt + shift - o: yabai -m window --grid 1:2:1:0:1:1
 
-### (ctrl) screen window | resize
-# Balance size of windows (not needed for now)
-alt + ctrl - h  : yabai -m display --focus prev
-alt + ctrl - l  : yabai -m display --focus next
-alt + ctrl - h : yabai -m window --insert west
-alt + ctrl - j : yabai -m window --insert south
-alt + ctrl - k : yabai -m window --insert north
-alt + ctrl - l : yabai -m window --insert east
-
+#=== alt + ctrl
 # change layout of desktop
 alt + ctrl - a : yabai -m space --layout bsp
 alt + ctrl - d : yabai -m space --layout float
 
-### (cmd) display window | swap
-# destroy desktop
-alt + cmd - w : yabai -m space --destroy
-#
-# send window to monitor and follow focus
-ctrl + cmd - h  : yabai -m window --display prev; yabai -m display --focus prev
-ctrl + cmd - l  : yabai -m window --display recent; yabai -m display --focus recent
-
-# fast focus desktop
-alt + cmd - h : yabai -m space --focus prev
-alt + cmd - l : yabai -m space --focus next
-
-# move window to space then focus space
-alt + cmd - h : yabai -m window --space prev; yabai -m space --focus prev
-alt + cmd - l : yabai -m window --space next; yabai -m space --focus next
-
+#=== alt + cmd
 
 # =========================================
-# Yabai (Defaults)
+# Yabai (unused)
 # =========================================
 # reorient 
 #shift + cmd - h : yabai -m window --warp west
