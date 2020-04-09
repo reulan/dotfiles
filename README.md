@@ -5,7 +5,7 @@ the dotfiles of mpmsimo
 Can configure a Macbook using the `dotfiles.sh` script, installs the following utilities:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal
 - [skhd](https://github.com/koekeishiya/skhd) | keybindings
-- [vim]() | text editor
+- [vim](https://www.vim.org/) | text editor
 - [yabai](https://github.com/koekeishiya/yabai) | window manager
 
 ## Text Editor
