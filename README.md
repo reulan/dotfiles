@@ -44,7 +44,6 @@ I do believe modifiers should be unique to the application, as this has bit me i
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
 
-### Macbook
 ```
 > clone this repo to $HOME
 cd ~/dotfiles
