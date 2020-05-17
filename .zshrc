@@ -97,9 +97,12 @@ alias kcd='kubectl describe'
 alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 alias kcg='kubectl get'
-#
+
 # utilties
 alias diffy='diff -y --suppress-common-lines'
+
+# development
+alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
 
 
 # =========================================
