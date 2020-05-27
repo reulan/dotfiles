@@ -5,7 +5,7 @@ the dotfiles of mpmsimo
 Can configure a Macbook using the `dotfiles.sh` script, installs the following utilities:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal
 - [skhd](https://github.com/koekeishiya/skhd) | keybindings
-- [vim]() | text editor
+- [vim](https://www.vim.org/) | text editor
 - [yabai](https://github.com/koekeishiya/yabai) | window manager
 
 ## Text Editor
@@ -37,17 +37,16 @@ l = right (next window/desktop)
 I do believe modifiers should be unique to the application, as this has bit me in the past.
 
 * kitty (ctrl+shift)
-* skhd (shift+alt, alt, ctrl+alt)
-* yabai (ctrl+shift, 
+* skhd (alt+)
+* yabai (ctrl+!shift, cmd+)
 * vim (leader, and vim specifics)
 
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
 
-### Macbook
 ```
+> clone this repo to $HOME
 cd ~/dotfiles
-> clone this repo
 bash dotfiles.sh
 ```
 
