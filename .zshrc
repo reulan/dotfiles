@@ -101,7 +101,7 @@ alias tf=terraform
 
 # development
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
-alias go2=$(cd $GOPATH/src)
+alias go2='cd $GOPATH/src'
 
 # =========================================
 # Functions
