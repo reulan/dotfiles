@@ -87,9 +87,8 @@ bindkey "^R" history-incremental-search-backward
 # =========================================
 # Aliases and Functions
 # =========================================
-alias py=$(which python)
 alias tf=terraform
-alias tfe=terraform11 # e for eleven, not enterprise
+alias go2=$(cd $GOPATH/src)
 
 # k8's aliases
 alias kc=kubectl
@@ -100,7 +99,6 @@ alias kcg='kubectl get'
 #
 # utilties
 alias diffy='diff -y --suppress-common-lines'
-
 
 # =========================================
 # Functions
@@ -261,4 +259,3 @@ export NVM_DIR="$HOME/.nvm"
 # =========================================
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=/Users/mpmsimo/.dronedeploy/kutil:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/mpmsimo/.local/bin:/Users/mpmsimo/bin:/Users/mpmsimo/go/bin:/Users/mpmsimo/.fzf/bin

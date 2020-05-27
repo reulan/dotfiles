@@ -14,27 +14,29 @@ brew 'yabai'
 
 # Text editors
 brew 'vim'
+cask 'sublime-text'
 
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
 brew 'go'
+brew 'dep'
 
 # Shell environment - then oh-my-zsh is installed afterwards
 brew "zsh-autosuggestions"
 brew 'zsh-syntax-highlighting'
 
-# CLI utilities
+# CLI utilities / debugging
 brew 'coreutils'
 brew 'curl'
 brew 'openssl'
 brew 'wget'
 brew 'xz'
+cask 'ngrok'
 
 # the "cloud"
 brew 'kubernetes-cli'
 cask 'google-cloud-sdk'
 cask 'docker'
-brew 'ansible'
 
 # terraform
 brew 'terraform'
@@ -57,6 +59,5 @@ cask 'viscosity'
 #cask 'discord'
 #cask 'steam'
 #cask 'vlc'
-#cask 'ngrok'
 #cask 'virtualbox'
 #brew 'graphviz' # for terraform graph functionality
