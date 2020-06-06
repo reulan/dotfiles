@@ -90,6 +90,7 @@ bindkey "^R" history-incremental-search-backward
 
 # k8's aliases
 alias kc=kubectl
+alias kce='vim ~/.kube/config'
 alias kcd='kubectl describe'
 alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
