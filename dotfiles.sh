@@ -97,6 +97,23 @@ install_mac(){
     brew services start yabai
 }
 
+install_popos(){
+  if [[ $OSTYPE == "linux-gnu" ]]; then
+  	echo -e "${red}Please enter your SSH passphrase so ZSH and vim-plug can be installed later: ${rnl}"
+  	ssh-add
+  else
+  	echo -e "${red}Operating system "$OSTYPE" is not supported.${rnl}"
+  	exit 1
+  fi
+  
+  echo -e "${blue}Installing PopOS settings${rnl}\n"
+
+  sudo apt install libavcodec-extra nvim zsh -y
+
+  # Perform a symbolic link to reference dotfiles from the repo to the $HOME dir.
+  install_dotfiles
+}
+
 # Configure vim, kitty, chunkwm and move remote configs + directories
 install_dotfiles(){
     # Copy dotfiles to home directory
@@ -117,11 +134,12 @@ install_dotfiles(){
 }
 
 # Needs love. Redundant case statement, but works.
-echo -en "What function would you like to perform?\n1. New Macbook\n2. Link Dotfiles\n3. Quit\n"
+echo -en "What function would you like to perform?\n1.New Macbook\n2. New PopOS\n3. Link Dotfiles\n0. Quit\n"
 select INSTALL_OPTIONS in "1" "2" "3"; do
     case $INSTALL_OPTIONS in
         1 ) install_mac; break;;
-		2 ) install_dotfiles; break;;
-        3 ) exit;;
+        2 ) install_popos; break;;
+	3 ) install_dotfiles; break;;
+        0 ) exit;;
     esac
 done
