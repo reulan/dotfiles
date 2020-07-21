@@ -13,12 +13,15 @@ POPOS_PATH="${DOTFILE_PATH}/popos"
 
 CONFIG_PATH="${HOME}/.config"
 KITTY_PATH="${CONFIG_PATH}/kitty"
+NVIM_PATH="${CONFIG_PATH}/nvim"
 
 # Define files that will need to be transferred.
-SHARED_DOTFILES=('.vimrc' '.zshrc' '.gitconfig')
+SHARED_DOTFILES=('.zshrc' '.gitconfig')
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
 MACOS_DOTFILES=('.skhdrc' '.yabairc' 'Brewfile')
 POPOS_DOTFILES=('Brewfile')
+
+DOTFILE_TO_CHECK="${NVIM_PATH}/init.vim"
 
 # =========================================
 # Script output colorization
@@ -114,15 +117,15 @@ install_kitty(){
   mkdir -p ${KITTY_PATH}
   for KITTY_CONFIG in ${KITTY_CONFIGS[@]};
     do
-      ln -sfn ${DOTFILE_PATH}/${KITTY_CONFIG} ${KITTY_PATH}/${KITTY_CONFIG} 
+      ln -sfn ${KITTY_PATH}/${KITTY_CONFIG} ${DOTFILE_PATH}/${KITTY_CONFIG}
     done
   echo -e "${purple}Linked kitty configurations to [${KITTY_PATH}].${rnl}"
 }
 
 # =========================================
-# Text editor (vim, nvim, vim-plug)
+# Text editor (nvim, vim-plug)
 # =========================================
-install_vim(){
+install_nvim(){
   echo "Copying ${SHARED_PATH}/.vim > [${HOME}/.vim]."
   cp -r "${SHARED_PATH}/.vim" ${HOME} || true
 
@@ -130,6 +133,10 @@ install_vim(){
   echo -e "${yellow}Installing vim-plug.${rnl}"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  # symlink config
+  echo -e "${purple}Symlinking (${SHARED_PATH}/init.vim) to [${NVIM_PATH}/init.vim].${rnl}"
+  ln -sfn ${SHARED_PATH}/init.vim ${NVIM_PATH}/init.vim
 }
 
 # =========================================
@@ -151,7 +158,7 @@ install_shared(){
   ssh-add
   install_zsh
   install_kitty
-  install_vim
+  install_nvim
   link_shared
 }
 
