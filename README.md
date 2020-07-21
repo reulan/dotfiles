@@ -1,31 +1,37 @@
 # dotfiles
 
-the dotfiles of mpmsimo
+reulan's dotfiles for bootstrapping MacOS or PopOS
 
-Can configure a Macbook using the `dotfiles.sh` script, installs the following utilities:
-- [kitty](https://github.com/kovidgoyal/kitty) | terminal
+The following utlities are used:
+Shared:
+- [kitty](https://github.com/kovidgoyal/kitty) | terminal emulator
+- [nvim](https://www.vim.org/) | command line text editor
+MacOS specifc:
 - [skhd](https://github.com/koekeishiya/skhd) | keybindings
-- [vim](https://www.vim.org/) | text editor
-- [yabai](https://github.com/koekeishiya/yabai) | window manager
+- [yabai](https://github.com/koekeishiya/yabai) | tiling window manager
+PopOS specific:
+- [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
 ## Text Editor
 I use vim day-to-day for most of my file editing, bascially anything that's not monolith or microservice with many many moving parts.
 
 Within the .vimrc, I support:
 * PEP 8 Python syntax configuration
-* Several colorschemes (jellybeans, preferred)
-* various plugins via `vim-plug`
+* (legacy) and nvim (jellybeans, preferred)
+* plugin installation via `vim-plug`
 * remove noob mode (arrow keys + mouse)
+* disable terminal bell
+*  custom keybindings
 
 ### Plugin management via `vim-plug`:
 * fzf (ctrl+r, never felt so good)
 * vim-terraform - Terraform syntax highlighting and auto formatting
+* powerline
 
 See `.vimrc` for the source of truth for the plugins.
 
 ## Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
-* Creating a ZSH theme is currently on my to-do list.
 
 ## Keybindings
 Generally designed around vim style keybindings.
@@ -44,11 +50,14 @@ I do believe modifiers should be unique to the application, as this has bit me i
 ## Installation
 The setup script is intended to be used when a new system is being installed. 
 
+The script will detect your `$OSTYPE`, and then install specific dotfiles depending on the OS.
+
 ```
 > clone this repo to $HOME
 cd ~/dotfiles
-bash dotfiles.sh
+bash bootstrap.sh
 ```
+
 
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
@@ -61,3 +70,8 @@ Can be located in `/.vim/colors`
 - jellybeans (preferred)
 - molokai (so pretty!)
 - dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.
+
+
+TODO:
+* Create a ZSH theme.
+* Remove either nvim or vim, whichever wins.
