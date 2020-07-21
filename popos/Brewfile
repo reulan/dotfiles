@@ -1,21 +1,14 @@
 # PopOS system config
-
-# Support for installing casks (desktop applications/3rd-party repos)
-tap 'homebrew/cask' # install applications via Homebrew
 tap 'homebrew/services' # service manager
-
-# Terminal, window manager and hotkey-daemon
-cask 'kitty'
 
 # Text editors
 brew 'nvim'
-cask 'sublime-text'
 
 # Programming lanaguages, language-specific package managers, and source control
-brew 'git'
-brew 'go'
 brew 'dep'
 brew 'gcc'
+brew 'git'
+brew 'go'
 
 # Shell environment - then oh-my-zsh is installed afterwards
 brew "zsh-autosuggestions"
@@ -23,23 +16,26 @@ brew 'zsh-syntax-highlighting'
 
 # CLI utilities / debugging
 brew 'curl'
-cask 'ngrok'
 brew 'jq'
 brew 'yq'
 
 # the "cloud"
 brew 'kubernetes-cli'
-cask 'google-cloud-sdk'
-cask 'docker'
-
-# terraform
 brew 'terraform'
 
+# Support for installing casks (desktop applications/3rd-party repos)
+#tap 'homebrew/cask' # install applications via Homebrew
+#brew 'cask'
 
-# Applications
-cask 'google-chrome'
-cask 'spotify'
-cask 'viscosity'
-cask 'discord'
-cask 'steam'
-cask 'vlc'
+## Terminal, window manager and hotkey-daemon
+#cask 'kitty'
+#cask 'sublime-text'
+#cask 'google-cloud-sdk'
+#cask 'docker'
+#cask 'ngrok'
+#cask 'google-chrome'
+#cask 'spotify'
+#cask 'viscosity'
+#cask 'vlc'
+#cask 'discord'
+#cask 'steam'
