@@ -3,12 +3,15 @@
 reulan's dotfiles for bootstrapping MacOS or PopOS
 
 The following utlities are used:
+
 Shared:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal emulator
 - [nvim](https://www.vim.org/) | command line text editor
+
 MacOS specifc:
 - [skhd](https://github.com/koekeishiya/skhd) | keybindings
 - [yabai](https://github.com/koekeishiya/yabai) | tiling window manager
+
 PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
@@ -51,13 +54,11 @@ I do believe modifiers should be unique to the application, as this has bit me i
 The setup script is intended to be used when a new system is being installed. 
 
 The script will detect your `$OSTYPE`, and then install specific dotfiles depending on the OS.
-
 ```
 > clone this repo to $HOME
 cd ~/dotfiles
 bash bootstrap.sh
 ```
-
 
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
@@ -70,7 +71,6 @@ Can be located in `/.vim/colors`
 - jellybeans (preferred)
 - molokai (so pretty!)
 - dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.
-
 
 TODO:
 * Create a ZSH theme.
