@@ -86,7 +86,7 @@ install_homebrew(){
   
   # Locate the Brewfile and execute it.
   brew tap Homebrew/bundle
-  brew bundle --file="${DOTFILE_PATH}/Brewfile"
+  brew bundle --file="${HOME}/Brewfile"
 }
 
 # =========================================
