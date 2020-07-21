@@ -117,7 +117,7 @@ install_kitty(){
   mkdir -p ${KITTY_PATH}
   for KITTY_CONFIG in ${KITTY_CONFIGS[@]};
     do
-      ln -sfn ${KITTY_PATH}/${KITTY_CONFIG} ${DOTFILE_PATH}/${KITTY_CONFIG}
+      ln -sfn ${SHARED_PATH}/kitty/${KITTY_CONFIG} ${KITTY_PATH}/${KITTY_CONFIG}
     done
   echo -e "${purple}Linked kitty configurations to [${KITTY_PATH}].${rnl}"
 }
