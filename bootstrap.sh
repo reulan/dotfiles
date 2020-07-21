@@ -74,14 +74,13 @@ install_popos(){
   done
 
   install_homebrew
+  install_linux_utilities
 }
 
 # =========================================
-# Package manager (Homebrew)
+# Package manager (Homebrew + online mirrors)
 # =========================================
 install_homebrew(){
-
-
   cd /tmp
 
   # Install Homebrew,
@@ -90,6 +89,16 @@ install_homebrew(){
   # Locate the Brewfile and execute it.
   brew tap Homebrew/bundle
   brew bundle --file="${HOME}/Brewfile"
+}
+
+install_linux_utilities(){
+  # Add the Cloud SDK distribution URI as a package source & Import the Google Cloud Platform public key
+  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+  # Update the package list and install the Cloud SDK
+  sudo apt-get update && sudo apt-get install google-cloud-sdk -y
+
+  sudo apt-get install docker kitty -y
 }
 
 # =========================================
