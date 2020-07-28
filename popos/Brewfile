@@ -22,6 +22,7 @@ brew 'yq'
 # the "cloud"
 brew 'kubernetes-cli'
 brew 'terraform'
+brew 'terraform-docs'
 
 # Support for installing casks (desktop applications/3rd-party repos)
 #tap 'homebrew/cask' # install applications via Homebrew

@@ -40,6 +40,7 @@ cask 'docker'
 
 # terraform
 brew 'terraform'
+brew 'terraform-docs'
 brew 'terragrunt'
 
 # Visualization
