@@ -137,5 +137,8 @@ echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 # =========================================
 # Final Block
 # =========================================
+# force SSH login on load - for my own sanity.
+ssh-add
+
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

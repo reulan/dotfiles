@@ -60,3 +60,5 @@
 
     uco = reset HEAD^
     hist = log --follow --
+[pull]
+	rebase = false
