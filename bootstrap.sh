@@ -16,7 +16,7 @@ KITTY_PATH="${CONFIG_PATH}/kitty"
 NVIM_PATH="${CONFIG_PATH}/nvim"
 
 # Define files that will need to be transferred.
-SHARED_DOTFILES=('.zshrc' '.gitconfig')
+SHARED_DOTFILES=('.zshrc' '.gitconfig' '.dotenv')
 KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf')
 MACOS_DOTFILES=('.skhdrc' '.yabairc' 'Brewfile')
 POPOS_DOTFILES=('Brewfile')

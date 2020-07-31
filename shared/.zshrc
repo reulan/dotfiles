@@ -37,6 +37,7 @@ setopt HIST_REDUCE_BLANKS
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sunaku"
+ZSH_DOTENV_FILE=.dotenv
 source $ZSH/oh-my-zsh.sh
 
 # Additional ZSH colorscheme
@@ -62,6 +63,7 @@ plugins=(
             autoenv
             git
             kubectl
+            ... dotenv
         )
 
 # =========================================
@@ -87,13 +89,17 @@ alias kcon='kubectl config use-context'
 alias kc3='kubectl config current-context'
 alias kcg='kubectl get'
 
+# development
+alias ns="cd $HOME/noobshack"
+alias reu="cd $HOME/projects/reulan"
+alias sbe="cd $HOME/noobshack/spellblade_engine"
+alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
+alias go2="cd $GOPATH/src"
+
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
 
-# development
-alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
-alias go2='cd $GOPATH/src'
 
 ### Kubernetes
 function kl() {
@@ -137,8 +143,5 @@ echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 # =========================================
 # Final Block
 # =========================================
-# force SSH login on load - for my own sanity.
-ssh-add
-
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
