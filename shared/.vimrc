@@ -157,9 +157,6 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Save session
 nnoremap <leader>s :mksession<CR>
 
-" =========================================
-" Vim Plugin settings
-" =========================================
 
 " Powerline
 " =========================================
@@ -181,20 +178,48 @@ let g:terraform_align = 1
 let g:terraform_fold_sections = 0
 let g:terraform_remap_spacebar = 1
 
+" limelight.vim
+" =========================================
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_guifg = '#777777' " GUI color
+let g:limelight_priority = -1 " boldness? - default 10
+
+" goyo.vim
+" =========================================
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+noremap <leader>gg :Goyo<cr>
+
+" vim-rainbow
+" =========================================
+let g:rainbow_active = 1
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
 " =========================================
 
+" call plug#begin('~/.config/nvim/plugged')
 call plug#begin('~/.vim/plugged')
 
 "Customization
 "Plug 'noahfrederick/vim-noctu'
 Plug 'bling/vim-airline'
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
+Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'mitsuhiko/vim-jinja'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 
 " Programming specific
 "Plug 'davidhalter/jedi-vim'
