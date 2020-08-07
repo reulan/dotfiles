@@ -95,6 +95,7 @@ alias xr="cd $HOME/noobshack/xr"
 alias sbe="cd $HOME/noobshack/spellblade_engine"
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
 alias go2="cd $GOPATH/src"
+alias vim="nvim"
 
 # utilties
 alias diffy='diff -y --suppress-common-lines'

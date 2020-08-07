@@ -13,7 +13,7 @@ brew 'koekeishiya/formulae/skhd'
 brew 'yabai'
 
 # Text editors
-brew 'vim'
+brew 'nvim'
 cask 'sublime-text'
 
 # Programming lanaguages, language-specific package managers, and source control

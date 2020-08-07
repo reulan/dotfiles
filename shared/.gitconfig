@@ -29,7 +29,7 @@
     untracked = cyan
 
 [core]
-    editor = vim
+    editor = nvim
 
 [alias]
     a = add
