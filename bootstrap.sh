@@ -135,6 +135,7 @@ install_kitty(){
 # Text editor (nvim, vim-plug)
 # =========================================
 install_nvim(){
+  mkdir -p ${NVIM_PATH}
   echo "Copying ${SHARED_PATH}/.vim > [${HOME}/.vim]."
   cp -r "${SHARED_PATH}/.vim" ${HOME} || true
 
