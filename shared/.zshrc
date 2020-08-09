@@ -111,7 +111,8 @@ function kl() {
 # Go 
 # =========================================
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
 

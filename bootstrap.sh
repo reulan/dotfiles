@@ -76,6 +76,7 @@ install_popos(){
 
   install_homebrew
   install_linux_utilities
+  install_python
 }
 
 # =========================================
@@ -148,6 +149,12 @@ install_nvim(){
   # symlink config
   echo -e "${purple}Symlinking (${SHARED_PATH}/init.vim) to [${NVIM_PATH}/init.vim].${rnl}"
   ln -sfn ${SHARED_PATH}/init.vim ${NVIM_PATH}/init.vim
+}
+
+install_python(){
+    cd /tmp
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py
 }
 
 # =========================================
