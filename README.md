@@ -15,7 +15,8 @@ MacOS specifc:
 PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
-## Text Editor
+## Overview
+### Text Editor
 I use vim day-to-day for most of my file editing, bascially anything that's not monolith or microservice with many many moving parts.
 
 Within the .vimrc, I support:
@@ -26,17 +27,17 @@ Within the .vimrc, I support:
 * disable terminal bell
 *  custom keybindings
 
-### Plugin management via `vim-plug`:
+#### Plugin management via `vim-plug`:
 * fzf (ctrl+r, never felt so good)
 * vim-terraform - Terraform syntax highlighting and auto formatting
 * powerline
 
 See `.vimrc` for the source of truth for the plugins.
 
-## Terminal
+### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
-## Keybindings
+### Keybindings
 Generally designed around vim style keybindings.
 h = left (previous window/desktop)
 j = down
@@ -60,6 +61,7 @@ cd ~/dotfiles
 bash bootstrap.sh
 ```
 
+### Other information
 ## Colorscheme
 Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
 
