@@ -201,11 +201,14 @@ let g:rainbow_active = 1
 
 " call plug#begin('~/.config/nvim/plugged')
 call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
 "Customization
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'noahfrederick/vim-noctu'
-Plug 'bling/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plug 'cloudhead/neovim-fuzzy'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'francoiscabrol/ranger.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'godlygeek/tabular'
@@ -216,14 +219,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mitsuhiko/vim-jinja'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-
-" Programming specific
-"Plug 'davidhalter/jedi-vim'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-airline/vim-airline'
 
 " Initialize Vim plugins
 call plug#end()
