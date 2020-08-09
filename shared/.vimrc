@@ -190,23 +190,18 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 noremap <leader>gg :Goyo<cr>
 
-" vim-rainbow
+" deoplete
 " =========================================
-let g:rainbow_active = 1
+"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
 " =========================================
 
-" call plug#begin('~/.config/nvim/plugged')
 call plug#begin('~/.vim/plugged')
-"call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.config/nvim/plugged')
 
-"Customization
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'noahfrederick/vim-noctu'
-"Plugin 'vim-airline/vim-airline-themes'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'francoiscabrol/ranger.vim'
@@ -224,7 +219,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
-" Initialize Vim plugins
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 " To install new plugins!
