@@ -80,7 +80,7 @@ set more
 
 "Show all the tings
 set showmatch               "Show the matching part of the pair for parenthesis
-set showcmd                 "Show current command
+set showcmd                 "Show current command in bottom right
 set showmode
 set wildmenu
 set display+=lastline
@@ -119,8 +119,6 @@ set modelines=1
 " Keybindings
 " =========================================
 " Leader Mappings
-" map <Space> <leader>
-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -157,6 +155,13 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Save session
 nnoremap <leader>s :mksession<CR>
 
+" NERDTree settings
+"Switch between different windows by their direction`
+nnoremap <leader>j <C-w>j|
+nnoremap <leader>k <C-w>k|
+nnoremap <leader>l <C-w>l|
+nnoremap <leader>h <C-w>h|
+nnoremap <leader>nt :NERDTree<CR>
 
 " Powerline
 " =========================================
@@ -194,14 +199,20 @@ noremap <leader>gg :Goyo<cr>
 " =========================================
 "call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
+" NERDTree
+" =========================================
+"autocmd vimenter * NERDTree "Autoload NERDTree on vim enter
+"autocmd StdinReadPre * let s:std_in=1 
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
 " =========================================
 
-call plug#begin('~/.vim/plugged')
 " call plug#begin('~/.config/nvim/plugged')
-
+call plug#begin('~/.vim/plugged')
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'francoiscabrol/ranger.vim'
@@ -218,9 +229,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-
 Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 call plug#end()
 
 " To install new plugins!
