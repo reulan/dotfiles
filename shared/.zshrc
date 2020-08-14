@@ -145,5 +145,8 @@ echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 # =========================================
 # Final Block
 # =========================================
+# Load local secrets...
+. ~/kit/env.sh
+
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
