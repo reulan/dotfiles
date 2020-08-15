@@ -32,6 +32,7 @@ brew 'openssl'
 brew 'wget'
 brew 'xz'
 cask 'ngrok'
+brew 'neofetch'
 
 # the "cloud"
 brew 'kubernetes-cli'

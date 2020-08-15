@@ -18,11 +18,29 @@ brew 'zsh-syntax-highlighting'
 brew 'curl'
 brew 'jq'
 brew 'yq'
+brew 'neofetch'
 
 # the "cloud"
 brew 'kubernetes-cli'
 brew 'terraform'
 brew 'terraform-docs'
+brew 'terragrunt'
+
+# Programming lanaguages, language-specific package managers, and source control
+brew 'git'
+brew 'go'
+brew 'dep'
+
+# Shell environment - then oh-my-zsh is installed afterwards
+brew "zsh-autosuggestions"
+brew 'zsh-syntax-highlighting'
+
+# CLI utilities / debugging
+brew 'coreutils'
+brew 'curl'
+brew 'openssl'
+brew 'wget'
+brew 'xz'
 
 # Support for installing casks (desktop applications/3rd-party repos)
 #tap 'homebrew/cask' # install applications via Homebrew
