@@ -31,6 +31,19 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
 
+# Additional ZSH options
+setopt autocd 
+setopt extended_history     ## Store timestamp/runtime in history file
+setopt extendedglob 
+setopt inc_append_history
+setopt ksh_glob 
+setopt notify
+setopt print_exit_value     ## Print non-zero exit status
+setopt prompt_subst 
+setopt rm_star_wait         ## Force a pause before allowing an answer on rm *
+setopt transient_rprompt    ## Remove the right-side prompt if the cursor comes close
+
+
 # =========================================
 # ZSH configuration
 # =========================================
@@ -47,14 +60,6 @@ autoload -U vcs_info && vcs_info
 
 zmodload zsh/complist
 zmodload zsh/terminfo
-
-# setopt
-setopt \
-  autocd \
-  ksh_glob \
-  extendedglob \
-  prompt_subst \
-  inc_append_history
 
 # =========================================
 # ZSH plugins 
@@ -94,7 +99,7 @@ alias ns="cd $HOME/noobshack"
 alias xr="cd $HOME/noobshack/xr"
 alias sbe="cd $HOME/noobshack/spellblade_engine"
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
-alias go2="cd $GOPATH/src"
+alias go2="cd ${GOPATH}/src"
 alias vim="nvim"
 
 # utilties
