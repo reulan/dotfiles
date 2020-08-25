@@ -84,6 +84,32 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # =========================================
+# Homebrew for Linux
+# https://docs.brew.sh/Homebrew-on-Linux
+# =========================================
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+
+# =========================================
+# Go 
+# =========================================
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export GO15VENDOREXPERIMENT=1
+export CGO_ENABLED=1
+
+# =========================================
+# Node
+# =========================================
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# =========================================
 # Aliases
 # =========================================
 # k8's aliases
@@ -106,20 +132,12 @@ alias vim="nvim"
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
 
-
-### Kubernetes
+# =========================================
+# Functions
+# =========================================
 function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
 }
-
-# =========================================
-# Go 
-# =========================================
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-export GO15VENDOREXPERIMENT=1
-export CGO_ENABLED=1
 
 # =========================================
 # Google Cloud
@@ -129,23 +147,6 @@ if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then source $HOME'/google-cloud
 
 # The next line enables shell command completion for gcloud.
 if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
-
-# =========================================
-# Node
-# =========================================
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# =========================================
-# Homebrew for Linux
-# https://docs.brew.sh/Homebrew-on-Linux
-# =========================================
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # =========================================
 # Final Block
