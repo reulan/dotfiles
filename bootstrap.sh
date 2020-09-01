@@ -18,7 +18,7 @@ NVIM_PATH="${CONFIG_PATH}/nvim"
 # Define files that will need to be transferred.
 # nvim note: .vimrc is required for init.vim untill it's fully converted over
 SHARED_DOTFILES=('.zshrc' '.gitconfig' '.dotenv' '.vimrc')
-KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf' 'macos.conf' 'jellybeans.com')
+KITTY_CONFIGS=('kitty.conf' 'colorscheme.conf' 'keybindings.conf' 'macos.conf' 'jellybeans.conf')
 MACOS_DOTFILES=('.skhdrc' '.yabairc' 'Brewfile')
 POPOS_DOTFILES=('Brewfile')
 
