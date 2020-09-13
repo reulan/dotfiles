@@ -53,7 +53,9 @@ install_macos(){
   # TODO: Configure kitty specific MacOS settings
   # 'macos.conf'  - write an include in the main config
 
-  install_homebrew
+  echo -e "${red}Install Homebrew manually, then rerun this script.${rnl}"
+  echo -e "${red}/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)${rnl}"
+  #install_homebrew
 
   # Enable window + hotkey manager
   echo -e "${blue}Enabling MacoOS brew services.${blue}"
@@ -63,7 +65,7 @@ install_macos(){
 
 install_popos(){
   echo -e "${blue}Installing PopOS settings.${rnl}\n"
-  sudo apt install libavcodec-extra build-essential -y
+  sudo apt install libavcodec-extra build-essential zsh -y
 
   echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ${HOME}/.zprofile
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -74,8 +76,8 @@ install_popos(){
     ln -sfFn ${POPOS_PATH}/${DOTFILE} ${HOME}
   done
 
-  install_homebrew
   install_linux_utilities
+  install_homebrew
   install_python
 }
 
@@ -94,13 +96,16 @@ install_homebrew(){
 }
 
 install_linux_utilities(){
+  sudo apt-get install kitty -y
+
   # Add the Cloud SDK distribution URI as a package source & Import the Google Cloud Platform public key
   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
   # Update the package list and install the Cloud SDK
   sudo apt-get update && sudo apt-get install google-cloud-sdk -y
 
-  sudo apt-get install docker kitty -y
+  sudo apt-get install docker docker.io -y
+  sudo usermod -aG docker ${USER}
 }
 
 # =========================================
@@ -116,7 +121,7 @@ install_zsh(){
 
     # Change default shell
     cd ${HOME}
-    chsh -s /bin/zsh ${USER}
+    chsh -s "/bin/zsh" ${USER}
     echo -e "${purple} ZSH version is: $(zsh --version). ${rnl}" 
   fi
 }
