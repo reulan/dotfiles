@@ -116,9 +116,12 @@ export NVM_DIR="$HOME/.nvm"
 alias kc=kubectl
 alias kce='vim ~/.kube/config'
 alias kcd='kubectl describe'
-alias kcon='kubectl config use-context'
-alias kc3='kubectl config current-context'
 alias kcg='kubectl get'
+alias kc3='kubectl config current-context'
+alias kcon='kubectl config use-context'
+alias kcert='kubectl describe certificate -n cert-manager'
+alias ksec='kubectl get --all-namespaces secret -o yaml'
+alias kccf='kubectl create -f'
 
 # development
 alias ns="cd $HOME/noobshack"
@@ -131,6 +134,7 @@ alias vim="nvim"
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
+alias tf12="~/kit/terraform0.12/terraform" 
 
 # =========================================
 # Functions
