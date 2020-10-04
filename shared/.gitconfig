@@ -34,31 +34,20 @@
 [alias]
     a = add
     aa = add --all
-
-    b = branch
-
-    c = commit
     ca = commit -a
-    cd = commit --amend
-    cad = commit -a --amend
-
+    cam = commit --amend
     cp = cherry-pick
-
     co = checkout
     cob = checkout -b
-
     lc = log ORIG_HEAD.. --stat --no-merges
     llog = log --date=local
-
     p = push
     pom = push origin master
     po = push origin
-    #pob = !bash -c "git push origin $(git branch | grep '*' | cut -d ' ' -f2)"
-
     pl = pull
     s = status -sb
-
+    mm = merge master
     uco = reset HEAD^
-    hist = log --follow --
+
 [pull]
 	rebase = false

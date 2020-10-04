@@ -7,6 +7,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='nvim'
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'
     export TERM='rxvt'
@@ -129,6 +130,7 @@ alias xr="cd $HOME/noobshack/xr"
 alias sbe="cd $HOME/noobshack/spellblade_engine"
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
 alias go2="cd ${GOPATH}/src"
+alias gor="go run"
 alias vim="nvim"
 
 # utilties
