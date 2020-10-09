@@ -44,6 +44,7 @@ setopt prompt_subst
 setopt rm_star_wait         ## Force a pause before allowing an answer on rm *
 setopt transient_rprompt    ## Remove the right-side prompt if the cursor comes close
 
+export AUTOENV=false
 
 # =========================================
 # ZSH configuration

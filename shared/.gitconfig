@@ -5,9 +5,9 @@
 [push]
     default = simple
 
-[branch "master"]
+[branch "main"]
     remote = origin
-    merge = refs/heads/master
+    merge = refs/heads/main
 
 [color]
     ui = auto
@@ -42,11 +42,11 @@
     lc = log ORIG_HEAD.. --stat --no-merges
     llog = log --date=local
     p = push
-    pom = push origin master
+    pom = push origin main
     po = push origin
     pl = pull
     s = status -sb
-    mm = merge master
+    mm = merge main
     uco = reset HEAD^
 
 [pull]
