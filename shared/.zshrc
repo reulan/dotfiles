@@ -161,8 +161,5 @@ if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then source $HOME'/google
 # Load local secrets...
 . ~/kit/env.sh
 
-# Print crypto tools
-go run /home/reulan/go/src/reulan-frontend/crypto/CoinGeckoPricelist.go
-
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
