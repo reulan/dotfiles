@@ -190,7 +190,13 @@ install_shared(){
 
 # =========================================
 # Main logic
+# 
+# - support relinking via option
+
+# - update to support nvim
+# ~/.config/nvim/init.vim 
 # =========================================
+
 bootstrap(){
   if [[ $OSTYPE == "darwin"* ]]; then
     echo -e "${green}Detected [${purple}MacOS${green}].${rnl}"
