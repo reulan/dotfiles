@@ -10,6 +10,7 @@ DOTFILE_PATH="${HOME}/dotfiles"
 SHARED_PATH="${DOTFILE_PATH}/shared"
 MACOS_PATH="${DOTFILE_PATH}/macos"
 POPOS_PATH="${DOTFILE_PATH}/popos"
+ARCH_PATH="${DOTFILE_PATH}/arch"
 
 CONFIG_PATH="${HOME}/.config"
 KITTY_PATH="${CONFIG_PATH}/kitty"
@@ -80,6 +81,17 @@ install_popos(){
   install_homebrew
   install_python
 }
+
+install_arch(){
+  echo -e "${blue}Installing Arch Linux operating system settings.${rnl}\n"
+  sudo pacman -Syuq --noconfirm vim neovim git kitty discord chromium
+
+  install_kitty
+  install_nvim
+  install_zsh
+  link_shared
+}
+
 
 # =========================================
 # Package manager (Homebrew + online mirrors)
@@ -204,7 +216,8 @@ bootstrap(){
     install_shared
   elif [[ $OSTYPE == "linux-gnu" ]]; then
     echo -e "${green}Detected [${purple}linux-gnu${green}].${rnl}"
-    install_popos
+    #install_popos
+    install_arch
     install_shared
   elif [[ -L "${SHARED_PATH}/.vimrc" && -d "${SHARED_PATH}/.vimrc" ]]; then
     echo -e "${green}Shared dotfiles exist at [${purple}${DOTFILE_PATH}${green}."
