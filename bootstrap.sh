@@ -84,12 +84,18 @@ install_popos(){
 
 install_arch(){
   echo -e "${blue}Installing Arch Linux operating system settings.${rnl}\n"
-  sudo pacman -Syuq --noconfirm vim neovim git kitty discord chromium terraform terragrunt
+  sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt
 
   install_oh_my_zsh
   configure_kitty
   configure_nvim
   link_shared
+
+  mkdir -p $HOME/kit/dotfiles
+  cd $HOME/kit/dotfiles
+
+  git clone https://aur.archlinux.org/google-cloud-sdk.git
+  makepkg -si
 }
 
 # =========================================
