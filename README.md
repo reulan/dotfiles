@@ -1,8 +1,11 @@
 # dotfiles
 
-reulan's dotfiles for bootstrapping MacOS or PopOS
+reulan's dotfiles for bootstrapping the following operating systems:
+- MacOS
+- PopOS
+- Arch Linux
 
-The following utlities are used:
+The following utlities are used, some which are shared across all distributions and some which I specificially prefer as a user of the operating system.
 
 Shared:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal emulator
@@ -14,6 +17,9 @@ MacOS specifc:
 
 PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
+
+Arch Linux specific:
+- [i3] | tiling window manager 
 
 ## Overview
 ### Text Editor
@@ -76,4 +82,3 @@ Can be located in `/.vim/colors`
 
 TODO:
 * Create a ZSH theme.
-* Remove either nvim or vim, whichever wins.

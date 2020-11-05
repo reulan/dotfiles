@@ -10,6 +10,7 @@ DOTFILE_PATH="${HOME}/dotfiles"
 SHARED_PATH="${DOTFILE_PATH}/shared"
 MACOS_PATH="${DOTFILE_PATH}/macos"
 POPOS_PATH="${DOTFILE_PATH}/popos"
+ARCH_PATH="${DOTFILE_PATH}/arch"
 
 CONFIG_PATH="${HOME}/.config"
 KITTY_PATH="${CONFIG_PATH}/kitty"
@@ -81,6 +82,16 @@ install_popos(){
   install_python
 }
 
+install_arch(){
+  echo -e "${blue}Installing Arch Linux operating system settings.${rnl}\n"
+  sudo pacman -Syuq --noconfirm vim neovim git kitty discord chromium
+
+  install_oh_my_zsh
+  configure_kitty
+  configure_nvim
+  link_shared
+}
+
 # =========================================
 # Package manager (Homebrew + online mirrors)
 # =========================================
@@ -111,7 +122,7 @@ install_linux_utilities(){
 # =========================================
 # Shell (zsh) + Terminal (kitty)
 # =========================================
-install_zsh(){
+install_oh_my_zsh(){
   echo -e "${yellow}Installing oh-my-zsh.${rnl}\n"
 
   # Install, if oh-my-zsh config doesn't exist
@@ -129,7 +140,7 @@ install_zsh(){
 # =========================================
 # Terminal (kitty)
 # =========================================
-install_kitty(){
+configure_kitty(){
   mkdir -p ${KITTY_PATH}
   for KITTY_CONFIG in ${KITTY_CONFIGS[@]};
     do
@@ -141,7 +152,7 @@ install_kitty(){
 # =========================================
 # Text editor (nvim, vim-plug)
 # =========================================
-install_nvim(){
+configure_nvim(){
   mkdir -p ${NVIM_PATH}
   echo "Copying ${SHARED_PATH}/.vim > [${HOME}/.vim]."
   cp -r "${SHARED_PATH}/.vim" ${HOME} || true
@@ -182,9 +193,9 @@ install_shared(){
   echo -e "${purple}Bootstrapping Operating System.${rnl}"
   echo -e "${red}Please type SSH password, so that GitHub can be accessed: .${rnl}"
   ssh-add
-  install_zsh
-  install_kitty
-  install_nvim
+  install_oh_my_zsh
+  configure_kitty
+  configure_nvim
   link_shared
 }
 
@@ -204,7 +215,9 @@ bootstrap(){
     install_shared
   elif [[ $OSTYPE == "linux-gnu" ]]; then
     echo -e "${green}Detected [${purple}linux-gnu${green}].${rnl}"
-    install_popos
+    # Deferring to Manjaro as preferred OS instead of PopOS! as of 11/2020
+    #install_popos
+    install_arch
     install_shared
   elif [[ -L "${SHARED_PATH}/.vimrc" && -d "${SHARED_PATH}/.vimrc" ]]; then
     echo -e "${green}Shared dotfiles exist at [${purple}${DOTFILE_PATH}${green}."
