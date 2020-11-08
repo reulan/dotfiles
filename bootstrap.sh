@@ -94,8 +94,23 @@ install_arch(){
   mkdir -p $HOME/kit/dotfiles
   cd $HOME/kit/dotfiles
 
+  # Install google-cloud-sdk from source
   git clone https://aur.archlinux.org/google-cloud-sdk.git
   makepkg -si
+
+  # Set system clock
+  timedatectl set-timezone 'Americas/Los_Angeles'
+  timedatectl set-ntp yes
+
+  # Package manager mirror list info and settings
+  sudo pacman -Syu --noconfirm pacman-mirrorlist
+  sudo pacman-mirrors --geoip
+
+  # Graphics Drivers
+  inxi -G                       # check gfx settings
+  sudo mhwd -a pci nonfree 0300 # install nvidia drivers
+  mhwd -li                      # verify drivers installed
+
 }
 
 # =========================================
