@@ -84,7 +84,9 @@ install_popos(){
 
 install_arch(){
   echo -e "${blue}Installing Arch Linux operating system settings.${rnl}\n"
-  sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt
+  sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt go jq docker
+  sudo usermod -a -G docker ${USER}
+  sudo systemctl enable docker
 
   install_oh_my_zsh
   configure_kitty
