@@ -87,6 +87,7 @@ install_arch(){
   sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt go jq docker hugo
   sudo usermod -a -G docker ${USER}
   sudo systemctl enable docker
+  sudo systemctl start docker
 
   install_oh_my_zsh
   configure_kitty
