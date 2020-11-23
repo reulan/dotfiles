@@ -19,7 +19,7 @@ PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
 Arch Linux specific:
-- [i3] | tiling window manager 
+- [i3](https://i3wm.org/) | tiling window manager 
 
 ## Overview
 ### Text Editor
