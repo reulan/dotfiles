@@ -27,18 +27,18 @@ I use vim day-to-day for most of my file editing, bascially anything that's not 
 
 Within the .vimrc, I support:
 * PEP 8 Python syntax configuration
-* (legacy) and nvim (jellybeans, preferred)
+* nvim
+* color schemes (jellybeans, preferred)
 * plugin installation via `vim-plug`
 * remove noob mode (arrow keys + mouse)
 * disable terminal bell
-*  custom keybindings
+* custom keybindings (for plugins, leader and vim functions)
 
 #### Plugin management via `vim-plug`:
 * fzf (ctrl+r, never felt so good)
 * vim-terraform - Terraform syntax highlighting and auto formatting
-* powerline
 
-See `.vimrc` for the source of truth for the plugins.
+See `.vimrc` / `init.vim` for the source of truth for the plugins.
 
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
