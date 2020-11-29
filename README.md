@@ -79,6 +79,3 @@ Can be located in `/.vim/colors`
 - jellybeans (preferred)
 - molokai (so pretty!)
 - dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.
-
-TODO:
-* Create a ZSH theme.
