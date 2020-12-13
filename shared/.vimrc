@@ -206,6 +206,11 @@ noremap <leader>gg :Goyo<cr>
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "
 
+" TypeScript
+" =========================================
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
@@ -224,12 +229,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'leafgarland/typescript-vim'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'preservim/nerdtree'
+Plug 'peitalin/vim-jsx-typescript'
+"Plug 'preservim/nerdtree'
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " To install new plugins!
