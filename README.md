@@ -1,8 +1,11 @@
 # dotfiles
 
-reulan's dotfiles for bootstrapping MacOS or PopOS
+reulan's dotfiles for bootstrapping the following operating systems:
+- MacOS
+- PopOS
+- Arch Linux
 
-The following utlities are used:
+The following utlities are used, some which are shared across all distributions and some which I specificially prefer as a user of the operating system.
 
 Shared:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal emulator
@@ -15,24 +18,27 @@ MacOS specifc:
 PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
+Arch Linux specific:
+- [i3](https://i3wm.org/) | tiling window manager 
+
 ## Overview
 ### Text Editor
 I use vim day-to-day for most of my file editing, bascially anything that's not monolith or microservice with many many moving parts.
 
 Within the .vimrc, I support:
 * PEP 8 Python syntax configuration
-* (legacy) and nvim (jellybeans, preferred)
+* nvim
+* color schemes (jellybeans, preferred)
 * plugin installation via `vim-plug`
 * remove noob mode (arrow keys + mouse)
 * disable terminal bell
-*  custom keybindings
+* custom keybindings (for plugins, leader and vim functions)
 
 #### Plugin management via `vim-plug`:
 * fzf (ctrl+r, never felt so good)
 * vim-terraform - Terraform syntax highlighting and auto formatting
-* powerline
 
-See `.vimrc` for the source of truth for the plugins.
+See `.vimrc` / `init.vim` for the source of truth for the plugins.
 
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
@@ -73,7 +79,3 @@ Can be located in `/.vim/colors`
 - jellybeans (preferred)
 - molokai (so pretty!)
 - dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.
-
-TODO:
-* Create a ZSH theme.
-* Remove either nvim or vim, whichever wins.
