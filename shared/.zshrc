@@ -121,7 +121,7 @@ alias kcd='kubectl describe'
 alias kcg='kubectl get'
 alias kc3='kubectl config current-context'
 alias kcon='kubectl config use-context'
-alias kcert='kubectl describe certificate -n cert-manager'
+alias kcing='kubectl -n ingress-nginx'
 alias ksec='kubectl get --all-namespaces secret -o yaml'
 alias kccf='kubectl create -f'
 
