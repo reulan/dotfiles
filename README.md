@@ -59,13 +59,29 @@ cd libgccjit
 makepkg
 cd src/libgccjit-build
 make
+??? What afterwards?
 
 # emacs speedup + performance
 cd emacs-native-comp-git
 makepkg
-
 ```
 See `install_emacs` function of `bootstrap.sh`.
+
+```
+SPC-
+  -gg
+ALT-
+CTL-
+```
+
+#### Doom
+If binary is not in $PATH:
+`export PATH="$PATH:$HOME/.emacs.d/bin/`.
+```
+
+doom sync
+doom doctor
+```
 
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
