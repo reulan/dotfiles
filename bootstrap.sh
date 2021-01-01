@@ -84,7 +84,7 @@ install_popos(){
 
 install_arch(){
   echo -e "${blue}Installing Arch Linux operating system settings.${rnl}\n"
-  sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt go jq docker hugo
+  sudo pacman -Syuq --noconfirm base-devel vim neovim git kitty discord chromium terraform terragrunt go jq docker hugo emacs ripgrep
   sudo usermod -a -G docker ${USER}
   sudo systemctl enable docker
   sudo systemctl start docker
@@ -162,6 +162,14 @@ install_oh_my_zsh(){
 }
 
 # =========================================
+# Text Editor (emacs) - vim is also used
+# =========================================
+install_emacs(){
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+    ~/.emacs.d/bin/doom install
+}
+
+# =========================================
 # Terminal (kitty)
 # =========================================
 configure_kitty(){
@@ -217,6 +225,7 @@ install_shared(){
   echo -e "${purple}Bootstrapping Operating System.${rnl}"
   echo -e "${red}Please type SSH password, so that GitHub can be accessed: .${rnl}"
   ssh-add
+  install_emacs
   install_oh_my_zsh
   configure_kitty
   configure_nvim

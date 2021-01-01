@@ -191,13 +191,13 @@ let g:limelight_priority = -1 " boldness? - default 10
 
 " goyo.vim
 " =========================================
+let g:goyo_width  = 80
+let g:goyo_height = 100
+let g:goyo_linenr = 0
+
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-noremap <leader>gg :Goyo<cr>
-
-" deoplete
-" =========================================
-"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+noremap <leader>gy :Goyo<cr>
 
 " NERDTree
 " =========================================
@@ -210,15 +210,79 @@ noremap <leader>gg :Goyo<cr>
 " =========================================
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" light-grey
+hi tsxTypeBraces guifg=#999999
+" dark-grey
+hi tsxTypes guifg=#666666
+hi ReactState guifg=#C176A7
+hi ReactProps guifg=#D19A66
+hi ApolloGraphQL guifg=#CB886B
+hi Events ctermfg=204 guifg=#56B6C2
+hi ReduxKeywords ctermfg=204 guifg=#C678DD
+hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+hi WebBrowser ctermfg=204 guifg=#56B6C2
+hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+
+" ale + gopls
+" =========================================
+" Ale [General]
+let g:ale_fix_on_save = 1
+
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = "🔥 "
+
+" Ale [Keybindings]
+" shows information about word under cursor
+nnoremap K :ALEHover<CR> 
+" find all references of word under cursor 
+nnoremap <silent> gK :ALEFindReferences<CR>
+" rename word under cursor
+nnoremap <leader>rn :ALERename<CR>
+" get missing imports / (extract code to function or method???)
+nnoremap <leader>qf :ALECodeAction<CR>
+vnoremap <leader>qf :ALECodeAction<CR>
+
+" Ale [Go]
+let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\}
+
+" Ale [Typescript]
+let js_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': js_fixers,
+\   'javascript.jsx': js_fixers,
+\   'typescript': js_fixers,
+\   'typescriptreact': js_fixers,
+\   'css': ['prettier'],
+\   'json': ['prettier'],
+\}
+
+" deoplete
+" =========================================
+"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+let g:deoplete#enable_at_startup = 1
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+
+
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+"call deoplete#custom#option('sources', {'_': ['ale', 'foobar']})
 
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
 " =========================================
-
 " call plug#begin('~/.config/nvim/plugged')
 call plug#begin('~/.vim/plugged')
+"Plug 'preservim/nerdtree'
+"Plug 'vim-airline/vim-airline'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cloudhead/neovim-fuzzy'
+Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'francoiscabrol/ranger.vim'
 Plug 'frazrepo/vim-rainbow'
@@ -229,16 +293,17 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'mitsuhiko/vim-jinja'
+Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'peitalin/vim-jsx-typescript'
-"Plug 'preservim/nerdtree'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-"Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " To install new plugins!
 " :source %
 " :PlugInstall
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>

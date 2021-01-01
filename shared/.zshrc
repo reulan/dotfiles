@@ -1,7 +1,10 @@
 # =========================================
 # User configuration
 # =========================================
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.emacs.d/bin/"
+
+# EMACS DOOM ggnore
+export DOOMDIR="$HOME/.config/doom"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
