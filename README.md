@@ -43,6 +43,11 @@ See `.vimrc` / `init.vim` for the source of truth for the plugins.
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
+### Devlopment Workflow
+#### Golang
+- [ale](https://github.com/dense-analysis/ale)
+- [gopls](https://github.com/golang/tools/blob/master/gopls/README.md)
+
 ### Keybindings
 Generally designed around vim style keybindings.
 h = left (previous window/desktop)

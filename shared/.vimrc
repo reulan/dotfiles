@@ -223,6 +223,12 @@ hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
 hi WebBrowser ctermfg=204 guifg=#56B6C2
 hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
 
+" ale + gopls
+" =========================================
+let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\}
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
@@ -249,7 +255,7 @@ Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 "Plug 'vim-airline/vim-airline'
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
