@@ -195,10 +195,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 noremap <leader>gg :Goyo<cr>
 
-" deoplete
-" =========================================
-"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
 " NERDTree
 " =========================================
 "autocmd vimenter * NERDTree "Autoload NERDTree on vim enter
@@ -229,6 +225,11 @@ let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\}
 
+" deoplete
+" =========================================
+let g:deoplete#enable_at_startup = 1
+"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
 " =========================================
 " Vim Plugin management via vim-plug
 " https://github.com/junegunn/vim-plug
@@ -251,12 +252,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'peitalin/vim-jsx-typescript'
 "Plug 'preservim/nerdtree'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 "Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
-
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " To install new plugins!

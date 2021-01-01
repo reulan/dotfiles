@@ -40,10 +40,14 @@ Within the .vimrc, I support:
 
 See `.vimrc` / `init.vim` for the source of truth for the plugins.
 
+#### deoplete
+Needs Python3 and some additional software installed:
+https://github.com/Shougo/deoplete.nvim
+
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
-### Devlopment Workflow
+### Development Workflow
 #### Golang
 - [ale](https://github.com/dense-analysis/ale)
 - [gopls](https://github.com/golang/tools/blob/master/gopls/README.md)
