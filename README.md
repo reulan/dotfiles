@@ -20,9 +20,10 @@ PopOS specific:
 
 Arch Linux specific:
 - [i3](https://i3wm.org/) | tiling window manager 
+- [yay](https://github.com/Jguer/yay) | AUR package manager (`yay -G $AUR_PKG`)
 
 ## Overview
-### Text Editor
+### vim
 I use vim day-to-day for most of my file editing, bascially anything that's not monolith or microservice with many many moving parts.
 
 Within the .vimrc, I support:
@@ -43,6 +44,28 @@ See `.vimrc` / `init.vim` for the source of truth for the plugins.
 #### deoplete
 Needs Python3 and some additional software installed:
 https://github.com/Shougo/deoplete.nvim
+
+### emacs
+I use a preconfigured bundle for emacs called [Doom Emacs](https://github.com/hlissner/doom-emacs).
+
+#### Installation (prereqs)
+```
+echo "$PATH:$HOME/.emacs.d/bin"
+cd ~/kit/pkg
+yay -G libgccjit
+yay - G emacs-native-comp-git
+
+cd libgccjit
+makepkg
+cd src/libgccjit-build
+make
+
+# emacs speedup + performance
+cd emacs-native-comp-git
+makepkg
+
+```
+See `install_emacs` function of `bootstrap.sh`.
 
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
