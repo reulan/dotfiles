@@ -280,7 +280,7 @@ let g:ale_completion_autoimport = 1
 call plug#begin('~/.vim/plugged')
 "Plug 'preservim/nerdtree'
 "Plug 'vim-airline/vim-airline'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -300,6 +300,7 @@ Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-emoji'
 call plug#end()
 
 " To install new plugins!

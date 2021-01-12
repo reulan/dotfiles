@@ -149,9 +149,13 @@ function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
 }
 
+#function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
+#
 # =========================================
 # Google Cloud
 # =========================================
+export CLOUDSDK_PYTHON="$(which python3.8)"
+
 # =========================================
 # Final Block
 # =========================================
