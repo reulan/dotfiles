@@ -300,6 +300,7 @@ Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-emoji'
 call plug#end()
 
 " To install new plugins!
