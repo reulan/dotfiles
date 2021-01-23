@@ -262,7 +262,7 @@ let g:ale_fixers = {
 " deoplete
 " =========================================
 "call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 let g:ale_completion_enabled = 1
@@ -280,7 +280,7 @@ let g:ale_completion_autoimport = 1
 call plug#begin('~/.vim/plugged')
 "Plug 'preservim/nerdtree'
 "Plug 'vim-airline/vim-airline'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
