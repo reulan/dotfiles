@@ -5,6 +5,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/
 
 # EMACS DOOM ggnore
 export DOOMDIR="$HOME/.config/doom"
+export KITTY_CONFIG_DIRECTORY="$HOME/.config/kitty"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -65,6 +66,10 @@ autoload -U vcs_info && vcs_info
 
 zmodload zsh/complist
 zmodload zsh/terminfo
+
+LSCOLORS=exfxcxdxbxegedabagacad
+export LSCOLORS
+export CLICOLOR=1  
 
 # =========================================
 # ZSH plugins 
@@ -154,7 +159,7 @@ function kl() {
 # =========================================
 # Google Cloud
 # =========================================
-export CLOUDSDK_PYTHON="$(which python3.8)"
+#export CLOUDSDK_PYTHON="$(which python3.8)"
 
 # =========================================
 # Final Block
