@@ -154,7 +154,7 @@ function kl() {
 # =========================================
 # Google Cloud
 # =========================================
-export CLOUDSDK_PYTHON="$(which python3.8)"
+#export CLOUDSDK_PYTHON="$(which python3.8)"
 
 # =========================================
 # Final Block

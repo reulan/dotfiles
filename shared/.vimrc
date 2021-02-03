@@ -41,10 +41,8 @@ set t_Co=256               "256 color allowed
 set t_ut=                  "Fix background color weirdness when using xterm-kitty
 set background=dark        "Makes background opaque black
 
-" nanotech/jellybeans.vim
-colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
-"colorscheme molokai 
-"colorscheme dim               "Loads Default IMproved - a 4-bit 16 color scheme
+"colorscheme jellybeans      "Loads ~/.vim/colorscheme/jellybeans.vim <3 <3 <3
+colorscheme dim               "Loads Default IMproved - a 4-bit 16 color scheme
 
 " set guifont=Monaco:h10 noanti
 
