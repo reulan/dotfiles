@@ -4,6 +4,7 @@ reulan's dotfiles for bootstrapping the following operating systems:
 - MacOS
 - PopOS
 - Arch Linux
+- Manjaro
 
 The following utlities are used, some which are shared across all distributions and some which I specificially prefer as a user of the operating system.
 
