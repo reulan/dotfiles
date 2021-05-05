@@ -71,6 +71,8 @@ LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS
 export CLICOLOR=1  
 
+typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
+
 # =========================================
 # ZSH plugins 
 # =========================================
