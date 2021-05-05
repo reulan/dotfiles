@@ -55,13 +55,8 @@ install_macos(){
   # 'macos.conf'  - write an include in the main config
 
   echo -e "${red}Install Homebrew manually, then rerun this script.${rnl}"
-  echo -e "${red}/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)${rnl}"
-  #install_homebrew
-
-  # Enable window + hotkey manager
-  echo -e "${blue}Enabling MacoOS brew services.${blue}"
-  brew services start skhd
-  brew services start yabai
+  //echo -e "${red}/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)${rnl}"
+  //install_homebrew
 }
 
 install_popos(){
@@ -123,11 +118,18 @@ install_homebrew(){
   cd /tmp
 
   # Install Homebrew,
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   
   # Locate the Brewfile and execute it.
   brew tap Homebrew/bundle
   brew bundle --file="${HOME}/Brewfile"
+
+  brew install --cask kitty
+
+  # Enable window + hotkey manager
+  echo -e "${blue}Enabling MacoOS brew services.${blue}"
+  brew services start skhd
+  brew services start yabai
 }
 
 install_linux_utilities(){
@@ -225,7 +227,7 @@ install_shared(){
   echo -e "${purple}Bootstrapping Operating System.${rnl}"
   echo -e "${red}Please type SSH password, so that GitHub can be accessed: .${rnl}"
   ssh-add
-  install_emacs
+  #install_emacs
   install_oh_my_zsh
   configure_kitty
   configure_nvim
