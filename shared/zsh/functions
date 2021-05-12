@@ -126,3 +126,5 @@ function mknow ()
     mkdir -p -- "$DATE" &&
     cd -P -- "$DATE"
 }
+
+alias fl="functions list"
