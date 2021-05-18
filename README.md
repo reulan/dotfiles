@@ -19,7 +19,7 @@ MacOS specifc:
 PopOS specific:
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
-Arch Linux specific:
+Arch Linux specific (outdated):
 - [i3](https://i3wm.org/) | tiling window manager 
 - [yay](https://github.com/Jguer/yay) | AUR package manager (`yay -G $AUR_PKG`)
 
