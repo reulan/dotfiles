@@ -112,6 +112,7 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
+eval "$(goenv init -)"
 
 # =========================================
 # Node
@@ -177,3 +178,5 @@ if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
