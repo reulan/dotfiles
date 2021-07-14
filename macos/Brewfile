@@ -14,7 +14,7 @@ brew 'yabai'
 
 # Text editors
 brew 'nvim'
-cask 'sublime-text'
+cask 'visual-studio-code'
 
 # Programming lanaguages, language-specific package managers, and source control
 brew 'git'
@@ -54,7 +54,6 @@ cask '1password'
 cask 'google-chrome'
 cask 'slack'
 cask 'spotify'
-cask 'viscosity'
 
 ### mpmsimo specific config
 # Personal Casks
