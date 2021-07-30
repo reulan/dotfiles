@@ -16,7 +16,7 @@ MacOS specifc:
 - [skhd](https://github.com/koekeishiya/skhd) | keybindings
 - [yabai](https://github.com/koekeishiya/yabai) | tiling window manager
 
-PopOS specific:
+PopOS specific (outdated):
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
 Arch Linux specific (outdated):
