@@ -157,8 +157,29 @@ function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
 }
 
-#function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
+function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
+
+# When we use `Squash and merge` on GitHub,
+# `git branch --merged` cannot detect the squash-merged branches.
+# As a result, git_remove_merged_local_branch() cannot clean up
+# unused local branches. This function detects and removes local branches
+# when remote branches are squash-merged.
 #
+# There is an edge case. If you add suggested commits on GitHub,
+# the contents in local and remote are different. As a result,
+# This clean up function cannot remove local squash-merged branch.
+function git_remove_squash_merged_local_branch() {
+  echo "Start removing out-dated local squash-merged branches"
+  git checkout -q main &&
+    git for-each-ref refs/heads/ "--format=%(refname:short)" |
+    while read branch; do
+      ancestor=$(git merge-base main $branch) &&
+        [[ $(git cherry main $(git commit-tree $(git rev-parse $branch^{tree}) -p $ancestor -m _)) == "-"* ]] &&
+        git branch -D $branch
+    done
+  echo "Finish removing out-dated local squash-merged branches"
+}
+
 # =========================================
 # Google Cloud
 # =========================================
