@@ -20,7 +20,7 @@ PopOS specific (outdated):
 - [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
 
 Arch Linux specific (outdated):
-- [i3](https://i3wm.org/) | tiling window manager 
+- [i3](https://i3wm.org/) | tiling window manager
 - [yay](https://github.com/Jguer/yay) | AUR package manager (`yay -G $AUR_PKG`)
 
 ## Overview
@@ -41,6 +41,11 @@ Within the .vimrc, I support:
 * vim-terraform - Terraform syntax highlighting and auto formatting
 
 See `.vimrc` / `init.vim` for the source of truth for the plugins.
+```
+:source %
+:PlugInstall
+:PlugClean
+```
 
 #### deoplete
 Needs Python3 and some additional software installed:
@@ -92,6 +97,12 @@ I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.c
 - [ale](https://github.com/dense-analysis/ale)
 - [gopls](https://github.com/golang/tools/blob/master/gopls/README.md)
 
+```
+asdf plugin add golang
+asdf plugin install golang
+asdf global golang latest
+```
+
 ### Keybindings
 Generally designed around vim style keybindings.
 h = left (previous window/desktop)
@@ -107,7 +118,7 @@ I do believe modifiers should be unique to the application, as this has bit me i
 * vim (leader, and vim specifics)
 
 ## Installation
-The setup script is intended to be used when a new system is being installed. 
+The setup script is intended to be used when a new system is being installed.
 
 The script will detect your `$OSTYPE`, and then install specific dotfiles depending on the OS.
 ```
