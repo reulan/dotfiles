@@ -17,7 +17,7 @@ set so=7                    "Moves 7 lines vertically
 " Nobackup - most info is stored in git anyways
 set nobackup
 set nowritebackup
-set noswapfile 
+set noswapfile
 
 " Line numbers
 set number                  "Show line numbers
@@ -27,8 +27,8 @@ set scrolloff=5
 " File layout, cursor, sounds
 set ruler
 set autochdir
-set ttyfast                 "Fast terminal 
-set hidden                  "Hidden buffers, not closed 
+set ttyfast                 "Fast terminal
+set hidden                  "Hidden buffers, not closed
 "set cursorline              "Underline current line where cursor is
 
 " Autorefresh file
@@ -60,13 +60,13 @@ set t_vb=
 
 " Pick up on the same line where you left off when editing a file 'perpetual cursor location'
 if has("autocmd")
-    augroup perpetual 
+    augroup perpetual
     autocmd!
     autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
     augroup END
 endif
 
-"Searching the file 
+"Searching the file
 set ignorecase              " Search ignoring case
 set incsearch               "Allows matching while word is being typed
 set hlsearch                "Highlight matches - :noh to clear
@@ -74,7 +74,7 @@ set laststatus=2            "Always display the status line
 set smartcase               "Ignore case if patter is all lowercase, otherwise its case sensitive
 set matchpairs+=<:>         "Useful for HTML/XML editing
 set mat=1                   "Blink (in tenth of seconds) when matching brackets
-set more                      
+set more
 
 "Show all the tings
 set showmatch               "Show the matching part of the pair for parenthesis
@@ -83,7 +83,7 @@ set showmode
 set wildmenu
 set display+=lastline
 
-" Text and indentation 
+" Text and indentation
 syntax enable               "Enable syntax highlighting
 set shiftround              "Call shiftwidth mutlple times when indenting
 set nowrap                  "No need to worry about fixing autowrapped text
@@ -95,7 +95,7 @@ filetype indent on          " Enable filetype-specific indenting
 filetype plugin on          " Enable filetype-specific plugins
 
 " =========================================
-" Syntax configuration 
+" Syntax configuration
 " =========================================
 
 " Python Development (PEP8 styling)
@@ -200,7 +200,7 @@ noremap <leader>gy :Goyo<cr>
 " NERDTree
 " =========================================
 "autocmd vimenter * NERDTree "Autoload NERDTree on vim enter
-"autocmd StdinReadPre * let s:std_in=1 
+"autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "
 
@@ -231,8 +231,8 @@ let g:ale_virtualtext_prefix = "🔥 "
 
 " Ale [Keybindings]
 " shows information about word under cursor
-nnoremap K :ALEHover<CR> 
-" find all references of word under cursor 
+nnoremap K :ALEHover<CR>
+" find all references of word under cursor
 nnoremap <silent> gK :ALEFindReferences<CR>
 " rename word under cursor
 nnoremap <leader>rn :ALERename<CR>
@@ -297,12 +297,13 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-emoji'
 call plug#end()
 
 " To install new plugins!
 " :source %
 " :PlugInstall
+" :PlugClean
 " Source Vim configuration file and install plugins
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
