@@ -37,14 +37,14 @@ setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
 
 # Additional ZSH options
-setopt autocd 
+setopt autocd
 setopt extended_history     ## Store timestamp/runtime in history file
-setopt extendedglob 
+setopt extendedglob
 setopt inc_append_history
-setopt ksh_glob 
+setopt ksh_glob
 setopt notify
 setopt print_exit_value     ## Print non-zero exit status
-setopt prompt_subst 
+setopt prompt_subst
 setopt rm_star_wait         ## Force a pause before allowing an answer on rm *
 setopt transient_rprompt    ## Remove the right-side prompt if the cursor comes close
 
@@ -69,12 +69,12 @@ zmodload zsh/terminfo
 
 LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS
-export CLICOLOR=1  
+export CLICOLOR=1
 
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
 
 # =========================================
-# ZSH plugins 
+# ZSH plugins
 # =========================================
 plugins=(
             autoenv
@@ -105,15 +105,18 @@ test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # =========================================
-# Go 
+# Go
 # =========================================
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
-export GO15VENDOREXPERIMENT=1
+#export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
-eval "$(goenv init -)"
+#eval "$(goenv init -)"
+. /usr/local/opt/asdf/libexec/asdf.sh
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+#
 # =========================================
 # Node
 # =========================================
@@ -148,7 +151,7 @@ alias vim="nvim"
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
-alias tf12="~/kit/terraform0.12/terraform" 
+alias tf12="~/kit/terraform0.12/terraform"
 
 # =========================================
 # Functions
@@ -157,7 +160,7 @@ function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
 }
 
-function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
+#function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
 
 # When we use `Squash and merge` on GitHub,
 # `git branch --merged` cannot detect the squash-merged branches.

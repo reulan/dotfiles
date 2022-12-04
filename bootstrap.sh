@@ -119,11 +119,12 @@ install_homebrew(){
 
   # Install Homebrew,
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  
+
   # Locate the Brewfile and execute it.
   brew tap Homebrew/bundle
   brew bundle --file="${HOME}/Brewfile"
 
+  brew install asdf
   brew install --cask kitty
 
   # Enable window + hotkey manager
@@ -159,7 +160,7 @@ install_oh_my_zsh(){
     # Change default shell
     cd ${HOME}
     chsh -s "/bin/zsh" ${USER}
-    echo -e "${purple} ZSH version is: $(zsh --version). ${rnl}" 
+    echo -e "${purple} ZSH version is: $(zsh --version). ${rnl}"
   fi
 }
 
@@ -236,11 +237,11 @@ install_shared(){
 
 # =========================================
 # Main logic
-# 
+#
 # - support relinking via option
 
 # - update to support nvim
-# ~/.config/nvim/init.vim 
+# ~/.config/nvim/init.vim
 # =========================================
 
 bootstrap(){
