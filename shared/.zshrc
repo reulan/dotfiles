@@ -114,6 +114,9 @@ export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
 eval "$(goenv init -)"
 
+eval "$(direnv hook zsh)"
+. $HOME/.asdf/asdf.sh
+
 # =========================================
 # Node
 # =========================================
@@ -133,13 +136,13 @@ alias kcg='kubectl get'
 alias kc3='kubectl config current-context'
 alias kcon='kubectl config use-context'
 alias kcing='kubectl -n ingress-nginx'
+alias kchc='kubectl -n honeycomb'
 alias ksec='kubectl get --all-namespaces secret -o yaml'
 alias kccf='kubectl create -f'
 
 # development
 alias ns="cd $HOME/noobshack"
 alias xr="cd $HOME/noobshack/xr"
-alias sbe="cd $HOME/noobshack/spellblade_engine"
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
 alias go2="cd ${GOPATH}/src"
 alias gor="go run"

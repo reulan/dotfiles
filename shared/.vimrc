@@ -34,6 +34,9 @@ set hidden                  "Hidden buffers, not closed
 " Autorefresh file
 set autoread
 
+" Spelling
+set nospell
+
 " =========================================
 " Colorscheme
 " =========================================
