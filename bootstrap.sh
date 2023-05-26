@@ -55,8 +55,8 @@ install_macos(){
   # 'macos.conf'  - write an include in the main config
 
   echo -e "${red}Install Homebrew manually, then rerun this script.${rnl}"
-  #//echo -e "${red}/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)${rnl}"
-  #//install_homebrew
+  echo -e "${red}/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)${rnl}"
+  install_homebrew
 }
 
 install_popos(){

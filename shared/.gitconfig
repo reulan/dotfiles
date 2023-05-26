@@ -29,7 +29,7 @@
     untracked = cyan
 
 [core]
-    editor = nvim
+    editor = vim
 
 [alias]
     a = add
@@ -55,6 +55,8 @@
 [pull]
 	rebase = false
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+    #insteadOf = https://github.com/
 [url "git://"]
-	insteadOf = https://
+    #insteadOf = https://
+[credential]
+    helper = store

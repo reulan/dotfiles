@@ -2,6 +2,20 @@
 # User configuration
 # =========================================
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.emacs.d/bin/"
+# add python
+export PATH="$PATH:/Users/mps/Library/Python/3.9/bin"
+# add brew
+export PATH="$PATH:/opt/homebrew/bin"
+# add poetry
+export PATH="$PATH:$HOME/venv-poetry/poetry/bin"
+# add pyenv
+export PATH="$PATH:/opt/homebrew/bin/pyenv"
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+# rust
+source "$HOME/.cargo/env"
 
 # EMACS DOOM ggnore
 export DOOMDIR="$HOME/.config/doom"
@@ -11,9 +25,9 @@ export KITTY_CONFIG_DIRECTORY="$HOME/.config/kitty"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='nvim'
+export EDITOR='vim'
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='nvim'
+    export EDITOR='vim'
     export TERM='rxvt'
 fi
 
@@ -48,7 +62,7 @@ setopt prompt_subst
 setopt rm_star_wait         ## Force a pause before allowing an answer on rm *
 setopt transient_rprompt    ## Remove the right-side prompt if the cursor comes close
 
-export AUTOENV=false
+#export AUTOENV=false
 
 # =========================================
 # ZSH configuration
@@ -77,11 +91,11 @@ typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
 # ZSH plugins
 # =========================================
 plugins=(
-            autoenv
-            git
-            kubectl
-            ... dotenv
-        )
+    git
+    kubectl
+    macos
+    dotenv
+)
 
 # =========================================
 # Terminal settings
@@ -96,13 +110,11 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # =========================================
-# Homebrew for Linux
-# https://docs.brew.sh/Homebrew-on-Linux
+# Homebrew for MacOS
 # =========================================
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+#eval "$(homebrew/bin/brew shellenv)"
+#brew update --force --quiet
+#chmod -R go-w "$(brew --prefix)/share/zsh"
 
 # =========================================
 # Go
@@ -113,11 +125,10 @@ export PATH=$PATH:$GOBIN
 #export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
 #eval "$(goenv init -)"
-. /usr/local/opt/asdf/libexec/asdf.sh
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-eval "$(direnv hook zsh)"
-. $HOME/.asdf/asdf.sh
+#. /usr/local/opt/asdf/libexec/asdf.sh
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+#eval "$(direnv hook zsh)"
+#. $HOME/.asdf/asdf.sh
 
 # =========================================
 # Node
@@ -141,25 +152,53 @@ alias kcing='kubectl -n ingress-nginx'
 alias kchc='kubectl -n honeycomb'
 alias ksec='kubectl get --all-namespaces secret -o yaml'
 alias kccf='kubectl create -f'
+alias poetry='~/venv-poetry/bin/poetry'
 
 # development
 alias ns="cd $HOME/noobshack"
-alias xr="cd $HOME/noobshack/xr"
 alias cv="$GOPATH/src/clairvoyance/bin/clairvoyance"
 alias go2="cd ${GOPATH}/src"
 alias gor="go run"
-alias vim="nvim"
-
+#alias vim="vim"
+alias python="python3"
+alias py="python3"
 # utilties
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
 alias tf12="~/kit/terraform0.12/terraform"
+alias pictor="cd ~/pictorus/pictorus"
 
 # =========================================
 # Functions
 # =========================================
 function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
+}
+
+function dev_server () {
+  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
+  PICTORUS_ENV=$1 FLASK_ENV=development ./script/server
+  popd
+}
+
+function dev_queue() {
+  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
+  PICTORUS_ENV=$1 USE_EMQ=true ./script/build_queue
+  popd
+}
+
+function dev_frontend() {
+  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
+  ./script/frontend
+  popd
+}
+
+function start_dev() {
+  PICTORUS_ENV="${PICTORUS_ENV:=local}"
+  tab dev_queue $PICTORUS_ENV
+  tab dev_server $PICTORUS_ENV
+  tab dev_frontend
+  open -a "Google Chrome" http://localhost:5173
 }
 
 #function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
@@ -204,5 +243,7 @@ if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Python env setup
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
