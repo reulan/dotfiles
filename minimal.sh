@@ -1,5 +1,4 @@
 #!/bin/bash
-# Bootstrap MacOS or PopOS.
 
 # Set preferred defaults if running on new system
 export VISUAL=vim
@@ -8,7 +7,8 @@ export EDITOR="$VISUAL"
 # Define hardcoded expected paths.
 DOTFILE_PATH="${HOME}/dotfiles"
 SHARED_PATH="${DOTFILE_PATH}/shared"
-SHARED_DOTFILES=('.zshrc' '.gitconfig' '.dotenv' '.vimrc')
+SHARED_DOTFILES=('.gitconfig' '.vimrc.minimal')
+#SHARED_DOTFILES=('.zshrc' '.gitconfig' '.dotenv' '.vimrc')
 
 # =========================================
 # Script output colorization
