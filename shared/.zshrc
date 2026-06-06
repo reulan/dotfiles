@@ -1,25 +1,6 @@
 # =========================================
 # User configuration
 # =========================================
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.emacs.d/bin/"
-# add python
-export PATH="$PATH:/Users/mps/Library/Python/3.9/bin"
-# add brew
-export PATH="$PATH:/opt/homebrew/bin"
-# add poetry
-export PATH="$PATH:$HOME/venv-poetry/poetry/bin"
-# add pyenv
-export PATH="$PATH:/opt/homebrew/bin/pyenv"
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-
-# rust
-source "$HOME/.cargo/env"
-
-# EMACS DOOM ggnore
-export DOOMDIR="$HOME/.config/doom"
-export KITTY_CONFIG_DIRECTORY="$HOME/.config/kitty"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -110,13 +91,6 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # =========================================
-# Homebrew for MacOS
-# =========================================
-#eval "$(homebrew/bin/brew shellenv)"
-#brew update --force --quiet
-#chmod -R go-w "$(brew --prefix)/share/zsh"
-
-# =========================================
 # Go
 # =========================================
 export GOPATH=$HOME/go
@@ -124,19 +98,7 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 #export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
-#eval "$(goenv init -)"
-#. /usr/local/opt/asdf/libexec/asdf.sh
-#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-#eval "$(direnv hook zsh)"
-#. $HOME/.asdf/asdf.sh
-
-# =========================================
-# Node
-# =========================================
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:$HOME/.local/go/bin
 
 # =========================================
 # Aliases
@@ -166,7 +128,6 @@ alias py="python3"
 alias diffy='diff -y --suppress-common-lines'
 alias tf=terraform
 alias tf12="~/kit/terraform0.12/terraform"
-alias pictor="cd ~/pictorus/pictorus"
 
 # =========================================
 # Functions
@@ -174,34 +135,6 @@ alias pictor="cd ~/pictorus/pictorus"
 function kl() {
      kubectl logs $* | jq -R --raw-output '. as $raw | try (fromjson | .timestamp.seconds |= todateiso8601 | "\(.timestamp.seconds) - \(.filename) - \(.severity) - \(.message)") catch $raw'
 }
-
-function dev_server () {
-  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
-  PICTORUS_ENV=$1 FLASK_ENV=development ./script/server
-  popd
-}
-
-function dev_queue() {
-  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
-  PICTORUS_ENV=$1 USE_EMQ=true ./script/build_queue
-  popd
-}
-
-function dev_frontend() {
-  pushd /Users/dillonmcewan/Projects/Pictorus/pictorus
-  ./script/frontend
-  popd
-}
-
-function start_dev() {
-  PICTORUS_ENV="${PICTORUS_ENV:=local}"
-  tab dev_queue $PICTORUS_ENV
-  tab dev_server $PICTORUS_ENV
-  tab dev_frontend
-  open -a "Google Chrome" http://localhost:5173
-}
-
-#function ಠ_ಠ(&$x) { $x .= "¯\_(ツ)_/¯"; ) }
 
 # When we use `Squash and merge` on GitHub,
 # `git branch --merged` cannot detect the squash-merged branches.
@@ -225,15 +158,10 @@ function git_remove_squash_merged_local_branch() {
 }
 
 # =========================================
-# Google Cloud
-# =========================================
-#export CLOUDSDK_PYTHON="$(which python3.8)"
-
-# =========================================
 # Final Block
 # =========================================
 # Load local secrets...
-. ~/kit/env.sh
+#. ~/kit/env.sh
 
 # Enable fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -243,7 +171,3 @@ if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Python env setup
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
