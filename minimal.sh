@@ -1,4 +1,8 @@
 #!/bin/bash
+<<<<<<< HEAD
+=======
+# Bootstrap MacOS or PopOS.
+>>>>>>> c22f700c6712f903b76a0615a71fdc8dbb40a76a
 
 # Set preferred defaults if running on new system
 export VISUAL=vim
