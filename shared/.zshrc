@@ -93,12 +93,12 @@ bindkey "^R" history-incremental-search-backward
 # =========================================
 # Go
 # =========================================
+export GOROOT=$HOME/.local/go
+export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 #export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=1
-export PATH=$PATH:$HOME/.local/go/bin
 
 # =========================================
 # Aliases
@@ -167,7 +167,7 @@ function git_remove_squash_merged_local_branch() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/reulan/kit/bin/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/reulan/kit/bin/gcloud/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/reulan/kit/pkg/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/reulan/kit/bin/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/reulan/kit/bin/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
