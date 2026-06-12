@@ -2,24 +2,14 @@
 
 reulan's dotfiles for bootstrapping the following operating systems:
 - MacOS
-- Linux (Arch / Debian - based)
+- Linux (Arch / Debian)
 
 The following utlities are used, some which are shared across all distributions and some which I specificially prefer as a user of the operating system.
 
 Shared:
 - [kitty](https://github.com/kovidgoyal/kitty) | terminal emulator
 - [nvim](https://www.vim.org/) | command line text editor
-
-MacOS specifc:
-- [skhd](https://github.com/koekeishiya/skhd) | keybindings
-- [yabai](https://github.com/koekeishiya/yabai) | tiling window manager
-
-PopOS specific (outdated):
-- [Pop Shell](https://github.com/pop-os/shell) | tiling window manager
-
-Arch Linux specific (outdated):
 - [i3](https://i3wm.org/) | tiling window manager
-- [yay](https://github.com/Jguer/yay) | AUR package manager (`yay -G $AUR_PKG`)
 
 ## Overview
 ### vim
@@ -45,61 +35,9 @@ See `.vimrc` / `init.vim` for the source of truth for the plugins.
 :PlugClean
 ```
 
-#### deoplete
-Needs Python3 and some additional software installed:
-https://github.com/Shougo/deoplete.nvim
-
-### emacs
-I use a preconfigured bundle for emacs called [Doom Emacs](https://github.com/hlissner/doom-emacs).
-
-#### Installation (prereqs)
-```
-echo "$PATH:$HOME/.emacs.d/bin"
-cd ~/kit/pkg
-yay -G libgccjit
-yay - G emacs-native-comp-git
-
-cd libgccjit
-makepkg
-cd src/libgccjit-build
-make
-??? What afterwards?
-
-# emacs speedup + performance
-cd emacs-native-comp-git
-makepkg
-```
-See `install_emacs` function of `bootstrap.sh`.
-
-```
-SPC-
-  -gg
-ALT-
-CTL-
-```
-
-#### Doom
-If binary is not in $PATH:
-`export PATH="$PATH:$HOME/.emacs.d/bin/`.
-```
-
-doom sync
-doom doctor
-```
-
 ### Terminal
 I use the ZSH shell which is further enhanced using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
-### Development Workflow
-#### Golang
-- [ale](https://github.com/dense-analysis/ale)
-- [gopls](https://github.com/golang/tools/blob/master/gopls/README.md)
-
-```
-asdf plugin add golang
-asdf plugin install golang
-asdf global golang latest
-```
 
 ### Keybindings
 Generally designed around vim style keybindings.
@@ -122,18 +60,9 @@ The script will detect your `$OSTYPE`, and then install specific dotfiles depend
 ```
 > clone this repo to $HOME
 cd ~/dotfiles
-bash bootstrap.sh
+bash setup.sh
 ```
 
-### Other information
-## Colorscheme
-Use the script `colorschemes.sh` to get an output of the 0-15 colors used by kitty.
-
-### kitty colorscheme
-Can be located in `/kitty/colorscheme.conf`
-
-### vim colorschemes
-Can be located in `/.vim/colors`
-- jellybeans (preferred)
-- molokai (so pretty!)
-- dim (dynamic color scheme based on ANSI terminal colors 0-15), see kitty.conf for my hex values.
+### colorschemes
+Kitty themes are located in: `./shared/kitty/colorscheme.conf`
+Vim themes are located in `/.vim/colors`
