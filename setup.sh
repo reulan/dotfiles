@@ -8,7 +8,7 @@ export EDITOR="$VISUAL"
 DOTFILE_PATH="${HOME}/dotfiles"
 SHARED_PATH="${DOTFILE_PATH}/shared"
 SHARED_DOTFILES=('.zshrc' '.gitconfig' '.dotenv' '.vimrc')
-KITTY_PATH="${SHARED_PATH}/kitty"
+KITTY_PATH="${HOME}/.config/kitty"
 KITTY_CONFIGS=('kitty.conf' 'keybindings.conf' 'baseColorscheme.conf' 'enbyColorscheme.conf' 'jellybeansColorscheme.conf')
 
 # =========================================
@@ -68,7 +68,7 @@ arch(){
     echo -e "${green}Detected [${purple}linux-gnu${green}].${rnl}"
     #install_oh_my_zsh
     configure_kitty
-    configure_dotfiles
+    #configure_dotfiles
   fi
 }
 
